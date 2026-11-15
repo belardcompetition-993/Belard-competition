@@ -1,0 +1,3528 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BELARD Compétition | Championnat Fun Cup</title>
+
+  <meta
+    name="description"
+    content="Découvrez BELARD Compétition : Victor Bellière-Ardoin, la saison Fun Cup, les coulisses et les opportunités de partenariat et de mécénat."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* ======================================
+       BASE
+       ====================================== */
+
+    :root {
+      --noir: #05070b;
+      --fond: #090d14;
+      --carte: #101722;
+      --bleu: #2864ff;
+      --bleu-hover: #1d50d9;
+      --bleu-clair: #9bbdff;
+      --rose: #ff328b;
+      --rose-rgb: 255, 50, 139;
+      --vert: #4ade80;
+      --vert-clair: #86efac;
+      --or: #f2cc78;
+      --blanc: #f7f9ff;
+      --texte: #bdc7d8;
+      --gris: #a7b3c7;
+      --bordure: rgba(155, 189, 255, .16);
+      --police-titre: "Barlow Condensed", sans-serif;
+      --police-texte: "Barlow", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: var(--noir);
+      color: var(--blanc);
+      font-family: var(--police-texte);
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 3px solid var(--bleu-clair);
+      outline-offset: 5px;
+    }
+
+    ::selection {
+      background: var(--bleu);
+      color: white;
+    }
+
+    .conteneur {
+      width: min(1280px, 88%);
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 100px 0;
+    }
+
+    /* FONDS */
+
+    .fond-equipage {
+      background:
+        radial-gradient(
+          ellipse at 100% 5%,
+          rgba(var(--rose-rgb), .13),
+          transparent 48%
+        ),
+        radial-gradient(
+          ellipse at 0% 100%,
+          rgba(40, 100, 255, .10),
+          transparent 45%
+        ),
+        var(--fond);
+    }
+
+    .fond-saison {
+      background:
+        radial-gradient(
+          ellipse at 0% 45%,
+          rgba(var(--rose-rgb), .10),
+          transparent 45%
+        ),
+        radial-gradient(
+          ellipse at 100% 100%,
+          rgba(40, 100, 255, .08),
+          transparent 42%
+        ),
+        var(--noir);
+    }
+
+    .fond-galerie {
+      background:
+        radial-gradient(
+          ellipse at 90% 0%,
+          rgba(var(--rose-rgb), .12),
+          transparent 55%
+        ),
+        radial-gradient(
+          ellipse at 0% 100%,
+          rgba(40, 100, 255, .08),
+          transparent 50%
+        ),
+        var(--fond);
+    }
+
+    .fond-sponsoring {
+      background:
+        radial-gradient(
+          ellipse at 0% 30%,
+          rgba(var(--rose-rgb), .10),
+          transparent 45%
+        ),
+        radial-gradient(
+          ellipse at 100% 80%,
+          rgba(40, 100, 255, .10),
+          transparent 45%
+        ),
+        var(--noir);
+    }
+
+    /* TYPOGRAPHIE */
+
+    .etiquette {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--bleu-clair);
+      font-family: var(--police-titre);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .etiquette::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--bleu);
+    }
+
+    .titre-section {
+      font-family: var(--police-titre);
+      font-size: clamp(3.2rem, 6vw, 5.7rem);
+      font-style: italic;
+      font-weight: 900;
+      line-height: .95;
+      letter-spacing: -.015em;
+      text-transform: uppercase;
+    }
+
+    .titre-section::after {
+      content: "";
+      display: block;
+      width: 72px;
+      height: 4px;
+      margin-top: 25px;
+      border-radius: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--bleu) 55%,
+        var(--rose)
+      );
+    }
+
+    .introduction {
+      max-width: 720px;
+      margin: 24px 0 44px;
+      color: var(--gris);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* BOUTONS */
+
+    .bouton {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      min-height: 49px;
+      padding: 13px 24px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      font-family: var(--police-titre);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-align: center;
+      text-transform: uppercase;
+      transition:
+        background .2s,
+        border-color .2s,
+        transform .2s;
+    }
+
+    .bouton:hover {
+      transform: translateY(-2px);
+    }
+
+    .bouton-bleu {
+      background: var(--bleu);
+      border-color: var(--bleu);
+      color: white;
+    }
+
+    .bouton-bleu:hover {
+      background: var(--bleu-hover);
+      border-color: var(--bleu-hover);
+    }
+
+    .bouton-bordure {
+      border-color: rgba(155, 189, 255, .45);
+      background: rgba(5, 7, 11, .45);
+    }
+
+    .bouton-bordure:hover {
+      border-color: var(--bleu-clair);
+      background: rgba(40, 100, 255, .15);
+    }
+
+    /* LOGO PNG */
+
+    .marque {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-cadre {
+      position: relative;
+      display: block;
+      width: 210px;
+      height: 49px;
+      overflow: hidden;
+      border: none;
+      background: transparent;
+    }
+
+    .logo-cadre img {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      max-width: none;
+      height: auto;
+      transform: translateY(-50%);
+    }
+
+    .logo-pied {
+      width: 280px;
+      height: 66px;
+    }
+
+    /* NAVIGATION */
+
+    .navigation {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 84px;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 11, .95),
+        rgba(5, 7, 11, .25)
+      );
+      transition: background .2s;
+    }
+
+    .navigation.defilement {
+      background: rgba(5, 7, 11, .97);
+      backdrop-filter: blur(14px);
+    }
+
+    .navigation::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(40, 100, 255, .3),
+        rgba(var(--rose-rgb), .3),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    .navigation-interieur {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      height: 100%;
+    }
+
+    .navigation-droite,
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .menu {
+      list-style: none;
+    }
+
+    .menu a {
+      position: relative;
+      display: block;
+      padding: 9px 0;
+      font-family: var(--police-titre);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .menu a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--bleu),
+        var(--rose)
+      );
+      transition: width .2s;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+    .menu-bouton {
+      display: none;
+      flex-shrink: 0;
+      padding: 10px 14px;
+      border: 1px solid var(--bordure);
+      border-radius: 5px;
+      background: var(--carte);
+      color: white;
+      font-family: var(--police-titre);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* RÉSEAUX SOCIAUX */
+
+    .reseaux-sociaux {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .lien-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(155, 189, 255, .2);
+      border-radius: 10px;
+      background: rgba(16, 23, 34, .85);
+      color: white;
+      transition:
+        transform .2s,
+        background .2s,
+        border-color .2s;
+    }
+
+    .lien-social:hover {
+      transform: translateY(-2px);
+    }
+
+    .lien-social svg {
+      width: 23px;
+      height: 23px;
+    }
+
+    .social-youtube:hover {
+      background: rgba(255, 0, 51, .12);
+      border-color: rgba(255, 70, 70, .55);
+    }
+
+    .social-instagram:hover {
+      background: rgba(var(--rose-rgb), .12);
+      border-color: rgba(var(--rose-rgb), .55);
+    }
+
+    .social-linkedin:hover {
+      background: rgba(10, 102, 194, .18);
+      border-color: rgba(78, 162, 255, .65);
+    }
+
+    .reseaux-pied {
+      margin-top: 20px;
+    }
+
+    /* PHOTOS */
+
+    .photo {
+      position: relative;
+      overflow: hidden;
+      background: #111a29;
+    }
+
+    .photo > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ACCUEIL */
+
+    .accueil {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      min-height: 760px;
+      min-height: 100svh;
+      padding: 160px 0 90px;
+      overflow: hidden;
+    }
+
+    .accueil-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .accueil-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 58% 52%;
+    }
+
+    .accueil-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(
+          ellipse at 95% 85%,
+          rgba(var(--rose-rgb), .17),
+          transparent 48%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(5, 7, 11, .57),
+          rgba(5, 7, 11, .18) 55%,
+          rgba(5, 7, 11, .04)
+        ),
+        linear-gradient(
+          to top,
+          var(--noir),
+          rgba(5, 7, 11, .66) 22%,
+          rgba(5, 7, 11, .12) 62%,
+          rgba(5, 7, 11, .30)
+        );
+    }
+
+    .accueil::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(40, 100, 255, .35),
+        rgba(var(--rose-rgb), .45),
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    .accueil-contenu {
+      position: relative;
+      z-index: 1;
+    }
+
+    .accueil-surtitre {
+      margin-bottom: 22px;
+      color: var(--bleu-clair);
+      font-family: var(--police-titre);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .accueil-titre {
+      font-family: var(--police-titre);
+      font-size: clamp(4.7rem, 10vw, 9rem);
+      font-weight: 900;
+      font-style: italic;
+      line-height: .87;
+      letter-spacing: -.02em;
+      text-transform: uppercase;
+    }
+
+    .accueil-titre span {
+      display: block;
+      margin-top: 10px;
+      color: var(--bleu-clair);
+    }
+
+    .accueil-texte {
+      max-width: 710px;
+      margin-top: 28px;
+      color: #edf1f8;
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .accueil-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    /* ÉQUIPAGE EN MIROIR */
+
+    .equipage {
+      display: grid;
+      gap: 36px;
+      margin-top: 48px;
+    }
+
+    .portrait {
+      --accent: var(--bleu);
+      --accent-clair: var(--bleu-clair);
+
+      display: grid;
+      grid-template-columns: 44% minmax(0, 1fr);
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(155, 189, 255, .10);
+      border-radius: 16px;
+      background: #101722;
+    }
+
+    .portrait-team {
+      --accent: var(--rose);
+      --accent-clair: #ff9ac6;
+
+      grid-template-columns: minmax(0, 1fr) 44%;
+    }
+
+    .portrait-photo {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      background: #111a29;
+    }
+
+    .portrait-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-pilote .portrait-photo img {
+      object-position: 45% 34%;
+    }
+
+    .portrait-team .portrait-photo img {
+      object-position: center;
+    }
+
+    .portrait-team .portrait-photo {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .portrait-team .portrait-contenu {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .portrait-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(5, 7, 11, .5),
+        transparent 40%
+      );
+      pointer-events: none;
+    }
+
+    .portrait-badge {
+      position: absolute;
+      z-index: 1;
+      top: 24px;
+      left: 24px;
+      padding: 8px 15px;
+      border-radius: 4px;
+      background: var(--accent);
+      color: white;
+      font-family: var(--police-titre);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .portrait-contenu {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      padding: clamp(30px, 4vw, 58px);
+      background: linear-gradient(135deg, #121c2a, #0d131d);
+    }
+
+    .portrait-team .portrait-contenu {
+      background: linear-gradient(135deg, #171722, #0d131d);
+    }
+
+    .portrait-repere {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: var(--accent-clair);
+      font-family: var(--police-titre);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .portrait-repere::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .portrait-nom {
+      font-family: var(--police-titre);
+      font-size: clamp(2.7rem, 4.7vw, 4.8rem);
+      font-style: italic;
+      font-weight: 900;
+      line-height: .96;
+      letter-spacing: -.015em;
+      text-transform: uppercase;
+    }
+
+    .portrait-nom span {
+      display: block;
+    }
+
+    .portrait-pilote .portrait-nom span:first-child {
+      margin-bottom: 7px;
+    }
+
+    .portrait-pilote .portrait-nom span:last-child {
+      font-size: .68em;
+    }
+
+    .portrait-signature {
+      margin-top: 17px;
+      color: var(--accent-clair);
+      font-family: var(--police-titre);
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: .025em;
+    }
+
+    .portrait-infos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 25px 0 28px;
+    }
+
+    .portrait-infos div {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border: 1px solid rgba(155, 189, 255, .13);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, .025);
+      font-size: .75rem;
+    }
+
+    .portrait-infos dt {
+      color: var(--gris);
+    }
+
+    .portrait-infos dd {
+      color: var(--blanc);
+      font-weight: 600;
+    }
+
+    .portrait-texte {
+      max-width: 570px;
+      color: var(--texte);
+      font-size: .98rem;
+      line-height: 1.85;
+    }
+
+    .portrait-texte p + p {
+      margin-top: 18px;
+    }
+
+    /* PARTENAIRES */
+
+    .soutiens {
+      padding: 36px 0 42px;
+      background:
+        radial-gradient(
+          ellipse at 92% 50%,
+          rgba(var(--rose-rgb), .055),
+          transparent 55%
+        ),
+        #0a0e15;
+      border-block: 1px solid rgba(155, 189, 255, .08);
+    }
+
+    .soutiens-entete {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 26px;
+    }
+
+    .soutiens-entete h2 {
+      color: #abb7cc;
+      font-family: var(--police-titre);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .soutiens-ligne {
+      width: 65px;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        rgba(155, 189, 255, .2),
+        rgba(var(--rose-rgb), .25)
+      );
+    }
+
+    .soutiens-grille {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 830px;
+      margin-inline: auto;
+    }
+
+    .soutien-carte {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+      height: 126px;
+      overflow: hidden;
+      border: 1px solid var(--bordure);
+      border-radius: 12px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .soutien-carte:hover {
+      transform: translateY(-4px);
+      border-color: rgba(155, 189, 255, .55);
+    }
+
+    .soutien-logo {
+      background: white;
+    }
+
+    .soutien-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .soutien-jmk img {
+      padding: 9px;
+    }
+
+    .soutien-sp2 img {
+      padding: 14px 18px;
+    }
+
+    .soutien-annonce {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 19px 24px;
+      background:
+        radial-gradient(
+          circle at bottom right,
+          rgba(var(--rose-rgb), .10),
+          transparent 75%
+        ),
+        #111a2a;
+    }
+
+    .soutien-annonce::before {
+      content: "";
+      position: absolute;
+      top: 22px;
+      bottom: 22px;
+      left: 0;
+      width: 3px;
+      background: linear-gradient(
+        to bottom,
+        var(--bleu),
+        var(--rose)
+      );
+    }
+
+    .soutien-annonce-repere {
+      margin-bottom: 5px;
+      color: var(--bleu-clair);
+      font-family: var(--police-titre);
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .soutien-annonce-titre {
+      font-family: var(--police-titre);
+      font-size: 1.65rem;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+
+    .soutien-annonce-texte {
+      margin-top: 7px;
+      color: #aebdd4;
+      font-size: .7rem;
+    }
+
+    /* COURSES */
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .course {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--bordure);
+      border-radius: 8px;
+      background: var(--carte);
+      transition: transform .25s, border-color .25s;
+    }
+
+    .course:hover {
+      transform: translateY(-5px);
+      border-color: rgba(155, 189, 255, .4);
+    }
+
+    .course-photo {
+      aspect-ratio: 4 / 3;
+      border-bottom: 1px solid var(--bordure);
+    }
+
+    .course-photo img {
+      position: absolute;
+      inset: 0;
+      transition: transform .35s;
+    }
+
+    .course-photo-dijon img {
+      object-position: center 66%;
+    }
+
+    .course:hover .course-photo img {
+      transform: scale(1.035);
+    }
+
+    .course-photo-repere {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 6px 11px;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 4px;
+      background: rgba(5, 7, 11, .82);
+      font-family: var(--police-titre);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .course-contenu {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 25px;
+    }
+
+    .course-statut {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      padding: 6px 12px;
+      border: 1px solid rgba(74, 222, 128, .35);
+      border-radius: 5px;
+      background: rgba(34, 197, 94, .12);
+      color: var(--vert-clair);
+      font-family: var(--police-titre);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .course-statut::before {
+      content: "✓";
+      color: var(--vert);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .course-nom {
+      margin-bottom: 20px;
+      font-family: var(--police-titre);
+      font-size: clamp(2rem, 2.7vw, 2.8rem);
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .course-texte {
+      margin-bottom: 25px;
+      color: var(--texte);
+      font-size: .9rem;
+      line-height: 1.8;
+    }
+
+    .resultats {
+      display: grid;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--bordure);
+    }
+
+    .resultats div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .resultats dt {
+      color: var(--gris);
+      font-size: .8rem;
+    }
+
+    .resultats dd {
+      font-family: var(--police-titre);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    /* GALERIE */
+
+    .galerie-section .titre-section::after {
+      display: none;
+    }
+
+    .galerie-section .introduction {
+      margin-top: 18px;
+      margin-bottom: 38px;
+    }
+
+    .galerie-piste {
+      display: flex;
+      align-items: stretch;
+      gap: 16px;
+      overflow-x: auto;
+      padding: 5px 0 12px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+    }
+
+    .galerie-piste::-webkit-scrollbar {
+      display: none;
+    }
+
+    .galerie-element {
+      position: relative;
+      display: block;
+      flex: 0 0 39%;
+      min-width: 0;
+      height: 330px;
+      overflow: hidden;
+      border: 1px solid rgba(155, 189, 255, .18);
+      border-radius: 14px;
+      background: #070b12;
+      scroll-snap-align: start;
+      transition: border-color .2s;
+    }
+
+    .galerie-element img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .galerie-element:hover {
+      border-color: rgba(155, 189, 255, .55);
+    }
+
+    .galerie-element::after {
+      content: "Agrandir ↗";
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(155, 189, 255, .25);
+      border-radius: 5px;
+      background: rgba(7, 11, 18, .88);
+      font-family: var(--police-titre);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      opacity: 0;
+      transition: opacity .2s;
+      pointer-events: none;
+    }
+
+    .galerie-element:hover::after,
+    .galerie-element:focus-visible::after {
+      opacity: 1;
+    }
+
+    .galerie-commandes {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .galerie-indication {
+      color: var(--gris);
+      font-size: .8rem;
+    }
+
+    .galerie-fleches {
+      display: flex;
+      gap: 10px;
+    }
+
+    .fleche {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(155, 189, 255, .22);
+      border-radius: 10px;
+      background: #141b26;
+      color: white;
+      font-size: 1.25rem;
+      transition: background .2s, border-color .2s;
+    }
+
+    .fleche:hover:not(:disabled) {
+      background: var(--bleu);
+      border-color: var(--bleu);
+    }
+
+    .fleche:disabled {
+      opacity: .3;
+      cursor: default;
+    }
+
+    /* VISIONNEUSE */
+
+    .visionneuse {
+      width: min(1400px, 96vw);
+      max-width: 96vw;
+      max-height: 96svh;
+      margin: auto;
+      padding: 55px 65px 18px;
+      border: 1px solid rgba(155, 189, 255, .2);
+      border-radius: 12px;
+      background: #080c13;
+      color: white;
+    }
+
+    .visionneuse::backdrop {
+      background: rgba(0, 0, 0, .92);
+    }
+
+    .visionneuse-image {
+      width: 100%;
+      height: min(74svh, 850px);
+      object-fit: contain;
+    }
+
+    .visionneuse-fermer {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--bordure);
+      border-radius: 8px;
+      background: var(--carte);
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .visionneuse-precedent,
+    .visionneuse-suivant {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .visionneuse-precedent {
+      left: 10px;
+    }
+
+    .visionneuse-suivant {
+      right: 10px;
+    }
+
+    .visionneuse-legende {
+      margin-top: 15px;
+      color: var(--texte);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    /* PARTENARIAT ET MÉCÉNAT */
+
+    .partenariat-entete {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: end;
+      gap: 45px;
+      margin-bottom: 44px;
+    }
+
+    .partenariat-entete .introduction {
+      margin-bottom: 0;
+    }
+
+    .partenariat-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .partenariat-actions .bouton {
+      width: 100%;
+    }
+
+    .partenariat-accroche {
+      margin-bottom: 7px;
+      color: var(--gris);
+      font-size: .85rem;
+      line-height: 1.7;
+    }
+
+    .benefices {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 42px;
+    }
+
+    .benefice {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border: 1px solid var(--bordure);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #131c2b, #0d131e);
+    }
+
+    .benefice::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 30px;
+      width: 45px;
+      height: 3px;
+      background: var(--bleu);
+    }
+
+    .benefice:nth-child(2)::before {
+      background: var(--rose);
+    }
+
+    .benefice-numero {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--bleu-clair);
+      font-family: var(--police-titre);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+    }
+
+    .benefice:nth-child(2) .benefice-numero {
+      color: #ff9ac6;
+    }
+
+    .benefice h3 {
+      margin-bottom: 13px;
+      font-family: var(--police-titre);
+      font-size: 2rem;
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .benefice p {
+      color: var(--texte);
+      font-size: .92rem;
+      line-height: 1.8;
+    }
+
+    .engagements {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 24px;
+    }
+
+    .engagement {
+      min-width: 0;
+      padding: 34px;
+      border: 1px solid var(--bordure);
+      border-radius: 14px;
+      background: var(--carte);
+    }
+
+    .engagement-sponsor {
+      border-top: 3px solid var(--bleu);
+      background:
+        radial-gradient(
+          ellipse at 100% 100%,
+          rgba(40, 100, 255, .10),
+          transparent 70%
+        ),
+        var(--carte);
+    }
+
+    .engagement-mecene {
+      border-top: 3px solid var(--vert);
+      background:
+        radial-gradient(
+          ellipse at 100% 100%,
+          rgba(34, 197, 94, .08),
+          transparent 70%
+        ),
+        var(--carte);
+    }
+
+    .engagement-repere {
+      margin-bottom: 17px;
+      color: var(--bleu-clair);
+      font-family: var(--police-titre);
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .engagement-mecene .engagement-repere {
+      color: var(--vert-clair);
+    }
+
+    .engagement-titre {
+      margin-bottom: 20px;
+      font-family: var(--police-titre);
+      font-size: clamp(2.1rem, 3vw, 3rem);
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .engagement-description {
+      color: var(--texte);
+      font-size: .94rem;
+      line-height: 1.8;
+    }
+
+    .engagement-liste {
+      display: grid;
+      gap: 15px;
+      margin: 25px 0;
+      list-style: none;
+    }
+
+    .engagement-liste li {
+      display: flex;
+      gap: 11px;
+      color: var(--texte);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .engagement-liste li::before {
+      content: "✓";
+      flex-shrink: 0;
+      color: var(--bleu-clair);
+      font-weight: 700;
+    }
+
+    .engagement-note {
+      margin-top: 20px;
+      color: var(--gris);
+      font-size: .76rem;
+      line-height: 1.75;
+    }
+
+    .rescrit-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(74, 222, 128, .25);
+      border-radius: 5px;
+      background: rgba(34, 197, 94, .08);
+      color: var(--vert-clair);
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    .rescrit-badge::before {
+      content: "✓";
+      font-weight: 700;
+    }
+
+    .fiscalite-grille {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .fiscalite-carte {
+      padding: 21px 18px;
+      border: 1px solid rgba(74, 222, 128, .17);
+      border-radius: 9px;
+      background: rgba(4, 12, 11, .4);
+    }
+
+    .fiscalite-public {
+      color: var(--texte);
+      font-family: var(--police-titre);
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .fiscalite-taux {
+      display: block;
+      margin: 8px 0 5px;
+      color: var(--vert-clair);
+      font-family: var(--police-titre);
+      font-size: 3.7rem;
+      font-weight: 900;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .fiscalite-detail {
+      color: var(--gris);
+      font-size: .78rem;
+      line-height: 1.65;
+    }
+
+    /* EXEMPLE PACK OR */
+
+    .exemple-don {
+      margin-bottom: 0;
+      padding: 23px;
+      border: 1px solid rgba(242, 204, 120, .25);
+      border-radius: 10px;
+      background:
+        radial-gradient(
+          ellipse at 100% 0%,
+          rgba(242, 204, 120, .07),
+          transparent 75%
+        ),
+        rgba(34, 197, 94, .045);
+    }
+
+    .pack-or-badge {
+      display: inline-block;
+      margin-bottom: 13px;
+      padding: 5px 10px;
+      border: 1px solid rgba(242, 204, 120, .3);
+      border-radius: 4px;
+      background: rgba(242, 204, 120, .08);
+      color: var(--or);
+      font-family: var(--police-titre);
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .exemple-don h4 {
+      margin-bottom: 18px;
+      font-family: var(--police-titre);
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    .exemple-don dl {
+      display: grid;
+      gap: 12px;
+    }
+
+    .exemple-don dl div {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 15px;
+      font-size: .85rem;
+    }
+
+    .exemple-don dt {
+      color: var(--texte);
+    }
+
+    .exemple-don dd {
+      flex-shrink: 0;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .exemple-don .exemple-total {
+      margin-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(242, 204, 120, .2);
+    }
+
+    .exemple-total dd {
+      color: var(--vert-clair);
+      font-size: 1.1rem;
+    }
+
+    .exemple-precision {
+      margin-top: 16px;
+      color: var(--gris);
+      font-size: .72rem;
+      line-height: 1.75;
+    }
+
+    .fiscalite-mentions {
+      margin-top: 24px;
+      padding: 22px 25px;
+      border: 1px solid rgba(155, 189, 255, .10);
+      border-radius: 10px;
+      background: rgba(16, 23, 34, .65);
+    }
+
+    .fiscalite-mentions summary {
+      color: var(--texte);
+      font-size: .85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .fiscalite-mentions p {
+      margin-top: 14px;
+      color: var(--gris);
+      font-size: .78rem;
+      line-height: 1.85;
+    }
+
+    .partenariat-contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      margin-top: 35px;
+      padding: 32px;
+      border: 1px solid var(--bordure);
+      border-radius: 12px;
+      background:
+        linear-gradient(
+          110deg,
+          rgba(40, 100, 255, .10),
+          rgba(var(--rose-rgb), .07)
+        ),
+        #0d131d;
+    }
+
+    .partenariat-contact h3 {
+      margin-bottom: 8px;
+      font-family: var(--police-titre);
+      font-size: 2rem;
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .partenariat-contact p {
+      color: var(--texte);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .partenariat-contact .bouton {
+      flex-shrink: 0;
+    }
+
+    /* PIED DE PAGE */
+
+    .pied-page {
+      padding: 70px 0 25px;
+      border-top: 1px solid var(--bordure);
+      background:
+        radial-gradient(
+          ellipse at 100% 100%,
+          rgba(var(--rose-rgb), .065),
+          transparent 60%
+        ),
+        #030509;
+    }
+
+    .pied-grille {
+      display: grid;
+      grid-template-columns: 1.2fr .65fr 1fr;
+      gap: 65px;
+    }
+
+    .pied-texte {
+      max-width: 360px;
+      margin: 22px 0 20px;
+      color: var(--gris);
+      font-size: .9rem;
+      line-height: 1.8;
+    }
+
+    .pied-mail {
+      color: #c1d5ff;
+      font-size: .9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .pied-titre {
+      margin-bottom: 20px;
+      font-family: var(--police-titre);
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .pied-liens {
+      display: grid;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .pied-liens a {
+      color: var(--gris);
+      font-size: .9rem;
+    }
+
+    .pied-liens a:hover {
+      color: var(--bleu-clair);
+    }
+
+    .pied-bas {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 55px;
+      padding-top: 23px;
+      border-top: 1px solid var(--bordure);
+      color: var(--gris);
+      font-size: .75rem;
+    }
+
+    /* ======================================
+       RESPONSIVE
+       ====================================== */
+
+    @media (max-width: 1100px) {
+      .navigation-droite,
+      .menu {
+        gap: 20px;
+      }
+
+      .navigation .logo-cadre {
+        width: 185px;
+        height: 44px;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .courses {
+        gap: 16px;
+      }
+
+      .course-contenu {
+        padding: 20px;
+      }
+
+      .pied-grille {
+        gap: 30px;
+      }
+
+      .portrait-contenu {
+        padding: 32px;
+      }
+
+      .engagement {
+        padding: 26px;
+      }
+
+      .benefice {
+        padding: 25px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      .menu-bouton {
+        display: block;
+      }
+
+      .navigation-droite {
+        gap: 14px;
+      }
+
+      .menu {
+        position: absolute;
+        top: 84px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 15px 6% 25px;
+        border-bottom: 1px solid var(--bordure);
+        background: #090d14;
+      }
+
+      .menu.ouvert {
+        display: flex;
+      }
+
+      .menu a {
+        padding: 15px 0;
+      }
+
+      .partenariat-entete {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .partenariat-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .partenariat-accroche {
+        width: 100%;
+      }
+
+      .partenariat-actions .bouton {
+        width: auto;
+      }
+
+      .engagements {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .conteneur {
+        width: 90%;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .courses {
+        grid-template-columns: 1fr;
+      }
+
+      .course {
+        display: grid;
+        grid-template-columns: .8fr 1fr;
+      }
+
+      .course-photo {
+        height: 100%;
+        min-height: 280px;
+        aspect-ratio: auto;
+        border-bottom: 0;
+        border-right: 1px solid var(--bordure);
+      }
+
+      .pied-grille {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pied-presentation {
+        grid-column: 1 / -1;
+      }
+
+      .galerie-element {
+        flex-basis: 60%;
+        height: 310px;
+      }
+
+      .benefices {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .benefice-numero {
+        margin-bottom: 14px;
+      }
+
+      .partenariat-contact {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .portrait,
+      .portrait-team {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-photo,
+      .portrait-team .portrait-photo {
+        grid-column: 1;
+        grid-row: 1;
+        min-height: 0;
+        height: clamp(290px, 65vw, 430px);
+      }
+
+      .portrait-contenu,
+      .portrait-team .portrait-contenu {
+        grid-column: 1;
+        grid-row: 2;
+        padding: 32px;
+      }
+
+      .portrait-nom {
+        font-size: clamp(3rem, 8vw, 4.4rem);
+      }
+
+      .portrait-texte {
+        max-width: none;
+      }
+
+      .soutiens-grille {
+        gap: 12px;
+      }
+
+      .soutien-carte {
+        height: 115px;
+      }
+
+      .soutien-annonce {
+        padding: 16px;
+      }
+
+      .soutien-annonce-titre {
+        font-size: 1.35rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navigation {
+        height: 74px;
+      }
+
+      .menu {
+        top: 74px;
+      }
+
+      .navigation-interieur {
+        gap: 10px;
+      }
+
+      .navigation-droite {
+        gap: 9px;
+      }
+
+      .navigation .logo-cadre {
+        width: 150px;
+        height: 36px;
+      }
+
+      .menu-bouton {
+        padding: 10px;
+      }
+
+      .navigation .reseaux-sociaux {
+        gap: 5px;
+      }
+
+      .navigation .lien-social {
+        width: 32px;
+        height: 38px;
+        border-radius: 8px;
+      }
+
+      .navigation .lien-social svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .accueil {
+        min-height: 680px;
+        min-height: 100svh;
+        padding: 130px 0 65px;
+      }
+
+      .accueil-image img {
+        object-position: 60% center;
+      }
+
+      .accueil-titre {
+        font-size: clamp(3.7rem, 12.8vw, 5.4rem);
+      }
+
+      .accueil-surtitre {
+        font-size: .95rem;
+      }
+
+      .accueil-texte {
+        font-size: 1rem;
+      }
+
+      .accueil-actions {
+        gap: 10px;
+      }
+
+      .accueil-actions .bouton {
+        padding: 12px 16px;
+        font-size: .9rem;
+      }
+
+      .titre-section {
+        font-size: clamp(2.8rem, 10.5vw, 4rem);
+      }
+
+      .equipage {
+        gap: 26px;
+        margin-top: 35px;
+      }
+
+      .portrait-contenu,
+      .portrait-team .portrait-contenu {
+        padding: 28px 23px 32px;
+      }
+
+      .portrait-badge {
+        top: 18px;
+        left: 18px;
+      }
+
+      .portrait-repere {
+        margin-bottom: 20px;
+      }
+
+      .portrait-infos {
+        gap: 7px;
+        margin: 22px 0;
+      }
+
+      .portrait-infos div {
+        padding: 7px 9px;
+        font-size: .72rem;
+      }
+
+      .portrait-texte {
+        font-size: .94rem;
+      }
+
+      .course {
+        display: flex;
+      }
+
+      .course-photo {
+        min-height: 0;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        border-right: 0;
+        border-bottom: 1px solid var(--bordure);
+      }
+
+      .course-nom {
+        font-size: 2.6rem;
+      }
+
+      .pied-grille {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .pied-presentation {
+        grid-column: auto;
+      }
+
+      .galerie-element {
+        flex-basis: 84%;
+        height: 340px;
+      }
+
+      .galerie-element::after {
+        opacity: 1;
+      }
+
+      .galerie-indication {
+        max-width: 160px;
+        font-size: .72rem;
+      }
+
+      .visionneuse {
+        width: 96vw;
+        padding: 55px 10px 70px;
+      }
+
+      .visionneuse-image {
+        height: 65svh;
+      }
+
+      .visionneuse-precedent,
+      .visionneuse-suivant {
+        top: auto;
+        bottom: 12px;
+        transform: none;
+      }
+
+      .visionneuse-precedent {
+        left: calc(50% - 52px);
+      }
+
+      .visionneuse-suivant {
+        right: calc(50% - 52px);
+      }
+
+      .partenariat-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .partenariat-actions .bouton {
+        width: 100%;
+      }
+
+      .engagement {
+        padding: 26px 22px;
+      }
+
+      .fiscalite-grille {
+        gap: 10px;
+      }
+
+      .fiscalite-carte {
+        padding: 18px 13px;
+      }
+
+      .fiscalite-taux {
+        font-size: 3.1rem;
+      }
+
+      .exemple-don {
+        padding: 20px;
+      }
+
+      .partenariat-contact {
+        padding: 26px 22px;
+      }
+
+      .partenariat-contact .bouton {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .soutiens-entete {
+        gap: 12px;
+      }
+
+      .soutiens-entete h2 {
+        font-size: .75rem;
+        letter-spacing: .16em;
+      }
+
+      .soutiens-ligne {
+        width: 28px;
+      }
+
+      .soutiens-grille {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 400px;
+      }
+
+      .soutien-carte {
+        height: 108px;
+      }
+
+      .soutien-annonce {
+        grid-column: 1 / -1;
+        align-items: center;
+        min-height: 106px;
+        text-align: center;
+      }
+
+      .soutien-annonce-titre {
+        font-size: 1.6rem;
+      }
+
+      .soutien-annonce-texte br {
+        display: none;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .navigation .logo-cadre {
+        width: 120px;
+        height: 30px;
+      }
+
+      .navigation-droite {
+        gap: 6px;
+      }
+
+      .menu-bouton {
+        padding: 9px 7px;
+        font-size: .85rem;
+      }
+
+      .navigation .reseaux-sociaux {
+        gap: 3px;
+      }
+
+      .navigation .lien-social {
+        width: 28px;
+        height: 36px;
+      }
+
+      .fiscalite-grille {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ICÔNES -->
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="0"
+    height="0"
+    aria-hidden="true"
+    style="position:absolute;overflow:hidden;"
+  >
+    <defs>
+      <symbol id="icone-youtube" viewBox="0 0 28 20">
+        <rect width="28" height="20" rx="6" fill="#FF0033"/>
+        <path d="M11 5.5L19 10L11 14.5V5.5Z" fill="#FFFFFF"/>
+      </symbol>
+
+      <symbol id="icone-instagram" viewBox="0 0 24 24">
+        <g fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+        </g>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      </symbol>
+
+      <symbol id="icone-linkedin" viewBox="0 0 24 24">
+        <rect x="1" y="1" width="22" height="22" rx="3" fill="#0A66C2"/>
+        <circle cx="6.5" cy="7" r="1.5" fill="#FFFFFF"/>
+        <path
+          d="M5 10H8V19H5V10ZM10 10H13V11.2C13.6 10.3 14.5 9.8 15.7 9.8C18.2 9.8 19 11.4 19 13.8V19H16V14.3C16 13 15.8 12.2 14.6 12.2C13.3 12.2 13 13.2 13 14.4V19H10V10Z"
+          fill="#FFFFFF"
+        />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- NAVIGATION -->
+
+  <nav class="navigation" aria-label="Navigation principale">
+    <div class="conteneur navigation-interieur">
+
+      <a
+        class="marque"
+        href="#accueil"
+        aria-label="BELARD Compétition — Accueil"
+      >
+        <span class="logo-cadre">
+          <img
+            src="images/logo-belard.png"
+            alt="BELARD Compétition"
+          >
+        </span>
+      </a>
+
+      <div class="navigation-droite">
+        <button
+          class="menu-bouton"
+          type="button"
+          aria-controls="menu-principal"
+          aria-expanded="false"
+        >
+          Menu
+        </button>
+
+        <ul class="menu" id="menu-principal">
+          <li><a href="#pilote">Pilote</a></li>
+          <li><a href="#saison">Saison 2026</a></li>
+          <li><a href="#galerie">Galerie</a></li>
+          <li><a href="#sponsoring">Nous soutenir</a></li>
+        </ul>
+
+        <div class="reseaux-sociaux">
+          <a
+            class="lien-social social-youtube"
+            href="https://www.youtube.com/@Belard_comp%C3%A9tition"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube de BELARD Compétition — nouvel onglet"
+            title="YouTube"
+          >
+            <svg aria-hidden="true" focusable="false">
+              <use href="#icone-youtube"></use>
+            </svg>
+          </a>
+
+          <a
+            class="lien-social social-instagram"
+            href="https://www.instagram.com/vic.tor_ba/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Victor — nouvel onglet"
+            title="Instagram"
+          >
+            <svg aria-hidden="true" focusable="false">
+              <use href="#icone-instagram"></use>
+            </svg>
+          </a>
+
+          <a
+            class="lien-social social-linkedin"
+            href="https://www.linkedin.com/in/victor-belliere-ardoin-a7578223a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn de Victor — nouvel onglet"
+            title="LinkedIn"
+          >
+            <svg aria-hidden="true" focusable="false">
+              <use href="#icone-linkedin"></use>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ACCUEIL -->
+
+  <header class="accueil" id="accueil">
+    <div class="accueil-image">
+      <img
+        src="images/accueil.jpeg"
+        alt="La Fun Cup numéro 434 en piste"
+        fetchpriority="high"
+      >
+    </div>
+
+    <div class="conteneur accueil-contenu">
+      <p class="accueil-surtitre">Championnat Fun Cup</p>
+
+      <h1 class="accueil-titre">
+        BELARD
+        <span>Compétition</span>
+      </h1>
+
+      <p class="accueil-texte">
+        Une association sportive née de la passion de la course et de l’endurance.
+        <br>
+        Découvrez-nous !
+      </p>
+
+      <div class="accueil-actions">
+        <a href="#pilote" class="bouton bouton-bleu">
+          Découvrir l’équipage
+          <span aria-hidden="true">↘</span>
+        </a>
+
+        <a href="#sponsoring" class="bouton bouton-bordure">
+          Rejoindre l’aventure
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ÉQUIPAGE -->
+
+    <section class="section fond-equipage" id="pilote">
+      <div class="conteneur">
+        <p class="etiquette">Pilote &amp; team</p>
+        <h2 class="titre-section">L’équipage</h2>
+
+        <div class="equipage">
+
+          <article
+            class="portrait portrait-pilote"
+            aria-labelledby="nom-victor"
+          >
+            <div class="portrait-photo">
+              <img
+                src="images/victor.jpeg"
+                alt="Portrait de Victor Bellière-Ardoin"
+              >
+              <span class="portrait-badge">Pilote</span>
+            </div>
+
+            <div class="portrait-contenu">
+              <p class="portrait-repere">01 — Le pilote</p>
+
+              <h3 class="portrait-nom" id="nom-victor">
+                <span>Victor</span>
+                <span>Bellière-Ardoin</span>
+              </h3>
+
+              <p class="portrait-signature">« La Machine »</p>
+
+              <dl class="portrait-infos">
+                <div>
+                  <dt>Âge</dt>
+                  <dd>22 ans</dd>
+                </div>
+                <div>
+                  <dt>Spécialité</dt>
+                  <dd>Endurance</dd>
+                </div>
+                <div>
+                  <dt>Style</dt>
+                  <dd>Méthodique</dd>
+                </div>
+              </dl>
+
+              <div class="portrait-texte">
+                <p>
+                  Passionné de sport automobile depuis l’enfance grâce à son
+                  grand-père, Victor se lance en compétition en autodidacte
+                  en 2025.
+                </p>
+
+                <p>
+                  Animé par le goût de la course, les batailles en piste et
+                  la stratégie, il aborde chaque relais avec la même
+                  détermination : repousser ses limites, gagner des places
+                  et ne rien lâcher jusqu’au drapeau à damier.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="portrait portrait-team"
+            aria-labelledby="nom-jmk"
+          >
+            <div class="portrait-photo">
+              <img
+                src="images/jmk-racing.jpeg"
+                alt="Préparation du pilote avec JMK Racing dans le stand"
+              >
+              <span class="portrait-badge">Écurie</span>
+            </div>
+
+            <div class="portrait-contenu">
+              <p class="portrait-repere">02 — Le team</p>
+
+              <h3 class="portrait-nom" id="nom-jmk">
+                JMK Racing
+              </h3>
+
+              <p class="portrait-signature">
+                Une équipe, une famille.
+              </p>
+
+              <dl class="portrait-infos">
+                <div>
+                  <dt>Gérant</dt>
+                  <dd>Jérôme Kerf</dd>
+                </div>
+                <div>
+                  <dt>Création</dt>
+                  <dd>2026</dd>
+                </div>
+                <div>
+                  <dt>Disciplines</dt>
+                  <dd>Fun Cup &amp; Lamera Cup</dd>
+                </div>
+              </dl>
+
+              <div class="portrait-texte">
+                <p>
+                  Avec JMK Racing, Jérôme allie l’exigence de la compétition
+                  à un véritable esprit de famille. Chaque pilote, quel que
+                  soit son niveau, bénéficie de la même attention et du même
+                  engagement.
+                </p>
+
+                <p>
+                  Des voitures fiables et rapides, une équipe soudée et une
+                  confiance réciproque : tout est réuni pour prendre la piste
+                  sereinement, se dépasser et aller chercher la performance
+                  ensemble.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTENAIRES -->
+
+    <section
+      class="soutiens"
+      id="partenaires"
+      aria-labelledby="titre-partenaires"
+    >
+      <div class="conteneur">
+        <div class="soutiens-entete">
+          <span class="soutiens-ligne" aria-hidden="true"></span>
+          <h2 id="titre-partenaires">Ils nous font rouler</h2>
+          <span class="soutiens-ligne" aria-hidden="true"></span>
+        </div>
+
+        <div class="soutiens-grille">
+          <div class="soutien-carte soutien-logo soutien-jmk">
+            <img src="images/logo-jmk.JPG" alt="JMK Racing">
+          </div>
+
+          <div class="soutien-carte soutien-logo soutien-sp2">
+            <img src="images/logo-sp2-marc.jpg" alt="SP2 Marc">
+          </div>
+
+          <div class="soutien-carte soutien-annonce">
+            <span class="soutien-annonce-repere">La suite arrive</span>
+            <span class="soutien-annonce-titre">Prochainement.</span>
+            <span class="soutien-annonce-texte">
+              De nouveaux partenaires<br>
+              rejoignent l’aventure.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAISON -->
+
+    <section class="section fond-saison" id="saison">
+      <div class="conteneur">
+        <p class="etiquette">Sur la piste</p>
+        <h2 class="titre-section">Saison 2026</h2>
+
+        <p class="introduction">
+          De la découverte de la Fun Cup aux longues heures d’endurance :
+          retour sur trois courses et leurs moments forts.
+        </p>
+
+        <div class="courses">
+
+          <article class="course">
+            <div class="photo course-photo course-photo-dijon">
+              <img
+                src="images/dijon.jpeg"
+                alt="L’équipe autour de la Fun Cup devant le stand à Dijon"
+              >
+              <span class="course-photo-repere">Course 01</span>
+            </div>
+
+            <div class="course-contenu">
+              <span class="course-statut">Course terminée</span>
+
+              <h3 class="course-nom">
+                8h de<br>Dijon-Prenois
+              </h3>
+
+              <p class="course-texte">
+                Une véritable découverte de la Fun Cup pour cette première
+                participation. Dès les premiers tours, je me suis senti à
+                l’aise au volant et j’ai rapidement pris mes repères. Les
+                chronos ont été rapides, avec des temps très proches du
+                top 10 du classement.
+              </p>
+
+              <dl class="resultats">
+                <div>
+                  <dt>Classement général</dt>
+                  <dd>24/43</dd>
+                </div>
+                <div>
+                  <dt>Classement catégorie</dt>
+                  <dd>5/11</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="course">
+            <div class="photo course-photo">
+              <img
+                src="images/25h-de-spa.jpeg"
+                alt="L’équipage JMK Racing autour de la Fun Cup à Spa"
+              >
+              <span class="course-photo-repere">Course 02</span>
+            </div>
+
+            <div class="course-contenu">
+              <span class="course-statut">Course terminée</span>
+
+              <h3 class="course-nom">
+                25h de<br>Spa-Francorchamps
+              </h3>
+
+              <p class="course-texte">
+                La plus belle course de ma vie ! Une expérience incroyable
+                aux 25h de Spa-Francorchamps, entre soleil, nuit, pluie et
+                brouillard. Avec une stratégie de prudence et de constance,
+                notre équipage rookie a réalisé une course propre : zéro
+                pénalité, aucune casse et aucune touchette. Une performance
+                qui a largement payé.
+              </p>
+
+              <dl class="resultats">
+                <div>
+                  <dt>Classement général</dt>
+                  <dd>32/110</dd>
+                </div>
+                <div>
+                  <dt>Classement catégorie</dt>
+                  <dd>15/65</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="course">
+            <div class="photo course-photo">
+              <img
+                src="images/zolder.jpeg"
+                alt="Les pilotes JMK Racing à côté de la Fun Cup à Zolder"
+              >
+              <span class="course-photo-repere">Course 03</span>
+            </div>
+
+            <div class="course-contenu">
+              <span class="course-statut">Course terminée</span>
+
+              <h3 class="course-nom">
+                8h de<br>Zolder
+              </h3>
+
+              <p class="course-texte">
+                Un week-end difficile, marqué par le froid et la pluie. La
+                course a très mal démarré avec une sortie de piste lors du
+                tour de formation. La voiture a dû rentrer au paddock et
+                nous avons repris la piste en dernière position, avec trois
+                tours de retard. Malgré ce scénario compliqué, nous n’avons
+                rien lâché et avons enchaîné les tours rapides pour remonter
+                au classement.
+              </p>
+
+              <dl class="resultats">
+                <div>
+                  <dt>Classement général</dt>
+                  <dd>17/48</dd>
+                </div>
+                <div>
+                  <dt>Classement catégorie</dt>
+                  <dd>4/29</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+
+    <section
+      class="section fond-galerie galerie-section"
+      id="galerie"
+    >
+      <div class="conteneur">
+        <p class="etiquette">Coulisses</p>
+
+        <h2 class="titre-section" id="titre-galerie">
+          Moments forts
+        </h2>
+
+        <p class="introduction">
+          Préparation, stress et atmosphère paddock de la saison.
+          <br>
+          Parcourez les photos avec les flèches ou au doigt sur mobile,
+          puis cliquez pour les agrandir.
+        </p>
+
+        <div
+          class="galerie-piste"
+          id="galerie-piste"
+          role="region"
+          aria-labelledby="titre-galerie"
+          tabindex="0"
+        >
+          <a
+            class="galerie-element"
+            href="images/galerie/c896c7c4-318e-467c-8410-ecf7b071e16f.jpeg"
+            aria-label="Agrandir : au volant, prêt à prendre la piste"
+          >
+            <img
+              src="images/galerie/c896c7c4-318e-467c-8410-ecf7b071e16f.jpeg"
+              alt="Au volant, prêt à prendre la piste"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_5293.jpeg"
+            aria-label="Agrandir : préparation avant de monter dans la Fun Cup"
+          >
+            <img
+              src="images/galerie/IMG_5293.jpeg"
+              alt="Préparation avant de monter dans la Fun Cup"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/88472e9a-20ac-42ed-80ba-8002873c0f4d.jpeg"
+            aria-label="Agrandir : un moment de repos dans le stand"
+          >
+            <img
+              src="images/galerie/88472e9a-20ac-42ed-80ba-8002873c0f4d.jpeg"
+              alt="Un moment de repos dans le stand"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_4846.jpeg"
+            aria-label="Agrandir : la Fun Cup en piste à Spa"
+          >
+            <img
+              src="images/galerie/IMG_4846.jpeg"
+              alt="La Fun Cup en piste à Spa"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_5260.jpeg"
+            aria-label="Agrandir : la Fun Cup de face en action"
+          >
+            <img
+              src="images/galerie/IMG_5260.jpeg"
+              alt="La Fun Cup de face en action"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_5259.jpeg"
+            aria-label="Agrandir : concentration avant le relais"
+          >
+            <img
+              src="images/galerie/IMG_5259.jpeg"
+              alt="Concentration avant le relais"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/d6a7f7d0-bc16-429a-9c8d-dd705b6d7535.jpeg"
+            aria-label="Agrandir : derniers préparatifs dans les stands"
+          >
+            <img
+              src="images/galerie/d6a7f7d0-bc16-429a-9c8d-dd705b6d7535.jpeg"
+              alt="Derniers préparatifs dans les stands"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_7846.jpeg"
+            aria-label="Agrandir : dans la voie des stands"
+          >
+            <img
+              src="images/galerie/IMG_7846.jpeg"
+              alt="Dans la voie des stands, en attente du relais"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_5147.jpeg"
+            aria-label="Agrandir : les Fun Cup devant les stands"
+          >
+            <img
+              src="images/galerie/IMG_5147.jpeg"
+              alt="Les Fun Cup devant les stands"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+
+          <a
+            class="galerie-element"
+            href="images/galerie/IMG_4907.png"
+            aria-label="Agrandir : atmosphère paddock à Spa"
+          >
+            <img
+              src="images/galerie/IMG_4907.png"
+              alt="Atmosphère paddock à Spa"
+              draggable="false"
+              data-galerie
+            >
+          </a>
+        </div>
+
+        <div class="galerie-commandes">
+          <p class="galerie-indication">
+            Explorez les moments forts de la saison.
+          </p>
+
+          <div class="galerie-fleches">
+            <button
+              class="fleche"
+              id="galerie-precedent"
+              type="button"
+              aria-label="Photos précédentes"
+              aria-controls="galerie-piste"
+            >←</button>
+
+            <button
+              class="fleche"
+              id="galerie-suivant"
+              type="button"
+              aria-label="Photos suivantes"
+              aria-controls="galerie-piste"
+            >→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTENARIAT ET MÉCÉNAT -->
+
+    <section
+      class="section fond-sponsoring"
+      id="sponsoring"
+      aria-labelledby="titre-soutien"
+    >
+      <div class="conteneur">
+
+        <div class="partenariat-entete">
+          <div>
+            <p class="etiquette">Ensemble, plus loin</p>
+
+            <h2 class="titre-section" id="titre-soutien">
+              Devenez partenaire<br>
+              ou mécène.
+            </h2>
+
+            <p class="introduction">
+              Derrière chaque départ, il y a une équipe et des personnes
+              qui croient au projet. Entreprise ou particulier, prenez part
+              à une aventure humaine et sportive et aidez-nous à écrire
+              la suite de l’histoire.
+            </p>
+          </div>
+
+          <div class="partenariat-actions">
+            <p class="partenariat-accroche">
+              Découvrez le projet, les besoins et les possibilités
+              d’engagement dans notre dossier.
+            </p>
+
+            <a
+              class="bouton bouton-bleu"
+              href="Dossier sponsoring Victor- FUN CUP 2027.pdf"
+              download
+            >
+              Télécharger le dossier
+              <span aria-hidden="true">↓</span>
+            </a>
+
+            <a
+              class="bouton bouton-bordure"
+              href="mailto:belard.competition@gmail.com?subject=Partenariat%20ou%20m%C3%A9c%C3%A9nat%20BELARD%20Comp%C3%A9tition"
+            >
+              Échangeons sur votre soutien
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="benefices">
+          <article class="benefice">
+            <span class="benefice-numero">01 — Visibilité</span>
+            <h3>Votre marque en piste</h3>
+            <p>
+              Dans le cadre d’un sponsoring, associez votre entreprise
+              à notre aventure à travers les supports de communication
+              et les emplacements définis ensemble.
+            </p>
+          </article>
+
+          <article class="benefice">
+            <span class="benefice-numero">02 — Expérience</span>
+            <h3>Au cœur de la course</h3>
+            <p>
+              Découvrez l’univers de l’endurance et ses coulisses.
+              Les expériences paddock et l’hospitalité se construisent
+              selon la formule de partenariat retenue.
+            </p>
+          </article>
+
+          <article class="benefice">
+            <span class="benefice-numero">03 — Engagement</span>
+            <h3>Une aventure à partager</h3>
+            <p>
+              Soutenez un projet porté par la passion, le travail
+              et l’esprit d’équipe. Construisons une relation
+              humaine, accessible et adaptée à votre engagement.
+            </p>
+          </article>
+        </div>
+
+        <div class="engagements">
+
+          <!-- SPONSORING — BOUTON RETIRÉ -->
+
+          <article class="engagement engagement-sponsor">
+            <p class="engagement-repere">
+              Entreprises — Sponsoring
+            </p>
+
+            <h3 class="engagement-titre">
+              Faites rayonner<br>
+              votre entreprise.
+            </h3>
+
+            <p class="engagement-description">
+              Vous souhaitez développer votre visibilité et partager
+              l’aventure avec vos clients ou vos collaborateurs ?
+              Construisons un partenariat de communication
+              avec des prestations définies ensemble.
+            </p>
+
+            <ul class="engagement-liste">
+              <li>
+                Présence de votre logo sur les supports convenus :
+                voiture, casque, combinaison et vêtements.
+              </li>
+
+              <li>
+                Visibilité digitale selon le programme :
+                contenus, réseaux sociaux et relais de communication.
+              </li>
+
+              <li>
+                Hospitalité et découverte du paddock :
+                rencontres, repas et immersion dans la vie de l’équipe.
+              </li>
+
+              <li>
+                Expériences spécifiques, comme un tour passager
+                en Fun Cup biplace, selon les possibilités.
+              </li>
+            </ul>
+
+            <p class="engagement-note">
+              Les prestations sont définies par convention et soumises
+              aux disponibilités ainsi qu’aux accords de l’écurie et
+              des organisateurs. Le sponsoring est distinct du mécénat :
+              les taux de réduction d’impôt présentés ci-contre ne
+              s’appliquent pas automatiquement à une prestation
+              publicitaire.
+            </p>
+          </article>
+
+          <!-- MÉCÉNAT — BOUTON RETIRÉ -->
+
+          <article class="engagement engagement-mecene">
+            <p class="engagement-repere">
+              Entreprises &amp; particuliers — Mécénat
+            </p>
+
+            <h3 class="engagement-titre">
+              Soutenez le projet.<br>
+              Bénéficiez du mécénat.
+            </h3>
+
+            <span class="rescrit-badge">
+              Rescrit fiscal favorable
+            </span>
+
+            <p class="engagement-description">
+              BELARD Compétition bénéficie d’un rescrit fiscal favorable
+              de l’administration française confirmant son éligibilité
+              au mécénat. Les dons éligibles donnent lieu à la
+              délivrance d’un reçu fiscal.
+            </p>
+
+            <div class="fiscalite-grille">
+              <div class="fiscalite-carte">
+                <p class="fiscalite-public">Entreprises</p>
+                <span class="fiscalite-taux">60 %</span>
+                <p class="fiscalite-detail">
+                  de réduction d’impôt sur les dons éligibles,
+                  dans les limites légales précisées ci-dessous.
+                </p>
+              </div>
+
+              <div class="fiscalite-carte">
+                <p class="fiscalite-public">Particuliers</p>
+                <span class="fiscalite-taux">66 %</span>
+                <p class="fiscalite-detail">
+                  de réduction d’impôt sur les dons éligibles,
+                  dans la limite de 20 % du revenu imposable.
+                </p>
+              </div>
+            </div>
+
+            <!-- NOUVEL EXEMPLE : PACK OR À 10 000 € -->
+
+            <div class="exemple-don">
+              <span class="pack-or-badge">Pack Or — 10 000 €</span>
+
+              <h4>
+                Simulation pour un versement éligible au mécénat
+              </h4>
+
+              <dl>
+                <div>
+                  <dt>Montant du soutien</dt>
+                  <dd>10 000 €</dd>
+                </div>
+
+                <div>
+                  <dt>Réduction d’impôt à 60 %</dt>
+                  <dd>6 000 €</dd>
+                </div>
+
+                <div class="exemple-total">
+                  <dt>Coût après réduction d’impôt</dt>
+                  <dd>4 000 €</dd>
+                </div>
+              </dl>
+
+            </div>
+
+            <p class="engagement-note">
+              Le mécénat ne constitue pas l’achat d’une prestation
+              publicitaire. Les éventuels remerciements ou contreparties
+              doivent respecter le cadre fiscal applicable et le
+              périmètre du rescrit.
+            </p>
+          </article>
+
+        </div>
+
+        <!-- PRÉCISIONS FISCALES -->
+
+        <details class="fiscalite-mentions">
+          <summary>
+            Conditions fiscales et distinction entre sponsoring et mécénat
+          </summary>
+
+          <p>
+            Entreprises : dans le régime général de l’article 238 bis
+            du Code général des impôts, la réduction d’impôt est de
+            60 % pour la fraction des dons jusqu’à 2 millions d’euros,
+            puis de 40 % au-delà. L’ensemble des versements est retenu
+            dans la limite annuelle de 20 000 € ou de 0,5 % du chiffre
+            d’affaires hors taxes lorsque ce dernier montant est plus
+            élevé. Les règles de report peuvent s’appliquer.
+          </p>
+
+          <p>
+            Particuliers : dans le régime général de l’article 200
+            du Code général des impôts, les dons éligibles ouvrent droit
+            à une réduction d’impôt sur le revenu de 66 %, dans la limite
+            de 20 % du revenu imposable. L’excédent de dons peut être
+            reporté sur les cinq années suivantes dans les conditions
+            légales.
+          </p>
+
+          <p>
+            L’avantage fiscal dépend de la situation du donateur,
+            de la nature du versement et du respect des conditions
+            légales. Un reçu fiscal est remis pour les dons éligibles.
+            Le rescrit s’applique au périmètre des activités et aux
+            conditions présentées à l’administration.
+          </p>
+
+          <p>
+            Le sponsoring correspond à des prestations de communication
+            ou de visibilité. Il est traité séparément du mécénat et
+            n’ouvre pas, à ce titre, droit aux réductions d’impôt
+            indiquées pour les dons. Le nom d’une formule, comme
+            « Pack Or », ne détermine pas à lui seul son traitement
+            fiscal. La nature et la valeur des contreparties doivent
+            être examinées.
+          </p>
+        </details>
+
+        <div class="partenariat-contact">
+          <div>
+            <h3>Votre place dans l’équipe commence ici.</h3>
+            <p>
+              Parlons de votre entreprise, de votre envie de soutenir
+              le projet et de la meilleure façon de rejoindre l’aventure.
+            </p>
+          </div>
+
+          <a
+            class="bouton bouton-bleu"
+            href="mailto:belard.competition@gmail.com"
+          >
+            Contactez Victor
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIED DE PAGE -->
+
+  <footer class="pied-page">
+    <div class="conteneur">
+      <div class="pied-grille">
+
+        <div class="pied-presentation">
+          <a
+            class="marque"
+            href="#accueil"
+            aria-label="BELARD Compétition — Retour à l’accueil"
+          >
+            <span class="logo-cadre logo-pied">
+              <img
+                src="images/logo-belard.png"
+                alt="BELARD Compétition"
+              >
+            </span>
+          </a>
+
+          <p class="pied-texte">
+            BELARD Compétition est une association sportive sous loi 1901,
+            animée par le sport automobile à travers une approche moderne
+            et accessible.
+          </p>
+
+          <a
+            class="pied-mail"
+            href="mailto:belard.competition@gmail.com"
+          >
+            belard.competition@gmail.com
+          </a>
+
+          <div class="reseaux-sociaux reseaux-pied">
+            <a
+              class="lien-social social-youtube"
+              href="https://www.youtube.com/@Belard_comp%C3%A9tition"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube de BELARD Compétition — nouvel onglet"
+              title="YouTube"
+            >
+              <svg aria-hidden="true" focusable="false">
+                <use href="#icone-youtube"></use>
+              </svg>
+            </a>
+
+            <a
+              class="lien-social social-instagram"
+              href="https://www.instagram.com/vic.tor_ba/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Victor — nouvel onglet"
+              title="Instagram"
+            >
+              <svg aria-hidden="true" focusable="false">
+                <use href="#icone-instagram"></use>
+              </svg>
+            </a>
+
+            <a
+              class="lien-social social-linkedin"
+              href="https://www.linkedin.com/in/victor-belliere-ardoin-a7578223a/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Victor — nouvel onglet"
+              title="LinkedIn"
+            >
+              <svg aria-hidden="true" focusable="false">
+                <use href="#icone-linkedin"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="pied-titre">Navigation</h3>
+
+          <ul class="pied-liens">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#pilote">L’équipage</a></li>
+            <li><a href="#partenaires">Ils nous font rouler</a></li>
+            <li><a href="#saison">Saison 2026</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#sponsoring">Partenariat &amp; mécénat</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="pied-titre">Rejoindre l’aventure</h3>
+
+          <p class="pied-texte">
+            Entreprises et particuliers : devenez partenaire ou mécène
+            et prenez part à notre projet d’endurance.
+          </p>
+
+          <a
+            class="bouton bouton-bleu"
+            href="mailto:belard.competition@gmail.com"
+          >
+            Parlons de votre soutien
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pied-bas">
+        <span>© 2026 BELARD Compétition</span>
+        <span>Association sportive · Endurance · Fun Cup</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VISIONNEUSE -->
+
+  <dialog
+    class="visionneuse"
+    id="visionneuse"
+    aria-label="Photo de la galerie agrandie"
+    aria-describedby="visionneuse-legende"
+  >
+    <button
+      class="visionneuse-fermer"
+      id="visionneuse-fermer"
+      type="button"
+      aria-label="Fermer la photo"
+      autofocus
+    >×</button>
+
+    <button
+      class="fleche visionneuse-precedent"
+      id="visionneuse-precedent"
+      type="button"
+      aria-label="Photo précédente"
+    >←</button>
+
+    <img
+      class="visionneuse-image"
+      id="visionneuse-image"
+      alt=""
+    >
+
+    <button
+      class="fleche visionneuse-suivant"
+      id="visionneuse-suivant"
+      type="button"
+      aria-label="Photo suivante"
+    >→</button>
+
+    <p
+      class="visionneuse-legende"
+      id="visionneuse-legende"
+      aria-live="polite"
+    ></p>
+  </dialog>
+
+  <!-- EXTENSIONS DES PHOTOS -->
+
+  <script>
+    (() => {
+      const images = document.querySelectorAll("img[data-galerie]");
+
+      images.forEach((image) => {
+        const original = image.getAttribute("src");
+        const base = original.replace(/\.[^.]+$/, "");
+
+        const chemins = [...new Set([
+          original,
+          base + ".jpeg",
+          base + ".jpg",
+          base + ".png",
+          base + ".JPG",
+          base + ".JPEG",
+          base + ".PNG"
+        ])];
+
+        let tentative = 0;
+
+        function valider() {
+          image.parentElement.setAttribute(
+            "href",
+            image.getAttribute("src")
+          );
+        }
+
+        function essayerSuivant() {
+          tentative += 1;
+
+          if (tentative < chemins.length) {
+            image.src = chemins[tentative];
+          }
+        }
+
+        image.addEventListener("load", valider);
+        image.addEventListener("error", essayerSuivant);
+
+        if (image.complete) {
+          if (image.naturalWidth > 0) {
+            valider();
+          } else {
+            essayerSuivant();
+          }
+        }
+      });
+    })();
+  </script>
+
+  <!-- NAVIGATION -->
+
+  <script>
+    (() => {
+      const navigation = document.querySelector(".navigation");
+      const boutonMenu = document.querySelector(".menu-bouton");
+      const menu = document.querySelector("#menu-principal");
+
+      function actualiserNavigation() {
+        navigation.classList.toggle(
+          "defilement",
+          window.scrollY > 30
+        );
+      }
+
+      function fermerMenu() {
+        menu.classList.remove("ouvert");
+        boutonMenu.setAttribute("aria-expanded", "false");
+        boutonMenu.textContent = "Menu";
+      }
+
+      window.addEventListener("scroll", actualiserNavigation, {
+        passive: true
+      });
+
+      actualiserNavigation();
+
+      boutonMenu.addEventListener("click", () => {
+        const ouvert = menu.classList.toggle("ouvert");
+
+        boutonMenu.setAttribute(
+          "aria-expanded",
+          String(ouvert)
+        );
+
+        boutonMenu.textContent = ouvert ? "Fermer" : "Menu";
+      });
+
+      menu.querySelectorAll("a").forEach((lien) => {
+        lien.addEventListener("click", fermerMenu);
+      });
+
+      document.addEventListener("keydown", (evenement) => {
+        if (
+          evenement.key === "Escape" &&
+          menu.classList.contains("ouvert")
+        ) {
+          fermerMenu();
+          boutonMenu.focus();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 950) {
+          fermerMenu();
+        }
+      });
+    })();
+  </script>
+
+  <!-- GALERIE : FLÈCHES ET CLAVIER -->
+
+  <script>
+    (() => {
+      const piste = document.querySelector("#galerie-piste");
+      const precedent = document.querySelector("#galerie-precedent");
+      const suivant = document.querySelector("#galerie-suivant");
+
+      const mouvementReduit = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      function actualiserFleches() {
+        const maximum = piste.scrollWidth - piste.clientWidth;
+
+        precedent.disabled = piste.scrollLeft <= 2;
+        suivant.disabled = piste.scrollLeft >= maximum - 2;
+      }
+
+      function defiler(direction) {
+        const carte = piste.querySelector(".galerie-element");
+        const gap = parseFloat(getComputedStyle(piste).gap) || 16;
+
+        piste.scrollBy({
+          left: direction * (
+            carte.getBoundingClientRect().width + gap
+          ),
+          behavior: mouvementReduit.matches ? "auto" : "smooth"
+        });
+      }
+
+      precedent.addEventListener("click", () => defiler(-1));
+      suivant.addEventListener("click", () => defiler(1));
+
+      piste.addEventListener("scroll", actualiserFleches, {
+        passive: true
+      });
+
+      window.addEventListener("resize", actualiserFleches);
+      window.addEventListener("load", actualiserFleches);
+
+      requestAnimationFrame(actualiserFleches);
+
+      piste.addEventListener("keydown", (evenement) => {
+        if (evenement.key === "ArrowRight") {
+          evenement.preventDefault();
+          defiler(1);
+        }
+
+        if (evenement.key === "ArrowLeft") {
+          evenement.preventDefault();
+          defiler(-1);
+        }
+      });
+    })();
+  </script>
+
+  <!-- VISIONNEUSE -->
+
+  <script>
+    (() => {
+      const liens = [
+        ...document.querySelectorAll(".galerie-element")
+      ];
+
+      const dialogue = document.querySelector("#visionneuse");
+      const image = document.querySelector("#visionneuse-image");
+      const legende = document.querySelector("#visionneuse-legende");
+      const fermer = document.querySelector("#visionneuse-fermer");
+
+      if (typeof dialogue.showModal !== "function") {
+        return;
+      }
+
+      let actif = 0;
+      let declencheur = null;
+      let ancienOverflow = "";
+
+      function disponible(index) {
+        const miniature = liens[index].querySelector("img");
+
+        return miniature.complete && miniature.naturalWidth > 0;
+      }
+
+      function afficher(index) {
+        actif = (index + liens.length) % liens.length;
+
+        const miniature = liens[actif].querySelector("img");
+
+        image.src = miniature.currentSrc || miniature.src;
+        image.alt = miniature.alt;
+
+        legende.textContent =
+          (actif + 1) +
+          " / " +
+          liens.length +
+          " — " +
+          miniature.alt;
+      }
+
+      function changer(direction) {
+        for (let pas = 1; pas <= liens.length; pas += 1) {
+          const index = (
+            actif + direction * pas + liens.length
+          ) % liens.length;
+
+          if (disponible(index)) {
+            afficher(index);
+            return;
+          }
+        }
+      }
+
+      liens.forEach((lien, index) => {
+        lien.addEventListener("click", (evenement) => {
+          if (
+            evenement.ctrlKey ||
+            evenement.metaKey ||
+            evenement.shiftKey ||
+            evenement.altKey
+          ) {
+            return;
+          }
+
+          evenement.preventDefault();
+
+          if (!disponible(index)) {
+            return;
+          }
+
+          declencheur = lien;
+          afficher(index);
+          ancienOverflow = document.body.style.overflow;
+
+          dialogue.showModal();
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      fermer.addEventListener("click", () => {
+        dialogue.close();
+      });
+
+      document.querySelector("#visionneuse-precedent")
+        .addEventListener("click", () => changer(-1));
+
+      document.querySelector("#visionneuse-suivant")
+        .addEventListener("click", () => changer(1));
+
+      dialogue.addEventListener("keydown", (evenement) => {
+        if (evenement.key === "ArrowLeft") {
+          evenement.preventDefault();
+          changer(-1);
+        }
+
+        if (evenement.key === "ArrowRight") {
+          evenement.preventDefault();
+          changer(1);
+        }
+      });
+
+      dialogue.addEventListener("click", (evenement) => {
+        if (evenement.target !== dialogue) {
+          return;
+        }
+
+        const cadre = dialogue.getBoundingClientRect();
+
+        if (
+          evenement.clientX < cadre.left ||
+          evenement.clientX > cadre.right ||
+          evenement.clientY < cadre.top ||
+          evenement.clientY > cadre.bottom
+        ) {
+          dialogue.close();
+        }
+      });
+
+      dialogue.addEventListener("close", () => {
+        document.body.style.overflow = ancienOverflow;
+
+        if (declencheur) {
+          declencheur.focus({ preventScroll: true });
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
