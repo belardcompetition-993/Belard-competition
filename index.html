@@ -2691,19 +2691,23 @@
     <div class="dimension-grille">
 
       <article class="dimension-carte">
-        <div class="dimension-logo">
-          <a
-            href="https://www.funcup.net/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="Fun-cup-logo-france.png"
-              alt="Logo Fun Cup France"
-              loading="lazy"
-            >
-          </a>
-        </div>
+     <div class="dimension-carte-entete">
+  <h3>Fun Cup France</h3>
+
+  <a
+    class="dimension-petit-logo"
+    href="https://www.funcup.net/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visiter le site Fun Cup France"
+  >
+    <img
+      src="images/Fun-cup-logo-france.png"
+      alt="Logo Fun Cup France"
+      loading="lazy"
+    >
+  </a>
+</div>
 
         <h3>Fun Cup France</h3>
 
@@ -2727,19 +2731,23 @@
       </article>
 
       <article class="dimension-carte">
-        <div class="dimension-logo">
-          <a
-            href="https://www.funcup.be/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="Fun-cup-logo-belge.jpg"
-              alt="Logo Fun Cup Belgique"
-              loading="lazy"
-            >
-          </a>
-        </div>
+       <div class="dimension-carte-entete">
+  <h3>Fun Cup Belgique</h3>
+
+  <a
+    class="dimension-petit-logo"
+    href="https://www.funcup.be/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Visiter le site Fun Cup Belgique"
+  >
+    <img
+      src="Fun-cup-logo-belge.jpg"
+      alt="Logo Fun Cup Belgique"
+      loading="lazy"
+    >
+  </a>
+</div>
 
         <h3>Fun Cup Belgique</h3>
 
@@ -2793,6 +2801,57 @@
   </div>
 </section>
 
+/* TITRE À GAUCHE, PETIT LOGO À DROITE */
+
+#dimension-funcup .dimension-carte-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+#dimension-funcup .dimension-carte-entete h3 {
+  min-width: 0;
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+
+#dimension-funcup .dimension-petit-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 90px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+#dimension-funcup .dimension-petit-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Ajustement pour les petits écrans */
+@media (max-width: 400px) {
+  #dimension-funcup .dimension-carte-entete {
+    gap: 10px;
+  }
+
+  #dimension-funcup .dimension-carte-entete h3 {
+    font-size: 1.35rem;
+  }
+
+  #dimension-funcup .dimension-petit-logo {
+    flex-basis: 70px;
+    height: 30px;
+  }
+}
+    
 <style>
   #dimension-funcup {
     padding: 80px 0;
