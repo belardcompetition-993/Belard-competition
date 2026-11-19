@@ -3937,6 +3937,392 @@
       });
     })();
   </script>
+  
+<!-- MISE EN FORME DE LA SECTION MONTEZ À BORD -->
+  
+<script>
+(() => {
+  function mettreEnFormeBapteme() {
+    const section = document.getElementById("baptemes");
 
+    if (!section) return;
+
+    section.innerHTML = `
+      <div class="conteneur">
+        <div class="embarquement-entete">
+          <p class="etiquette">La course, de l’intérieur</p>
+
+          <h2 class="titre-section" id="titre-bapteme">
+            Montez à bord
+          </h2>
+        </div>
+
+        <div class="embarquement-grille">
+
+          <article class="embarquement-presentation">
+            <div class="embarquement-photo">
+              <img
+                src="images/bi-place.png"
+                alt="La Fun Cup biplace du team"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="embarquement-texte">
+              <h3>
+                Ne regardez plus la course.<br>
+                Vivez-la de l’intérieur.
+              </h3>
+
+              <p>
+                Amateur de sensations fortes, passionné de sport
+                automobile ou simplement curieux ? Prenez place
+                dans la Fun Cup biplace du team pour un baptême
+                passager ultra-immersif, au cœur de la course.
+              </p>
+
+              <p>
+                Accélérations, freinages, dépassements :
+                partagez l’intensité de la piste au plus près
+                de l’action. Une expérience à s’offrir ou à
+                offrir pour découvrir l’endurance autrement.
+              </p>
+            </div>
+          </article>
+
+          <aside
+            class="embarquement-offre"
+            aria-labelledby="embarquement-offre-titre"
+          >
+            <h3
+              class="embarquement-repere"
+              id="embarquement-offre-titre"
+            >
+              Votre baptême en Fun Cup
+            </h3>
+
+            <p class="embarquement-prix">
+              150 <span>€</span>
+            </p>
+
+            <p class="embarquement-duree">
+              20 à 25 minutes à bord
+            </p>
+
+            <p class="embarquement-passager">
+              En place passager dans une Fun Cup biplace
+            </p>
+
+            <ul class="embarquement-infos">
+              <li>
+                <span class="embarquement-check" aria-hidden="true">
+                  ✓
+                </span>
+                <div>
+                  <h4>Tout l’équipement est fourni</h4>
+                  <p>
+                    L’équipement nécessaire au baptême est
+                    mis à votre disposition.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <span class="embarquement-check" aria-hidden="true">
+                  ✓
+                </span>
+                <div>
+                  <h4>Une immersion en course</h4>
+                  <p>
+                    Découvrez les sensations de la piste
+                    au plus près de l’action.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <span class="embarquement-check" aria-hidden="true">
+                  ✓
+                </span>
+                <div>
+                  <h4>À vivre ou à offrir</h4>
+                  <p>
+                    Faites-vous plaisir ou partagez
+                    l’expérience avec un proche.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <span class="embarquement-check" aria-hidden="true">
+                  ✓
+                </span>
+                <div>
+                  <h4>Dates et circuits sur demande</h4>
+                  <p>
+                    Contactez-nous pour connaître
+                    les prochaines disponibilités.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="embarquement-contact">
+              <a
+                class="bouton bouton-bleu"
+                href="mailto:belard.competition@gmail.com?subject=Demande%20de%20bapt%C3%AAme%20Fun%20Cup%20biplace"
+              >
+                Je monte à bord
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <p class="embarquement-note">
+                Sous réserve des disponibilités et des conditions
+                de participation de l’écurie et de l’organisateur.
+                Modalités à confirmer avant réservation.
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    `;
+
+    const style = document.createElement("style");
+
+    style.textContent = `
+      #baptemes {
+        background:
+          radial-gradient(
+            ellipse at 100% 0%,
+            rgba(var(--rose-rgb), .08),
+            transparent 55%
+          ),
+          var(--fond);
+        border-block: 1px solid var(--bordure);
+      }
+
+      #baptemes .embarquement-entete {
+        margin-bottom: 40px;
+      }
+
+      #baptemes .embarquement-grille {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+        align-items: stretch;
+        gap: 26px;
+      }
+
+      #baptemes .embarquement-presentation {
+        min-width: 0;
+        overflow: hidden;
+        border: 1px solid var(--bordure);
+        border-radius: 16px;
+        background: var(--carte);
+      }
+
+      #baptemes .embarquement-photo {
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        background: #080c13;
+        border-bottom: 1px solid var(--bordure);
+      }
+
+      #baptemes .embarquement-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      #baptemes .embarquement-texte {
+        padding: clamp(24px, 3vw, 38px);
+      }
+
+      #baptemes .embarquement-texte h3 {
+        margin-bottom: 20px;
+        font-family: var(--police-titre);
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 800;
+        font-style: italic;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      #baptemes .embarquement-texte p {
+        color: var(--texte);
+        font-size: .96rem;
+        line-height: 1.85;
+      }
+
+      #baptemes .embarquement-texte p + p {
+        margin-top: 16px;
+      }
+
+      #baptemes .embarquement-offre {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        overflow: hidden;
+        padding: clamp(26px, 3vw, 40px);
+        border: 1px solid var(--bordure);
+        border-radius: 16px;
+        background: linear-gradient(145deg, #142035, #0d131d);
+      }
+
+      #baptemes .embarquement-offre::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--bleu) 65%,
+          var(--rose)
+        );
+      }
+
+      #baptemes .embarquement-repere {
+        margin-bottom: 28px;
+        color: var(--bleu-clair);
+        font-family: var(--police-titre);
+        font-size: .9rem;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+
+      #baptemes .embarquement-prix {
+        color: var(--blanc);
+        font-family: var(--police-titre);
+        font-size: clamp(5rem, 7vw, 7rem);
+        font-weight: 900;
+        font-style: italic;
+        line-height: .9;
+        letter-spacing: -.03em;
+      }
+
+      #baptemes .embarquement-prix span {
+        color: var(--bleu-clair);
+        font-size: .55em;
+      }
+
+      #baptemes .embarquement-duree {
+        margin-top: 20px;
+        color: var(--blanc);
+        font-family: var(--police-titre);
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      #baptemes .embarquement-passager {
+        margin-top: 6px;
+        color: var(--gris);
+        font-size: .8rem;
+        line-height: 1.6;
+      }
+
+      #baptemes .embarquement-infos {
+        display: grid;
+        gap: 20px;
+        margin: 28px 0;
+        padding: 26px 0;
+        border-block: 1px solid var(--bordure);
+        list-style: none;
+      }
+
+      #baptemes .embarquement-infos li {
+        display: grid;
+        grid-template-columns: 25px minmax(0, 1fr);
+        align-items: start;
+        gap: 12px;
+      }
+
+      #baptemes .embarquement-check {
+        display: grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        border: 1px solid var(--bordure);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .04);
+        color: var(--bleu-clair);
+        font-size: .8rem;
+      }
+
+      #baptemes .embarquement-infos h4 {
+        margin-bottom: 4px;
+        color: var(--blanc);
+        font-size: .9rem;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      #baptemes .embarquement-infos p {
+        color: var(--gris);
+        font-size: .81rem;
+        line-height: 1.65;
+      }
+
+      #baptemes .embarquement-contact {
+        margin-top: auto;
+      }
+
+      #baptemes .embarquement-contact .bouton {
+        width: 100%;
+      }
+
+      #baptemes .embarquement-note {
+        margin-top: 15px;
+        color: var(--gris);
+        font-size: .72rem;
+        line-height: 1.75;
+      }
+
+      @media (max-width: 850px) {
+        #baptemes .embarquement-grille {
+          grid-template-columns: 1fr;
+          gap: 22px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        #baptemes .embarquement-entete {
+          margin-bottom: 30px;
+        }
+
+        #baptemes .embarquement-texte,
+        #baptemes .embarquement-offre {
+          padding: 26px 22px;
+        }
+
+        #baptemes .embarquement-photo {
+          aspect-ratio: 4 / 3;
+        }
+
+        #baptemes .embarquement-prix {
+          font-size: 5.5rem;
+        }
+      }
+    `;
+
+    document.head.appendChild(style);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      mettreEnFormeBapteme,
+      { once: true }
+    );
+  } else {
+    mettreEnFormeBapteme();
+  }
+})();
+</script>
+  
 </body>
 </html>
