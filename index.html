@@ -2669,6 +2669,139 @@
       </div>
     </section>
 
+    <!-- CHAMPIONNAT FUN CUP -->
+
+    <section class="section fond-equipage" id="dimension-funcup">
+      <div class="conteneur">
+        <div class="dimension-championnat">
+          <p class="dimension-etiquette">
+            La dimension du championnat
+          </p>
+
+          <h3 class="dimension-titre">
+            Un championnat d’endurance fédérateur
+          </h3>
+
+          <p class="dimension-texte">
+            La Fun Cup réunit des équipes amateurs, professionnelles
+            et internationales autour d’une même voiture, lors de
+            courses d’endurance organisées à travers toute l'Europe
+            et à l’international. La saison 202è comprend notamment
+            des rendez-vous au à Madrid, à Dijon, à Spa-Francorchamps,
+            à Zandvoort, au Castellet, Zolder et à Portimão.
+          </p>
+
+          <ul class="dimension-chiffres">
+            <li>
+              <span>10</span>
+              <p>rendez-vous majeurs en 2027</p>
+            </li>
+
+            <li>
+              <span>120</span>
+              <p>voitures attendues aux 25 Heures de Spa</p>
+            </li>
+
+            <li>
+              <span>500+</span>
+              <p>pilotes engagés aux 25 Heures de Spa</p>
+            </li>
+
+            <li>
+              <span>20+</span>
+              <p>nationalités représentées</p>
+            </li>
+          </ul>
+
+          <p class="dimension-texte">
+            Des courses accessibles au public, une ambiance paddock
+            conviviale et une forte présence digitale : la Fun Cup
+            offre aux partenaires une visibilité terrain, humaine
+            et numérique, au cœur d’un championnat d’endurance
+            reconnu.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .dimension-championnat {
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: 28px;
+        border: 1px solid var(--bordure);
+        border-radius: 14px;
+        background: var(--carte);
+      }
+
+      .dimension-etiquette {
+        margin-bottom: 8px;
+        color: var(--bleu-clair);
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .dimension-titre {
+        margin-bottom: 12px;
+        font-family: var(--police-titre);
+        font-size: 1.6rem;
+        font-weight: 800;
+        font-style: italic;
+        text-transform: uppercase;
+      }
+
+      .dimension-texte {
+        color: var(--texte);
+        font-size: .88rem;
+        line-height: 1.65;
+      }
+
+      .dimension-chiffres {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .dimension-chiffres li {
+        padding: 16px 12px;
+        border: 1px solid var(--bordure);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, .03);
+        text-align: center;
+      }
+
+      .dimension-chiffres span {
+        display: block;
+        color: var(--blanc);
+        font-family: var(--police-titre);
+        font-size: 1.8rem;
+        font-weight: 900;
+        font-style: italic;
+      }
+
+      .dimension-chiffres p {
+        margin-top: 4px;
+        color: var(--gris);
+        font-size: .75rem;
+        line-height: 1.4;
+      }
+
+      @media (max-width: 750px) {
+        .dimension-championnat {
+          padding: 22px;
+        }
+
+        .dimension-chiffres {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+    
     <!-- PARTENAIRES -->
 
     <section
