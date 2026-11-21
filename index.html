@@ -2943,56 +2943,178 @@
   }
 </style>
     
-<!-- PARTENAIRES -->
+<!-- CARROUSEL AUTOMATIQUE DES PARTENAIRES -->
 
-<section
-  class="soutiens"
-  id="partenaires"
-  aria-labelledby="titre-partenaires"
->
-  <div class="conteneur">
+<style>
+  /* Fenêtre du carrousel */
+  #partenaires .belard-partenaires-fenetre {
+    width: 100%;
+    max-width: 830px;
+    margin-inline: auto;
+    padding-block: 6px;
+    overflow: hidden;
+  }
 
-    <div class="soutiens-entete">
-      <span class="soutiens-ligne" aria-hidden="true"></span>
-      <h2 id="titre-partenaires">Ils nous font rouler</h2>
-      <span class="soutiens-ligne" aria-hidden="true"></span>
-    </div>
+  /* Défilement : le style des cartes reste inchangé */
+  #partenaires .soutiens-grille.belard-partenaires-actifs {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 18px;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    will-change: transform;
+  }
 
-    <div class="soutiens-grille">
+  #partenaires .belard-partenaires-actifs > .soutien-carte {
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
 
-      <div class="soutien-carte soutien-logo soutien-jmk">
-        <img
-          src="images/logo-jmk.JPG"
-          alt="JMK Racing"
-        >
-      </div>
+  /* Bouton de pause */
+  #partenaires .belard-partenaires-commandes {
+    max-width: 830px;
+    margin: 10px auto 0;
+    text-align: right;
+  }
 
-      <div class="soutien-carte soutien-logo soutien-sp2">
-        <img
-          src="images/logo-sp2-marc.jpg"
-          alt="SP2 Marc"
-        >
-      </div>
+  #partenaires .belard-partenaires-bouton {
+    padding: 6px 11px;
+    border: 1px solid var(--bordure);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--texte);
+    font: inherit;
+    font-size: .75rem;
+    cursor: pointer;
+  }
+</style>
 
-      <div class="soutien-carte soutien-annonce">
-        <span class="soutien-annonce-repere">
-          La suite arrive
-        </span>
+<script>
+(() => {
+  function demarrerCarrousel() {
+    const grille = document.querySelector(
+      "#partenaires .soutiens-grille"
+    );
 
-        <span class="soutien-annonce-titre">
-          Prochainement.
-        </span>
+    if (!grille || grille.dataset.defilement) return;
 
-        <span class="soutien-annonce-texte">
-          De nouveaux partenaires<br>
-          rejoignent l’aventure.
-        </span>
-      </div>
+    const cartes = Array.from(grille.children);
+    if (!cartes.length) return;
 
-    </div>
+    grille.dataset.defilement = "actif";
 
-  </div>
-</section>
+    /* Création de la fenêtre sans modifier les cartes */
+    const fenetre = document.createElement("div");
+    fenetre.className = "belard-partenaires-fenetre";
+
+    grille.before(fenetre);
+    fenetre.appendChild(grille);
+
+    /* Copie des cartes pour assurer la boucle */
+    cartes.forEach((carte) => {
+      const copie = carte.cloneNode(true);
+
+      copie.setAttribute("aria-hidden", "true");
+      copie.setAttribute("inert", "");
+      copie.removeAttribute("id");
+
+      copie.querySelectorAll("[id]").forEach((element) => {
+        element.removeAttribute("id");
+      });
+
+      copie.querySelectorAll("img").forEach((image) => {
+        image.alt = "";
+      });
+
+      grille.appendChild(copie);
+    });
+
+    grille.classList.add("belard-partenaires-actifs");
+
+    let position = 0;
+    let longueur = 0;
+    let pause = false;
+    let dernierTemps = null;
+
+    /* Largeur adaptée à l’écran */
+    function dimensionner() {
+      const largeur = fenetre.clientWidth;
+      const espace = 18;
+
+      const largeurCarte = window.innerWidth <= 600
+        ? Math.min(260, largeur * .82)
+        : (largeur - espace * 2) / 3;
+
+      if (largeurCarte <= 0) return;
+
+      Array.from(grille.children).forEach((carte) => {
+        carte.style.flexBasis = largeurCarte + "px";
+        carte.style.width = largeurCarte + "px";
+      });
+
+      longueur = cartes.length * (largeurCarte + espace);
+      position = longueur ? position % longueur : 0;
+    }
+
+    dimensionner();
+    window.addEventListener("resize", dimensionner);
+
+    /* Commande de pause */
+    const commandes = document.createElement("div");
+    commandes.className = "belard-partenaires-commandes";
+
+    const bouton = document.createElement("button");
+    bouton.type = "button";
+    bouton.className = "belard-partenaires-bouton";
+    bouton.textContent = "Mettre en pause";
+    bouton.setAttribute("aria-pressed", "false");
+
+    bouton.addEventListener("click", () => {
+      pause = !pause;
+
+      bouton.textContent = pause
+        ? "Reprendre le défilement"
+        : "Mettre en pause";
+
+      bouton.setAttribute("aria-pressed", String(pause));
+    });
+
+    commandes.appendChild(bouton);
+    fenetre.after(commandes);
+
+    /* Démarrage automatique */
+    function avancer(temps) {
+      const ecart = dernierTemps === null
+        ? 0
+        : Math.min(temps - dernierTemps, 50);
+
+      dernierTemps = temps;
+
+      if (!pause && longueur > 0) {
+        position = (position + ecart * .045) % longueur;
+
+        grille.style.transform =
+          "translate3d(" + (-position) + "px, 0, 0)";
+      }
+
+      window.requestAnimationFrame(avancer);
+    }
+
+    window.requestAnimationFrame(avancer);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      demarrerCarrousel,
+      { once: true }
+    );
+  } else {
+    demarrerCarrousel();
+  }
+})();
+</script>
     
     <!-- SAISON -->
 
