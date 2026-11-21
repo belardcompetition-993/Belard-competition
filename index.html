@@ -4731,6 +4731,137 @@
   }
 })();
 </script>
+
+<!-- FONDS BLEU / ROSE / NOIR ET ACCUEIL SANS FILTRE -->
+<style>
+  /* ACCUEIL : PHOTO SANS VOILE NI FILTRE */
+
+  .accueil-image::before,
+  .accueil-image::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .accueil-image,
+  .accueil-image img {
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
+  }
+
+  /* ÉQUIPAGE : BLEU PLUS PRÉSENT */
+
+  #pilote {
+    background:
+      radial-gradient(
+        ellipse at 100% 0%,
+        rgba(229, 45, 136, .25),
+        transparent 60%
+      ),
+      linear-gradient(
+        135deg,
+        #124fc4 0%,
+        #153b80 50%,
+        #10264d 100%
+      ) !important;
+  }
+
+  /* FUN CUP : NOIR AVEC UNE ZONE ROSE VISIBLE */
+
+  #dimension-funcup {
+    background:
+      radial-gradient(
+        ellipse at 100% 20%,
+        rgba(229, 45, 136, .48),
+        transparent 65%
+      ),
+      linear-gradient(
+        120deg,
+        #080b12 15%,
+        #171326 100%
+      ) !important;
+  }
+
+  /* PARTENAIRES : BLEU NUIT */
+
+  #partenaires {
+    background:
+      linear-gradient(
+        110deg,
+        #10264d,
+        #153b80,
+        #10264d
+      ) !important;
+  }
+
+  /* SAISON : BLEU ÉLECTRIQUE VERS BLEU NUIT */
+
+  #saison {
+    background:
+      linear-gradient(
+        135deg,
+        #124fc4 0%,
+        #153b80 45%,
+        #10264d 100%
+      ) !important;
+  }
+
+  /* GALERIE : NOIR AVEC UN RAPPEL BLEU */
+
+  #galerie {
+    background:
+      radial-gradient(
+        ellipse at 100% 100%,
+        rgba(18, 79, 196, .32),
+        transparent 65%
+      ),
+      #080b12 !important;
+  }
+
+  /* MONTEZ À BORD : ROSE FRAMBOISE VERS BLEU NUIT */
+
+  #baptemes {
+    background:
+      linear-gradient(
+        120deg,
+        #8b205c 0%,
+        #54265e 42%,
+        #10264d 100%
+      ) !important;
+  }
+
+  /* PARTENARIAT ET MÉCÉNAT : BLEU AVEC UNE TOUCHE ROSE */
+
+  #sponsoring {
+    background:
+      radial-gradient(
+        ellipse at 100% 80%,
+        rgba(229, 45, 136, .38),
+        transparent 60%
+      ),
+      linear-gradient(
+        135deg,
+        #124fc4,
+        #10264d
+      ) !important;
+  }
+
+  /* PIED DE PAGE : NOIR */
+
+  .pied-page {
+    background: #080b12 !important;
+  }
+
+  /* PETITS TITRES CLAIRS SUR LES FONDS COLORÉS */
+
+  #pilote .etiquette,
+  #saison .etiquette,
+  #baptemes .etiquette,
+  #sponsoring .etiquette,
+  #partenaires .soutiens-entete h2 {
+    color: #f7f9ff;
+  }
+</style>
   
 </body>
 </html>
