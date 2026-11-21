@@ -2943,158 +2943,56 @@
   }
 </style>
     
-<!-- DÉFILEMENT DES PARTENAIRES : APPARENCE CONSERVÉE -->
+<!-- PARTENAIRES -->
 
-<script>
-(() => {
-  function initialiserPartenaires() {
-    const section = document.querySelector("#partenaires");
-    const grille = section?.querySelector(".soutiens-grille");
+<section
+  class="soutiens"
+  id="partenaires"
+  aria-labelledby="titre-partenaires"
+>
+  <div class="conteneur">
 
-    if (!grille || grille.dataset.carrouselActif) return;
-    grille.dataset.carrouselActif = "true";
+    <div class="soutiens-entete">
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+      <h2 id="titre-partenaires">Ils nous font rouler</h2>
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+    </div>
 
-    const cartes = Array.from(grille.children);
-    if (!cartes.length) return;
+    <div class="soutiens-grille">
 
-    /* On mémorise la largeur actuelle des cartes. */
-    const largeurInitiale = cartes[0].getBoundingClientRect().width;
-    const style = getComputedStyle(grille);
-    const espace = parseFloat(style.columnGap) || 20;
-    const largeurZoneInitiale = grille.clientWidth;
+      <div class="soutien-carte soutien-logo soutien-jmk">
+        <img
+          src="images/logo-jmk.JPG"
+          alt="JMK Racing"
+        >
+      </div>
 
-    const colonnes = Math.max(
-      1,
-      Math.round(
-        (largeurZoneInitiale + espace) /
-        (largeurInitiale + espace)
-      )
-    );
+      <div class="soutien-carte soutien-logo soutien-sp2">
+        <img
+          src="images/logo-sp2-marc.jpg"
+          alt="SP2 Marc"
+        >
+      </div>
 
-    /* Seule la disposition change, pas le style des cartes. */
-    grille.style.display = "flex";
-    grille.style.flexWrap = "nowrap";
-    grille.style.gap = espace + "px";
-    grille.style.overflowX = "auto";
-    grille.style.scrollBehavior = "auto";
-    grille.style.scrollbarWidth = "none";
-    grille.style.direction = "ltr";
+      <div class="soutien-carte soutien-annonce">
+        <span class="soutien-annonce-repere">
+          La suite arrive
+        </span>
 
-    /* Copie nécessaire pour assurer la boucle. */
-    cartes.forEach((carte) => {
-      const copie = carte.cloneNode(true);
+        <span class="soutien-annonce-titre">
+          Prochainement.
+        </span>
 
-      copie.setAttribute("aria-hidden", "true");
-      copie.setAttribute("inert", "");
-      copie.removeAttribute("id");
+        <span class="soutien-annonce-texte">
+          De nouveaux partenaires<br>
+          rejoignent l’aventure.
+        </span>
+      </div>
 
-      copie.querySelectorAll("[id]").forEach((element) => {
-        element.removeAttribute("id");
-      });
+    </div>
 
-      grille.appendChild(copie);
-    });
-
-    let distanceBoucle = 0;
-    let position = 0;
-
-    function ajusterLargeurs() {
-      const largeurZone = grille.clientWidth;
-      const nombreVisible = largeurZone < 600 ? 1 : colonnes;
-
-      const largeurCarte =
-        (largeurZone - espace * (nombreVisible - 1)) /
-        nombreVisible;
-
-      Array.from(grille.children).forEach((carte) => {
-        carte.style.boxSizing = "border-box";
-        carte.style.flex = "0 0 " + largeurCarte + "px";
-        carte.style.width = largeurCarte + "px";
-        carte.style.minWidth = "0";
-      });
-
-      distanceBoucle = cartes.length * (largeurCarte + espace);
-      position = 0;
-      grille.scrollLeft = 0;
-    }
-
-    ajusterLargeurs();
-    new ResizeObserver(ajusterLargeurs).observe(grille);
-
-    /* Bouton de pause sous les cartes. */
-    const commandes = document.createElement("div");
-    commandes.style.cssText =
-      "display:flex;justify-content:flex-end;margin-top:12px;";
-
-    const bouton = document.createElement("button");
-    bouton.type = "button";
-    bouton.textContent = "Mettre en pause";
-    bouton.setAttribute("aria-pressed", "false");
-
-    bouton.style.cssText =
-      "padding:7px 12px;border:1px solid var(--bordure,#29354a);" +
-      "border-radius:6px;background:transparent;color:inherit;" +
-      "font:inherit;font-size:12px;cursor:pointer;";
-
-    commandes.appendChild(bouton);
-    grille.after(commandes);
-
-    const mouvementReduit = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
-
-    let pause = mouvementReduit.matches;
-
-    function actualiserBouton() {
-      bouton.textContent = pause
-        ? "Lancer le défilement"
-        : "Mettre en pause";
-
-      bouton.setAttribute("aria-pressed", String(pause));
-    }
-
-    actualiserBouton();
-
-    bouton.addEventListener("click", () => {
-      pause = !pause;
-      actualiserBouton();
-    });
-
-    mouvementReduit.addEventListener("change", (event) => {
-      pause = event.matches;
-      actualiserBouton();
-    });
-
-    let dernierTemps = null;
-
-    function animer(temps) {
-      const duree = dernierTemps === null
-        ? 0
-        : Math.min(temps - dernierTemps, 50);
-
-      dernierTemps = temps;
-
-      if (!pause && distanceBoucle > 0) {
-        position = (position + duree * 0.035) % distanceBoucle;
-        grille.scrollLeft = position;
-      }
-
-      requestAnimationFrame(animer);
-    }
-
-    requestAnimationFrame(animer);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      initialiserPartenaires
-    );
-  } else {
-    initialiserPartenaires();
-  }
-})();
-</script>
+  </div>
+</section>
     
     <!-- SAISON -->
 
