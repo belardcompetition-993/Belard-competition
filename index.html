@@ -2952,174 +2952,56 @@
   }
 </style>
     
-<!-- CARROUSEL AUTOMATIQUE DES PARTENAIRES -->
+<!-- PARTENAIRES -->
 
-<style>
-  /* On conserve la grille à son emplacement d’origine. */
-  #partenaires .soutiens-grille.carrousel-simple {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 18px;
-    width: 100%;
-    max-width: 830px;
-    margin-inline: auto;
-    overflow-x: hidden;
-    scroll-behavior: auto;
-    scroll-snap-type: none;
-    direction: ltr;
-  }
+<section
+  class="soutiens"
+  id="partenaires"
+  aria-labelledby="titre-partenaires"
+>
+  <div class="conteneur">
 
-  /* Les fonds, images, bordures et arrondis restent inchangés. */
-  #partenaires .carrousel-simple > .soutien-carte {
-    flex-grow: 0;
-    flex-shrink: 0;
-    box-sizing: border-box;
-  }
+    <div class="soutiens-entete">
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+      <h2 id="titre-partenaires">Ils nous font rouler</h2>
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+    </div>
 
-  #partenaires .carrousel-commandes {
-    max-width: 830px;
-    margin: 12px auto 0;
-    text-align: right;
-  }
+    <div class="soutiens-grille">
 
-  #partenaires .carrousel-bouton {
-    padding: 6px 12px;
-    border: 1px solid var(--bordure);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--texte);
-    font: inherit;
-    font-size: .75rem;
-    cursor: pointer;
-  }
-</style>
+      <div class="soutien-carte soutien-logo soutien-jmk">
+        <img
+          src="images/logo-jmk.JPG"
+          alt="JMK Racing"
+        >
+      </div>
 
-<script>
-(() => {
-  function initialiserCarrousel() {
-    const grille = document.querySelector(
-      "#partenaires .soutiens-grille"
-    );
+      <div class="soutien-carte soutien-logo soutien-sp2">
+        <img
+          src="images/logo-sp2-marc.jpg"
+          alt="SP2 Marc"
+        >
+      </div>
 
-    if (!grille || grille.dataset.carrouselSimple) return;
+      <div class="soutien-carte soutien-annonce">
+        <span class="soutien-annonce-repere">
+          La suite arrive
+        </span>
 
-    const cartes = Array.from(grille.children);
-    if (!cartes.length) return;
+        <span class="soutien-annonce-titre">
+          Prochainement.
+        </span>
 
-    grille.dataset.carrouselSimple = "oui";
-    grille.classList.add("carrousel-simple");
+        <span class="soutien-annonce-texte">
+          De nouveaux partenaires<br>
+          rejoignent l’aventure.
+        </span>
+      </div>
 
-    /* Une seule copie des trois cartes pour la boucle. */
-    cartes.forEach((carte) => {
-      const copie = carte.cloneNode(true);
+    </div>
 
-      copie.setAttribute("aria-hidden", "true");
-      copie.setAttribute("inert", "");
-      copie.removeAttribute("id");
-
-      copie.querySelectorAll("[id]").forEach((element) => {
-        element.removeAttribute("id");
-      });
-
-      copie.querySelectorAll("img").forEach((image) => {
-        image.alt = "";
-      });
-
-      grille.appendChild(copie);
-    });
-
-    let distanceBoucle = 0;
-    let position = 0;
-    let enPause = false;
-    let dernierTemps = null;
-
-    function ajusterDimensions() {
-      const largeur = grille.clientWidth;
-      if (largeur <= 0) return;
-
-      const espace = 18;
-      const largeurCarte = window.innerWidth <= 600
-        ? Math.min(260, largeur * 0.82)
-        : (largeur - espace * 2) / 3;
-
-      Array.from(grille.children).forEach((carte) => {
-        carte.style.flexBasis = largeurCarte + "px";
-        carte.style.width = largeurCarte + "px";
-      });
-
-      /* Mesure réelle entre la première carte et sa copie. */
-      const premiere = grille.children[0];
-      const premiereCopie = grille.children[cartes.length];
-
-      distanceBoucle =
-        premiereCopie.getBoundingClientRect().left -
-        premiere.getBoundingClientRect().left;
-
-      position = 0;
-      grille.scrollLeft = 0;
-    }
-
-    ajusterDimensions();
-
-    if ("ResizeObserver" in window) {
-      const observateur = new ResizeObserver(ajusterDimensions);
-      observateur.observe(grille);
-    } else {
-      window.addEventListener("resize", ajusterDimensions);
-    }
-
-    /* Le défilement démarre sans cliquer. */
-    const commandes = document.createElement("div");
-    commandes.className = "carrousel-commandes";
-
-    const bouton = document.createElement("button");
-    bouton.type = "button";
-    bouton.className = "carrousel-bouton";
-    bouton.textContent = "Mettre en pause";
-    bouton.setAttribute("aria-pressed", "false");
-
-    bouton.addEventListener("click", () => {
-      enPause = !enPause;
-
-      bouton.textContent = enPause
-        ? "Reprendre le défilement"
-        : "Mettre en pause";
-
-      bouton.setAttribute("aria-pressed", String(enPause));
-    });
-
-    commandes.appendChild(bouton);
-    grille.after(commandes);
-
-    function defiler(temps) {
-      const duree = dernierTemps === null
-        ? 0
-        : Math.min(temps - dernierTemps, 50);
-
-      dernierTemps = temps;
-
-      if (!enPause && distanceBoucle > 0) {
-        position = (position + duree * 0.04) % distanceBoucle;
-        grille.scrollLeft = position;
-      }
-
-      requestAnimationFrame(defiler);
-    }
-
-    requestAnimationFrame(defiler);
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      initialiserCarrousel,
-      { once: true }
-    );
-  } else {
-    initialiserCarrousel();
-  }
-})();
-</script>
+  </div>
+</section>
     
     <!-- SAISON -->
 
