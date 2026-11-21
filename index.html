@@ -2943,7 +2943,7 @@
   }
 </style>
     
-   <!-- PARTENAIRES : CARROUSEL AUTOMATIQUE -->
+ <!-- PARTENAIRES : LOGOS DÉFILANTS SANS ENCADRÉS -->
 
 <section
   class="soutiens"
@@ -2958,36 +2958,73 @@
       <span class="soutiens-ligne" aria-hidden="true"></span>
     </div>
 
-    <div class="partenaires-defilement">
+    <div class="belard-logos">
 
-      <div class="partenaires-piste">
+      <input
+        type="checkbox"
+        id="belard-logos-pause"
+        class="belard-logos-case"
+      >
 
-        <!-- GROUPE ORIGINAL -->
-        <div class="partenaires-groupe">
+      <label
+        for="belard-logos-pause"
+        class="belard-logos-commande"
+      >
+        Mettre le défilement en pause
+      </label>
 
-          <div class="partenaires-vignette">
-            <img
-              src="images/logo-jmk.JPG"
-              alt="JMK Racing"
-              loading="lazy"
-            >
+      <div class="belard-logos-fenetre">
+
+        <div class="belard-logos-piste">
+
+          <!-- PREMIER GROUPE -->
+          <div class="belard-logos-groupe">
+
+            <div class="belard-logo-element">
+              <img
+                src="images/logo-jmk.JPG"
+                alt="JMK Racing"
+              >
+            </div>
+
+            <div class="belard-logo-element">
+              <img
+                src="images/logo-sp2-marc.jpg"
+                alt="SP2 Marc"
+              >
+            </div>
+
+            <div class="belard-logo-element belard-logo-annonce">
+              <span>LA SUITE ARRIVE</span>
+              <strong>Prochainement.</strong>
+              <p>De nouveaux partenaires rejoignent l’aventure.</p>
+            </div>
+
           </div>
 
-          <div class="partenaires-vignette">
-            <img
-              src="images/logo-sp2-marc.jpg"
-              alt="SP2 Marc"
-              loading="lazy"
-            >
-          </div>
+          <!-- COPIE POUR UNE BOUCLE CONTINUE -->
+          <div class="belard-logos-groupe" aria-hidden="true">
 
-          <div class="partenaires-vignette partenaires-attente">
-            <span>LA SUITE ARRIVE</span>
-            <strong>Prochainement.</strong>
-            <p>
-              De nouveaux partenaires<br>
-              rejoignent l’aventure.
-            </p>
+            <div class="belard-logo-element">
+              <img
+                src="images/logo-jmk.JPG"
+                alt=""
+              >
+            </div>
+
+            <div class="belard-logo-element">
+              <img
+                src="images/logo-sp2-marc.jpg"
+                alt=""
+              >
+            </div>
+
+            <div class="belard-logo-element belard-logo-annonce">
+              <span>LA SUITE ARRIVE</span>
+              <strong>Prochainement.</strong>
+              <p>De nouveaux partenaires rejoignent l’aventure.</p>
+            </div>
+
           </div>
 
         </div>
@@ -2996,210 +3033,167 @@
 
     </div>
 
-    <div class="partenaires-commandes">
-      <button
-        class="partenaires-pause"
-        type="button"
-        aria-pressed="false"
-      >
-        Mettre en pause
-      </button>
-    </div>
-
   </div>
 </section>
 
 <style>
-  /* FENÊTRE DU CARROUSEL */
+  /* ZONE DU BANDEAU */
 
-  #partenaires .partenaires-defilement {
+  #partenaires .belard-logos {
+    margin-top: 26px;
+  }
+
+  #partenaires .belard-logos-fenetre {
+    width: 100%;
     overflow: hidden;
-    width: 100%;
-    padding: 12px 0;
+    margin-top: 18px;
+    padding: 15px 0;
   }
 
-  #partenaires .partenaires-piste {
+  /* DEUX GROUPES IDENTIQUES POUR LA BOUCLE */
+
+  #partenaires .belard-logos-piste {
     display: flex;
-    width: 100%;
+    width: max-content;
+    animation: belard-logos-defiler 22s linear infinite;
   }
 
-  /* CHAQUE GROUPE DÉFILE DE SA PROPRE LARGEUR */
-
-  #partenaires .partenaires-groupe {
+  #partenaires .belard-logos-groupe {
     display: flex;
-    align-items: stretch;
-    flex: 0 0 100%;
-    min-width: 780px;
-    gap: 24px;
-    padding-right: 24px;
-    box-sizing: border-box;
-    animation: partenaires-glissement 24s linear infinite;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 70px;
+    padding-right: 70px;
   }
 
-  /* CARTES DES LOGOS */
+  /* LOGOS : AUCUN ENCADRÉ */
 
-  #partenaires .partenaires-vignette {
+  #partenaires .belard-logo-element {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 0;
-    min-width: 0;
-    height: 145px;
-    padding: 18px 24px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border: 1px solid var(--bordure, #29354a);
-    border-radius: 14px;
-    background: linear-gradient(135deg, #142035, #0c121c);
+    flex: 0 0 260px;
+    width: 260px;
+    height: 130px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  #partenaires .partenaires-vignette img {
+  #partenaires .belard-logo-element img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 115px;
     object-fit: contain;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  /* CARTE PROCHAINEMENT */
+  /* ANNONCE DES FUTURS PARTENAIRES */
 
-  #partenaires .partenaires-attente {
+  #partenaires .belard-logo-annonce {
     flex-direction: column;
-    text-align: center;
     gap: 7px;
+    text-align: center;
   }
 
-  #partenaires .partenaires-attente > span {
+  #partenaires .belard-logo-annonce > span {
     color: var(--bleu-clair, #76acff);
     font-family: var(--police-titre);
-    font-size: .7rem;
+    font-size: .75rem;
     font-weight: 700;
     letter-spacing: .14em;
   }
 
-  #partenaires .partenaires-attente strong {
+  #partenaires .belard-logo-annonce strong {
     color: #ffffff;
     font-family: var(--police-titre);
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     line-height: 1.1;
   }
 
-  #partenaires .partenaires-attente p {
+  #partenaires .belard-logo-annonce p {
     margin: 0;
     color: #bdc6d3;
-    font-size: .75rem;
+    font-size: .8rem;
     line-height: 1.5;
   }
 
-  /* ANIMATION EN BOUCLE */
+  /* MOUVEMENT DE DROITE À GAUCHE */
 
-  @keyframes partenaires-glissement {
+  @keyframes belard-logos-defiler {
     from {
       transform: translateX(0);
     }
 
     to {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
     }
   }
 
-  /* PAUSE AU SURVOL ET AVEC LE BOUTON */
+  /* COMMANDE DE PAUSE, SANS JAVASCRIPT */
 
-  #partenaires .partenaires-defilement:hover .partenaires-groupe,
-  #partenaires .partenaires-defilement.en-pause .partenaires-groupe {
-    animation-play-state: paused;
+  #partenaires .belard-logos-case {
+    accent-color: #2962ff;
+    vertical-align: middle;
   }
 
-  #partenaires .partenaires-commandes {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 8px;
-  }
-
-  #partenaires .partenaires-pause {
-    padding: 8px 12px;
-    border: 1px solid var(--bordure, #29354a);
-    border-radius: 7px;
-    background: transparent;
+  #partenaires .belard-logos-commande {
+    margin-left: 5px;
     color: #bdc6d3;
-    font: inherit;
     font-size: .75rem;
     cursor: pointer;
   }
 
-  #partenaires .partenaires-pause:hover {
-    color: #ffffff;
-    border-color: #76acff;
-  }
-
-  #partenaires .partenaires-pause:focus-visible {
-    outline: 2px solid #76acff;
-    outline-offset: 4px;
+  #partenaires .belard-logos-case:checked
+  ~ .belard-logos-fenetre .belard-logos-piste {
+    animation-play-state: paused;
   }
 
   /* MOBILE */
 
   @media (max-width: 600px) {
-    #partenaires .partenaires-groupe {
-      min-width: 660px;
-      gap: 16px;
-      padding-right: 16px;
+    #partenaires .belard-logos-groupe {
+      gap: 40px;
+      padding-right: 40px;
     }
 
-    #partenaires .partenaires-vignette {
-      height: 125px;
-      padding: 15px;
+    #partenaires .belard-logo-element {
+      flex-basis: 210px;
+      width: 210px;
+      height: 110px;
+    }
+
+    #partenaires .belard-logo-element img {
+      max-height: 95px;
     }
   }
 
-  /* RESPECT DU RÉGLAGE DE RÉDUCTION DES ANIMATIONS */
+  /* ACCESSIBILITÉ : RÉDUCTION DES MOUVEMENTS */
 
   @media (prefers-reduced-motion: reduce) {
-    #partenaires .partenaires-groupe {
+    #partenaires .belard-logos-piste {
       animation: none;
     }
 
-    #partenaires .partenaires-defilement {
+    #partenaires .belard-logos-fenetre {
       overflow-x: auto;
     }
 
-    #partenaires .partenaires-groupe[aria-hidden="true"],
-    #partenaires .partenaires-commandes {
+    #partenaires .belard-logos-groupe[aria-hidden="true"],
+    #partenaires .belard-logos-case,
+    #partenaires .belard-logos-commande {
       display: none;
     }
   }
 </style>
-
-<script>
-  (() => {
-    const section = document.querySelector("#partenaires");
-    if (!section) return;
-
-    const piste = section.querySelector(".partenaires-piste");
-    const groupe = section.querySelector(".partenaires-groupe");
-    const fenetre = section.querySelector(".partenaires-defilement");
-    const bouton = section.querySelector(".partenaires-pause");
-
-    if (!piste || !groupe || !fenetre || !bouton) return;
-
-    const copie = groupe.cloneNode(true);
-    copie.setAttribute("aria-hidden", "true");
-
-    copie.querySelectorAll("img").forEach((image) => {
-      image.alt = "";
-    });
-
-    piste.appendChild(copie);
-
-    bouton.addEventListener("click", () => {
-      const pause = fenetre.classList.toggle("en-pause");
-
-      bouton.setAttribute("aria-pressed", String(pause));
-      bouton.textContent = pause
-        ? "Reprendre le défilement"
-        : "Mettre en pause";
-    });
-  })();
-</script>
 
     <!-- SAISON -->
 
