@@ -2683,9 +2683,9 @@
   id="ambitions-2027"
   aria-labelledby="titre-ambitions-2027"
 >
+
   <style>
-    /* Ajustements limités au projet 2027.
-       Le reste utilise le style existant de l’équipage. */
+    /* SECTION */
 
     #ambitions-2027 {
       padding: 45px 0;
@@ -2696,20 +2696,27 @@
       --accent: #6389cd;
       --accent-clair: #b2c8ed;
 
+      display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      align-items: stretch;
       margin-top: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(155, 189, 255, 0.1);
+      border-radius: 16px;
+      background: #101722;
     }
 
-    /* Calendrier entier, sans recadrage. */
+    /* IMAGE BORD À BORD */
 
     #ambitions-2027 .projet27-photo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: relative;
+      grid-column: 1;
+      grid-row: 1;
       min-width: 0;
       min-height: 0;
       height: auto;
-      padding: 20px;
+      padding: 0;
+      overflow: hidden;
       background: #111a29;
     }
 
@@ -2718,35 +2725,47 @@
     }
 
     #ambitions-2027 .projet27-photo a {
+      position: absolute;
+      inset: 0;
       display: block;
-      width: 100%;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
+      border: 0;
+      border-radius: 0;
       line-height: 0;
-      border: 1px solid rgba(155, 189, 255, 0.18);
-      border-radius: 8px;
-    }
-
-    #ambitions-2027 .projet27-photo a:focus-visible {
-      outline: 3px solid #b2c8ed;
-      outline-offset: 4px;
     }
 
     #ambitions-2027 .projet27-photo img {
-      position: static;
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       max-width: 100%;
-      height: auto;
+      height: 100%;
       margin: 0;
-      object-fit: contain;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      object-fit: cover;
+      object-position: center;
       filter: none;
       opacity: 1;
     }
 
-    /* Même présentation compacte que les fiches équipage. */
+    #ambitions-2027 .projet27-photo a:focus-visible {
+      outline: 3px solid #b2c8ed;
+      outline-offset: -4px;
+    }
+
+    /* CONTENU — MÊME ESPRIT QUE L’ÉQUIPAGE */
 
     #ambitions-2027 .portrait-contenu {
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
       padding: 26px 30px;
+      background: linear-gradient(135deg, #121c2a, #0d131d);
     }
 
     #ambitions-2027 .portrait-repere {
@@ -2789,7 +2808,7 @@
       margin-top: 12px;
     }
 
-    /* Objectif intégré au texte, sans nouvel encadré. */
+    /* OBJECTIF */
 
     #ambitions-2027 .projet27-objectif {
       margin: 20px 0 0;
@@ -2819,6 +2838,8 @@
       text-transform: uppercase;
     }
 
+    /* BOUTONS */
+
     #ambitions-2027 .projet27-actions {
       display: flex;
       flex-wrap: wrap;
@@ -2841,6 +2862,8 @@
       line-height: 1.6;
     }
 
+    /* TABLETTE ET MOBILE : IMAGE ENTIÈRE AU-DESSUS */
+
     @media (max-width: 1000px) {
       #ambitions-2027 .projet27-portrait {
         grid-template-columns: 1fr;
@@ -2849,8 +2872,18 @@
       #ambitions-2027 .projet27-photo {
         grid-column: 1;
         grid-row: 1;
-        height: auto;
         min-height: 0;
+        height: auto;
+      }
+
+      #ambitions-2027 .projet27-photo a {
+        position: static;
+      }
+
+      #ambitions-2027 .projet27-photo img {
+        position: static;
+        height: auto;
+        object-fit: contain;
       }
 
       #ambitions-2027 .portrait-contenu {
@@ -2862,10 +2895,6 @@
     @media (max-width: 600px) {
       #ambitions-2027 {
         padding: 30px 0;
-      }
-
-      #ambitions-2027 .projet27-photo {
-        padding: 12px;
       }
 
       #ambitions-2027 .portrait-contenu {
@@ -2889,8 +2918,6 @@
 
   <div class="conteneur">
 
-    <!-- MÊME STYLE DE TITRE QUE L’ÉQUIPAGE -->
-
     <p class="etiquette">
       La prochaine étape
     </p>
@@ -2898,8 +2925,6 @@
     <h2 class="titre-section" id="titre-ambitions-2027">
       Saison 2027
     </h2>
-
-    <!-- UNE SEULE FICHE, COMME LE PILOTE ET LE TEAM -->
 
     <article
       class="portrait projet27-portrait"
@@ -2913,7 +2938,7 @@
           href="images/calendrier-2027.png"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Agrandir le calendrier 2027 dans un nouvel onglet"
+          aria-label="Voir le calendrier 2027 entier dans un nouvel onglet"
         >
           <img
             src="images/calendrier-2027.png"
