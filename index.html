@@ -3114,10 +3114,10 @@
   #partenaires .partenaires-boucle-groupe {
     display: flex;
     align-items: stretch;
-    justify-content: space-around;
+    justify-content: flex-start;
 
-    flex: 0 0 100%;
-    min-width: 848px;
+    flex: 0 0 auto;
+    min-width: 0;
 
     gap: var(--espace-partenaires);
     padding-right: var(--espace-partenaires);
@@ -3192,17 +3192,13 @@
 
   /* MOBILE */
 
-  @media (max-width: 600px) {
-    #partenaires .partenaires-boucle-groupe {
-      flex-basis: 720px;
-      min-width: 720px;
-    }
-
-    #partenaires .partenaires-boucle-groupe > .soutien-carte {
-      flex-basis: 228px;
-      width: 228px;
-    }
+@media (max-width: 600px) {
+  #partenaires .partenaires-boucle-groupe > .soutien-carte {
+    flex-basis: 228px;
+    width: 228px;
   }
+}
+  
 </style>
     
     <!-- SAISON -->
