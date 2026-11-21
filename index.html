@@ -4732,7 +4732,7 @@
 })();
 </script>
 
-<!-- FONDS BLEU / ROSE FONDUS ET ACCUEIL SANS FILTRE -->
+<!-- FONDS DIFFÉRENCIÉS BLEU / ROSE ET ACCUEIL SANS FILTRE -->
 <style>
   /* ACCUEIL : PHOTO SANS VOILE NI FILTRE */
 
@@ -4750,181 +4750,138 @@
   }
 
   /*
-    BASE COMMUNE AUX SECTIONS
-    Les couleurs apparaissent au centre et s’effacent
-    progressivement en haut et en bas.
+    Chaque section possède une teinte dominante.
+    Les couleurs de début et de fin se correspondent
+    pour conserver des transitions progressives.
   */
 
-  #pilote,
-  #dimension-funcup,
-  #partenaires,
-  #saison,
-  #galerie,
-  #baptemes,
-  #sponsoring {
-    background-color: #101722 !important;
-    background-repeat: no-repeat !important;
-  }
-
-  /* ÉQUIPAGE : BLEU DOUX AVEC UN RAPPEL ROSE */
+  /* ÉQUIPAGE : BLEU ARDOISE PLUS MARQUÉ */
 
   #pilote {
     background:
+      radial-gradient(
+        ellipse at 10% 40%,
+        rgba(79, 119, 174, .30),
+        transparent 75%
+      ),
       linear-gradient(
         to bottom,
         #101722 0%,
-        transparent 22%,
-        transparent 78%,
-        #101722 100%
-      ),
-      radial-gradient(
-        ellipse at 15% 45%,
-        rgba(65, 101, 151, .46),
-        transparent 75%
-      ),
-      radial-gradient(
-        ellipse at 100% 65%,
-        rgba(128, 65, 103, .19),
-        transparent 70%
-      ),
-      #101722 !important;
+        #203858 25%,
+        #203858 72%,
+        #1b2031 100%
+      ) !important;
   }
 
-  /* FUN CUP : ROSE POUDRÉ DIFFUS SUR BLEU NUIT */
+  /* FUN CUP : ROSE PRUNE, SANS ÊTRE FLASHY */
 
   #dimension-funcup {
     background:
-      linear-gradient(
-        to bottom,
-        #101722 0%,
-        transparent 25%,
-        transparent 75%,
-        #101722 100%
-      ),
       radial-gradient(
-        ellipse at 85% 50%,
-        rgba(145, 71, 111, .30),
-        transparent 78%
-      ),
-      radial-gradient(
-        ellipse at 0% 55%,
-        rgba(60, 91, 137, .20),
+        ellipse at 95% 45%,
+        rgba(161, 79, 126, .27),
         transparent 75%
       ),
-      #101722 !important;
+      linear-gradient(
+        to bottom,
+        #1b2031 0%,
+        #352437 25%,
+        #352437 72%,
+        #172032 100%
+      ) !important;
   }
 
-  /* PARTENAIRES : HALO BLEU DISCRET */
+  /* PARTENAIRES : BANDEAU BLEU NUIT PLUS SOMBRE */
 
   #partenaires {
     background:
-      linear-gradient(
-        to bottom,
-        #101722 0%,
-        transparent 35%,
-        transparent 65%,
-        #101722 100%
-      ),
       radial-gradient(
         ellipse at 50% 50%,
-        rgba(65, 101, 151, .28),
+        rgba(66, 105, 157, .18),
         transparent 80%
       ),
-      #101722 !important;
+      linear-gradient(
+        to bottom,
+        #172032 0%,
+        #111c2c 25%,
+        #111c2c 75%,
+        #17283e 100%
+      ) !important;
   }
 
-  /* SAISON : BLEU ARDOISE FONDU */
+  /* SAISON : BLEU PLUS PRÉSENT */
 
   #saison {
     background:
-      linear-gradient(
-        to bottom,
-        #101722 0%,
-        transparent 20%,
-        transparent 80%,
-        #101722 100%
-      ),
       radial-gradient(
-        ellipse at 80% 45%,
-        rgba(65, 101, 151, .46),
+        ellipse at 85% 45%,
+        rgba(78, 119, 176, .28),
         transparent 80%
       ),
-      radial-gradient(
-        ellipse at 0% 70%,
-        rgba(116, 65, 101, .16),
-        transparent 70%
-      ),
-      #101722 !important;
+      linear-gradient(
+        to bottom,
+        #17283e 0%,
+        #243f61 23%,
+        #243f61 75%,
+        #142033 100%
+      ) !important;
   }
 
-  /* GALERIE : FOND SOBRE POUR VALORISER LES PHOTOS */
+  /* GALERIE : RETOUR AU BLEU-NOIR POUR LES PHOTOS */
 
   #galerie {
     background:
+      radial-gradient(
+        ellipse at 15% 50%,
+        rgba(58, 83, 123, .15),
+        transparent 75%
+      ),
       linear-gradient(
         to bottom,
-        #101722 0%,
-        transparent 25%,
-        transparent 75%,
-        #101722 100%
-      ),
-      radial-gradient(
-        ellipse at 30% 50%,
-        rgba(53, 79, 118, .24),
-        transparent 80%
-      ),
-      #101722 !important;
+        #142033 0%,
+        #0d1420 25%,
+        #0d1420 75%,
+        #211c2b 100%
+      ) !important;
   }
 
-  /* MONTEZ À BORD : FRAMBOISE ATTÉNUÉ ET BLEU DOUX */
+  /* MONTEZ À BORD : FRAMBOISE SOURD PLUS VISIBLE */
 
   #baptemes {
     background:
+      radial-gradient(
+        ellipse at 10% 45%,
+        rgba(168, 83, 128, .24),
+        transparent 78%
+      ),
       linear-gradient(
         to bottom,
-        #101722 0%,
-        transparent 22%,
-        transparent 78%,
-        #101722 100%
-      ),
-      radial-gradient(
-        ellipse at 10% 50%,
-        rgba(145, 71, 111, .34),
-        transparent 78%
-      ),
-      radial-gradient(
-        ellipse at 100% 55%,
-        rgba(65, 101, 151, .30),
-        transparent 78%
-      ),
-      #101722 !important;
+        #211c2b 0%,
+        #402a40 24%,
+        #402a40 73%,
+        #24263b 100%
+      ) !important;
   }
 
-  /* PARTENARIAT : MÉLANGE BLEU ET ROSE DISCRET */
+  /* PARTENARIAT : BLEU AVEC UN RAPPEL ROSE */
 
   #sponsoring {
     background:
+      radial-gradient(
+        ellipse at 100% 65%,
+        rgba(145, 71, 111, .25),
+        transparent 72%
+      ),
       linear-gradient(
         to bottom,
-        #101722 0%,
-        transparent 20%,
-        transparent 80%,
+        #24263b 0%,
+        #203754 25%,
+        #203754 75%,
         #101722 100%
-      ),
-      radial-gradient(
-        ellipse at 15% 40%,
-        rgba(65, 101, 151, .40),
-        transparent 78%
-      ),
-      radial-gradient(
-        ellipse at 95% 70%,
-        rgba(145, 71, 111, .25),
-        transparent 75%
-      ),
-      #101722 !important;
+      ) !important;
   }
 
-  /* PIED DE PAGE : TRANSITION DU BLEU NUIT VERS LE NOIR */
+  /* PIED DE PAGE : RETOUR AU NOIR */
 
   .pied-page {
     background:
@@ -4938,7 +4895,9 @@
   /* PETITS TITRES CLAIRS */
 
   #pilote .etiquette,
+  #dimension-funcup .fc-unique-intro .etiquette,
   #saison .etiquette,
+  #galerie .etiquette,
   #baptemes .etiquette,
   #sponsoring .etiquette,
   #partenaires .soutiens-entete h2 {
