@@ -2390,275 +2390,128 @@
 </style>
 
 <style>
-/* ==========================================
-   PROJET 2027 — PRÉSENTATION ILLUSTRÉE
-   ========================================== */
+/* PROJET 2027 — UN SEUL ENCADRÉ */
 
 #ambitions-2027 {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  padding: 65px 0;
+  padding: 45px 0;
   scroll-margin-top: 100px;
-  color: #f7f8fc;
-  background:
-    radial-gradient(
-      ellipse at 95% 0%,
-      rgba(111, 65, 99, 0.24),
-      transparent 55%
-    ),
-    linear-gradient(
-      135deg,
-      #142236 0%,
-      #1e3049 50%,
-      #222333 100%
-    );
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(120deg, #192a40, #2b263b);
 }
 
-#ambitions-2027,
-#ambitions-2027 * {
-  box-sizing: border-box;
-}
-
-/* Présentation au-dessus de l’image */
-
-#ambitions-2027 .a27-haut {
+#ambitions-2027 .a27-bloc {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   align-items: center;
-  gap: 45px;
-  margin-bottom: 30px;
+  gap: 30px;
+  padding: 25px;
+  background: #111b2a;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
 }
 
-#ambitions-2027 .etiquette {
-  margin-top: 0;
-}
+/* Image entière, sans filtre ni recadrage */
 
-#ambitions-2027 .titre-section {
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-
-#ambitions-2027 .a27-description {
-  max-width: 600px;
-  margin: 20px 0 0;
-  color: #cbd4e2;
-  font-size: 0.98rem;
-  line-height: 1.8;
-}
-
-/* Objectif : une ligne graphique, pas une carte */
-
-#ambitions-2027 .a27-objectif {
-  padding: 5px 0 5px 25px;
-  border-left: 2px solid #8f8fb9;
-}
-
-#ambitions-2027 .a27-objectif-repere {
+#ambitions-2027 .a27-image {
   display: block;
-  margin-bottom: 12px;
-  color: #b6c7e6;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
+  min-width: 0;
+  line-height: 0;
+  border-radius: 7px;
 }
 
-#ambitions-2027 .a27-objectif h3 {
-  margin: 0 0 12px;
-  color: #ffffff;
-  font-family: var(--police-titre, inherit);
-  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
-  line-height: 1.15;
-}
-
-#ambitions-2027 .a27-objectif p {
-  margin: 0;
-  color: #cbd4e2;
-  font-size: 0.93rem;
-  line-height: 1.8;
-}
-
-/* Illustration : affichée entièrement */
-
-#ambitions-2027 .a27-visuel {
-  margin: 0;
-  overflow: hidden;
-  background: #0d1520;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
-}
-
-#ambitions-2027 .a27-image-lien {
-  position: relative;
-  display: block;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-#ambitions-2027 .a27-image-lien img {
+#ambitions-2027 .a27-image img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
   margin: 0;
-  border: 0;
-  border-radius: 0;
+  border-radius: 7px;
   filter: none;
   opacity: 1;
 }
 
-#ambitions-2027 .a27-agrandir {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 13px;
-  color: #ffffff;
-  background: rgba(9, 16, 27, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 6px;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  transition: background 0.2s ease;
+#ambitions-2027 .a27-image:focus-visible {
+  outline: 3px solid #adc6ff;
+  outline-offset: 5px;
 }
 
-#ambitions-2027 .a27-image-lien:hover .a27-agrandir {
-  background: #263c60;
+/* Texte dans le même encadré */
+
+#ambitions-2027 .a27-contenu {
+  min-width: 0;
 }
 
-#ambitions-2027 .a27-image-lien:focus-visible {
-  outline: 3px solid #b6cbff;
-  outline-offset: -4px;
+#ambitions-2027 .etiquette {
+  margin: 0 0 12px;
 }
 
-#ambitions-2027 .a27-legende {
-  margin: 0;
-  padding: 13px 18px;
-  color: #b8c5d8;
-  background: #111c2b;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.77rem;
-  line-height: 1.7;
+#ambitions-2027 .titre-section {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3.5vw, 3.3rem);
+  line-height: 1.05;
 }
 
-/* Invitation sous l’image */
-
-#ambitions-2027 .a27-bas {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  margin-top: 26px;
+#ambitions-2027 .titre-section::after {
+  display: none;
 }
 
-#ambitions-2027 .a27-invitation {
-  max-width: 440px;
-  margin: 0;
-  color: #d3dbea;
-  font-size: 0.93rem;
+#ambitions-2027 .a27-texte {
+  margin: 0 0 12px;
+  color: #cbd3e0;
+  font-size: 0.92rem;
   line-height: 1.75;
+}
+
+#ambitions-2027 .a27-note {
+  margin: 15px 0 0;
+  color: #aab8cd;
+  font-size: 0.75rem;
+  line-height: 1.6;
 }
 
 #ambitions-2027 .a27-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  gap: 12px 18px;
+  margin-top: 20px;
 }
 
-#ambitions-2027 .a27-actions .bouton {
-  text-align: center;
-}
-
-#ambitions-2027 .a27-retour {
-  margin: 22px 0 0;
+#ambitions-2027 .a27-dossier {
+  color: #c4d5f5;
   font-size: 0.82rem;
-  line-height: 1.6;
-}
-
-#ambitions-2027 .a27-retour a {
-  color: #b7c9e8;
+  line-height: 1.5;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
-#ambitions-2027 .a27-retour a:hover {
+#ambitions-2027 .a27-dossier:hover {
   color: #ffffff;
 }
 
-/* Tablettes */
-
-@media (max-width: 1000px) {
-  #ambitions-2027 .a27-haut {
-    gap: 28px;
-  }
-
-  #ambitions-2027 .a27-bas {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  #ambitions-2027 .a27-invitation {
-    max-width: 650px;
+@media (max-width: 900px) {
+  #ambitions-2027 .a27-bloc {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 }
 
-/* Téléphones */
-
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   #ambitions-2027 {
-    padding: 45px 0;
+    padding: 30px 0;
   }
 
-  #ambitions-2027 .a27-haut {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-bottom: 24px;
+  #ambitions-2027 .a27-bloc {
+    padding: 16px;
+    gap: 20px;
   }
 
-  #ambitions-2027 .a27-objectif {
-    padding-left: 18px;
-  }
-
-  #ambitions-2027 .a27-description,
-  #ambitions-2027 .a27-objectif p {
-    font-size: 0.9rem;
-  }
-
-  #ambitions-2027 .a27-visuel {
-    border-radius: 9px;
-  }
-
-  #ambitions-2027 .a27-agrandir {
-    right: 8px;
-    bottom: 8px;
-    padding: 6px 9px;
-    font-size: 0.65rem;
-  }
-
-  #ambitions-2027 .a27-legende {
-    padding: 12px 14px;
-    font-size: 0.72rem;
+  #ambitions-2027 .a27-texte {
+    font-size: 0.88rem;
   }
 
   #ambitions-2027 .a27-actions {
-    width: 100%;
-    align-items: stretch;
+    align-items: flex-start;
     flex-direction: column;
-  }
-
-  #ambitions-2027 .a27-actions .bouton {
-    display: flex;
-    justify-content: center;
-    width: 100%;
   }
 }
 </style>
