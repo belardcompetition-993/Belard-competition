@@ -2914,6 +2914,65 @@
         flex-direction: column;
       }
     }
+
+    /* Image entière en haut, bord à bord, puis texte en dessous. */
+
+#ambitions-2027 .projet27-portrait {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#ambitions-2027 .projet27-photo {
+  position: relative;
+  display: block;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+#ambitions-2027 .projet27-photo a {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  line-height: 0;
+}
+
+#ambitions-2027 .projet27-photo img {
+  position: static;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+#ambitions-2027 .portrait-contenu {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#ambitions-2027 .portrait-texte {
+  max-width: none;
+}
   </style>
 
   <div class="conteneur">
