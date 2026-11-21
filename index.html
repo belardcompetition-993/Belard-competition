@@ -3019,7 +3019,7 @@
 
           </div>
 
-          <!-- COPIE IDENTIQUE POUR LE DÉFILEMENT EN BOUCLE -->
+          <!-- COPIE POUR LE DÉFILEMENT EN BOUCLE -->
           <div
             class="partenaires-boucle-groupe"
             aria-hidden="true"
@@ -3066,19 +3066,35 @@
 </section>
 
 <style>
-  /*
-    CARROUSEL UNIQUEMENT
-    On conserve le CSS d’origine des cartes et des images.
-  */
+  /* SECTION PARTENAIRES SUR TOUTE LA LARGEUR */
+
+  #partenaires {
+    overflow: hidden;
+  }
+
+  #partenaires > .conteneur {
+    width: 100%;
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  /* TITRE CENTRÉ */
+
+  #partenaires .soutiens-entete {
+    padding-inline: 20px;
+  }
+
+  /* ZONE DU CARROUSEL */
 
   #partenaires .partenaires-boucle {
     --espace-partenaires: 18px;
     width: 100%;
-    max-width: 830px;
-    margin-inline: auto;
+    max-width: none;
+    margin-inline: 0;
   }
 
-  /* Fenêtre visible */
+  /* FENÊTRE : COUPURE UNIQUEMENT AUX BORDS DE L’ÉCRAN */
+
   #partenaires .partenaires-boucle-fenetre {
     width: 100%;
     overflow: hidden;
@@ -3086,18 +3102,23 @@
     padding-block: 6px;
   }
 
-  /* Les deux groupes sont placés côte à côte */
+  /* LES DEUX GROUPES SONT PLACÉS CÔTE À CÔTE */
+
   #partenaires .partenaires-boucle-piste {
     display: flex;
     width: 100%;
   }
 
-  /* Chaque groupe contient les trois cartes */
+  /* GROUPES ANIMÉS */
+
   #partenaires .partenaires-boucle-groupe {
     display: flex;
     align-items: stretch;
-    flex: 0 0 calc(100% + var(--espace-partenaires));
-    min-width: 0;
+    justify-content: space-around;
+
+    flex: 0 0 100%;
+    min-width: 848px;
+
     gap: var(--espace-partenaires);
     padding-right: var(--espace-partenaires);
     box-sizing: border-box;
@@ -3110,16 +3131,19 @@
   }
 
   /*
-    Même largeur que les trois colonnes d’origine.
-    Aucune modification des images, hauteurs, fonds,
-    bordures, arrondis ou marges intérieures des cartes.
+    LARGEUR DES CARTES CONSERVÉE
+    Leurs images, hauteurs, couleurs, bordures et arrondis
+    restent définis par ton CSS d’origine.
   */
+
   #partenaires .partenaires-boucle-groupe > .soutien-carte {
-    flex: 1 1 0;
+    flex: 0 0 264.67px;
+    width: 264.67px;
     min-width: 0;
   }
 
-  /* Défilement automatique de droite à gauche */
+  /* DÉFILEMENT AUTOMATIQUE DE DROITE À GAUCHE */
+
   @keyframes belard-partenaires-defilement {
     from {
       transform: translateX(0);
@@ -3130,10 +3154,12 @@
     }
   }
 
-  /* Commande de pause */
+  /* COMMANDE DE PAUSE */
+
   #partenaires .partenaires-boucle-pause {
     width: 14px;
     height: 14px;
+    margin-left: 24px;
     vertical-align: middle;
     accent-color: var(--bleu, #2864ff);
   }
@@ -3156,17 +3182,25 @@
     animation-play-state: paused;
   }
 
-  /* Écrans intermédiaires */
+  /* ÉCRANS INTERMÉDIAIRES */
+
   @media (max-width: 850px) {
     #partenaires .partenaires-boucle {
       --espace-partenaires: 12px;
     }
   }
 
-  /* Mobile : les cartes restent sur une ligne et défilent */
+  /* MOBILE */
+
   @media (max-width: 600px) {
     #partenaires .partenaires-boucle-groupe {
       flex-basis: 720px;
+      min-width: 720px;
+    }
+
+    #partenaires .partenaires-boucle-groupe > .soutien-carte {
+      flex-basis: 228px;
+      width: 228px;
     }
   }
 </style>
