@@ -2388,6 +2388,211 @@
   }
 }
 </style>
+
+<style>
+/* =========================================
+   PROJET 2027 — STYLES LIMITÉS À CETTE SECTION
+   ========================================= */
+
+#ambitions-2027 {
+  padding: 65px 0;
+  scroll-margin-top: 100px;
+  background: linear-gradient(
+    125deg,
+    #17283e 0%,
+    #26344d 55%,
+    #35283d 100%
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#ambitions-2027 .a27-entete {
+  max-width: 820px;
+}
+
+#ambitions-2027 .a27-introduction {
+  margin: 18px 0 0;
+  color: #d3d9e3;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+#ambitions-2027 .a27-grille {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+#ambitions-2027 .a27-carte {
+  min-width: 0;
+  padding: 24px;
+  background: rgba(11, 17, 28, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+#ambitions-2027 .a27-repere {
+  display: block;
+  margin-bottom: 12px;
+  color: #a9bfe9;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+#ambitions-2027 .a27-carte h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-family: var(--police-titre, inherit);
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+#ambitions-2027 .a27-carte p {
+  margin: 0;
+  color: #c7cfdd;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+#ambitions-2027 .a27-calendrier {
+  margin-top: 24px;
+  padding: 25px;
+  background: rgba(11, 17, 28, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+#ambitions-2027 .a27-calendrier h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: var(--police-titre, inherit);
+  font-size: 1.65rem;
+  line-height: 1.2;
+}
+
+#ambitions-2027 .a27-calendrier-intro {
+  margin: 0;
+  color: #c7cfdd;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+#ambitions-2027 .a27-courses {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#ambitions-2027 .a27-courses li {
+  min-width: 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+#ambitions-2027 .a27-circuit {
+  display: block;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+#ambitions-2027 .a27-date {
+  display: block;
+  color: #b7c3d7;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+#ambitions-2027 .a27-precision {
+  margin: 16px 0 0;
+  color: #b5bfd0;
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+#ambitions-2027 .a27-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+#ambitions-2027 .a27-passe {
+  margin: 22px 0 0;
+  color: #c7cfdd;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+#ambitions-2027 .a27-passe a {
+  color: #c0d4ff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1000px) {
+  #ambitions-2027 .a27-courses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  #ambitions-2027 .a27-grille {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  #ambitions-2027 {
+    padding: 45px 0;
+  }
+
+  #ambitions-2027 .a27-carte,
+  #ambitions-2027 .a27-calendrier {
+    padding: 20px;
+  }
+
+  #ambitions-2027 .a27-courses {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  #ambitions-2027 .a27-courses li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5px 12px;
+  }
+
+  #ambitions-2027 .a27-circuit {
+    margin-bottom: 0;
+  }
+
+  #ambitions-2027 .a27-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  #ambitions-2027 .a27-actions .bouton {
+    justify-content: center;
+    text-align: center;
+  }
+}
+</style>
+  
 </head>
 
 <body>
@@ -2455,12 +2660,12 @@
         </button>
 
         <ul class="menu" id="menu-principal">
-          <li><a href="#pilote">Pilote</a></li>
-          <li><a href="#saison">Saison 2026</a></li>
-          <li><a href="#galerie">Galerie</a></li>
-          <li><a href="#sponsoring">Nous soutenir</a></li>
-        </ul>
-
+  <li><a href="#ambitions-2027">Projet 2027</a></li>
+  <li><a href="#pilote">Pilote</a></li>
+  <li><a href="#saison">Saison 2026</a></li>
+  <li><a href="#galerie">Galerie</a></li>
+  <li><a href="#sponsoring">Nous soutenir</a></li>
+</ul>
         <div class="reseaux-sociaux">
           <a
             class="lien-social social-youtube"
@@ -2546,6 +2751,163 @@
 
   <main>
 
+<!-- =========================================
+     PROJET ET AMBITIONS — SAISON 2027
+     ========================================= -->
+
+<section
+  class="section"
+  id="ambitions-2027"
+  aria-labelledby="titre-ambitions-2027"
+>
+  <div class="conteneur">
+
+    <div class="a27-entete">
+      <p class="etiquette">Cap sur la prochaine saison</p>
+
+      <h2 class="titre-section" id="titre-ambitions-2027">
+        Projet 2027
+      </h2>
+
+      <p class="a27-introduction">
+        Après les premières expériences en Fun Cup, place à une
+        nouvelle ambition : réunir les partenaires nécessaires
+        pour disputer l’intégralité de la saison 2027 et poursuivre
+        notre progression en endurance.
+      </p>
+    </div>
+
+    <div class="a27-grille">
+
+      <article class="a27-carte">
+        <span class="a27-repere">01 — Ambition sportive</span>
+
+        <h3>Franchir un cap.</h3>
+
+        <p>
+          Gagner en expérience, travailler la régularité et
+          progresser à chaque relais. Notre ambition :
+          construire une saison complète pour nous mesurer
+          durablement à la concurrence et viser les meilleurs
+          résultats possibles.
+        </p>
+      </article>
+
+      <article class="a27-carte">
+        <span class="a27-repere">02 — Programme européen</span>
+
+        <h3>De nouveaux défis.</h3>
+
+        <p>
+          Madrid, Dijon, Spa-Francorchamps, Zandvoort,
+          Portimão et Zolder : le calendrier annoncé ouvre
+          de nouvelles perspectives. L’objectif est de
+          construire notre participation en fonction du
+          budget et des engagements confirmés.
+        </p>
+      </article>
+
+      <article class="a27-carte">
+        <span class="a27-repere">03 — Partenaires</span>
+
+        <h3>Avancer ensemble.</h3>
+
+        <p>
+          Associer des entreprises au projet et construire
+          une relation concrète : visibilité sur les supports
+          convenus, contenus autour des courses et découverte
+          des coulisses, selon les possibilités définies ensemble.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="a27-calendrier">
+
+      <h3>Les rendez-vous annoncés pour 2027</h3>
+
+      <p class="a27-calendrier-intro">
+        Sept rendez-vous de course au calendrier communiqué,
+        dont Portimão hors championnat. Notre participation
+        reste à confirmer selon le financement réuni.
+      </p>
+
+      <ul class="a27-courses">
+
+        <li>
+          <span class="a27-circuit">Madrid</span>
+          <span class="a27-date">12 au 14 mars</span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">Dijon-Prenois</span>
+          <span class="a27-date">9 au 11 avril</span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">Spa-Francorchamps</span>
+          <span class="a27-date">7 et 8 mai</span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">25h de Spa</span>
+          <span class="a27-date">1er au 4 juillet</span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">Zandvoort</span>
+          <span class="a27-date">11 et 12 septembre</span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">Portimão</span>
+          <span class="a27-date">
+            8 au 10 octobre · Hors championnat
+          </span>
+        </li>
+
+        <li>
+          <span class="a27-circuit">Zolder</span>
+          <span class="a27-date">23 et 24 octobre</span>
+        </li>
+
+      </ul>
+
+      <p class="a27-precision">
+        Calendrier annoncé, susceptible d’évolution.
+        Les journées de roulage ne sont pas incluses dans cette liste.
+        Le programme définitif de BELARD Compétition sera précisé
+        après confirmation du budget et des engagements.
+      </p>
+
+    </div>
+
+    <div class="a27-actions">
+
+      <a class="bouton bouton-bleu" href="#sponsoring">
+        Devenir partenaire pour 2027
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <a
+        class="bouton bouton-bordure"
+        href="Dossier sponsoring Victor- FUN CUP 2027.pdf"
+        download
+      >
+        Télécharger le dossier
+        <span aria-hidden="true">↓</span>
+      </a>
+
+    </div>
+
+    <p class="a27-passe">
+      Pour découvrir le chemin déjà parcouru :
+      <a href="#saison">voir les courses et résultats de 2026</a>.
+    </p>
+
+  </div>
+</section>
+    
     <!-- ÉQUIPAGE -->
 
     <section class="section fond-equipage" id="pilote">
