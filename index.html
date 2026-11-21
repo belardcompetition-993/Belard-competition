@@ -2943,7 +2943,7 @@
   }
 </style>
     
- <!-- PARTENAIRES : LOGOS DÉFILANTS SANS ENCADRÉS -->
+<!-- PARTENAIRES -->
 
 <section
   class="soutiens"
@@ -2958,242 +2958,41 @@
       <span class="soutiens-ligne" aria-hidden="true"></span>
     </div>
 
-    <div class="belard-logos">
+    <div class="soutiens-grille">
 
-      <input
-        type="checkbox"
-        id="belard-logos-pause"
-        class="belard-logos-case"
-      >
+      <div class="soutien-carte soutien-logo soutien-jmk">
+        <img
+          src="images/logo-jmk.JPG"
+          alt="JMK Racing"
+        >
+      </div>
 
-      <label
-        for="belard-logos-pause"
-        class="belard-logos-commande"
-      >
-        Mettre le défilement en pause
-      </label>
+      <div class="soutien-carte soutien-logo soutien-sp2">
+        <img
+          src="images/logo-sp2-marc.jpg"
+          alt="SP2 Marc"
+        >
+      </div>
 
-      <div class="belard-logos-fenetre">
+      <div class="soutien-carte soutien-annonce">
+        <span class="soutien-annonce-repere">
+          La suite arrive
+        </span>
 
-        <div class="belard-logos-piste">
+        <span class="soutien-annonce-titre">
+          Prochainement.
+        </span>
 
-          <!-- PREMIER GROUPE -->
-          <div class="belard-logos-groupe">
-
-            <div class="belard-logo-element">
-              <img
-                src="images/logo-jmk.JPG"
-                alt="JMK Racing"
-              >
-            </div>
-
-            <div class="belard-logo-element">
-              <img
-                src="images/logo-sp2-marc.jpg"
-                alt="SP2 Marc"
-              >
-            </div>
-
-            <div class="belard-logo-element belard-logo-annonce">
-              <span>LA SUITE ARRIVE</span>
-              <strong>Prochainement.</strong>
-              <p>De nouveaux partenaires rejoignent l’aventure.</p>
-            </div>
-
-          </div>
-
-          <!-- COPIE POUR UNE BOUCLE CONTINUE -->
-          <div class="belard-logos-groupe" aria-hidden="true">
-
-            <div class="belard-logo-element">
-              <img
-                src="images/logo-jmk.JPG"
-                alt=""
-              >
-            </div>
-
-            <div class="belard-logo-element">
-              <img
-                src="images/logo-sp2-marc.jpg"
-                alt=""
-              >
-            </div>
-
-            <div class="belard-logo-element belard-logo-annonce">
-              <span>LA SUITE ARRIVE</span>
-              <strong>Prochainement.</strong>
-              <p>De nouveaux partenaires rejoignent l’aventure.</p>
-            </div>
-
-          </div>
-
-        </div>
-
+        <span class="soutien-annonce-texte">
+          De nouveaux partenaires<br>
+          rejoignent l’aventure.
+        </span>
       </div>
 
     </div>
 
   </div>
 </section>
-
-<style>
-  /* ZONE DU BANDEAU */
-
-  #partenaires .belard-logos {
-    margin-top: 26px;
-  }
-
-  #partenaires .belard-logos-fenetre {
-    width: 100%;
-    overflow: hidden;
-    margin-top: 18px;
-    padding: 15px 0;
-  }
-
-  /* DEUX GROUPES IDENTIQUES POUR LA BOUCLE */
-
-  #partenaires .belard-logos-piste {
-    display: flex;
-    width: max-content;
-    animation: belard-logos-defiler 22s linear infinite;
-  }
-
-  #partenaires .belard-logos-groupe {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    gap: 70px;
-    padding-right: 70px;
-  }
-
-  /* LOGOS : AUCUN ENCADRÉ */
-
-  #partenaires .belard-logo-element {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 260px;
-    width: 260px;
-    height: 130px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  #partenaires .belard-logo-element img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 115px;
-    object-fit: contain;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-  }
-
-  /* ANNONCE DES FUTURS PARTENAIRES */
-
-  #partenaires .belard-logo-annonce {
-    flex-direction: column;
-    gap: 7px;
-    text-align: center;
-  }
-
-  #partenaires .belard-logo-annonce > span {
-    color: var(--bleu-clair, #76acff);
-    font-family: var(--police-titre);
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .14em;
-  }
-
-  #partenaires .belard-logo-annonce strong {
-    color: #ffffff;
-    font-family: var(--police-titre);
-    font-size: 1.7rem;
-    line-height: 1.1;
-  }
-
-  #partenaires .belard-logo-annonce p {
-    margin: 0;
-    color: #bdc6d3;
-    font-size: .8rem;
-    line-height: 1.5;
-  }
-
-  /* MOUVEMENT DE DROITE À GAUCHE */
-
-  @keyframes belard-logos-defiler {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* COMMANDE DE PAUSE, SANS JAVASCRIPT */
-
-  #partenaires .belard-logos-case {
-    accent-color: #2962ff;
-    vertical-align: middle;
-  }
-
-  #partenaires .belard-logos-commande {
-    margin-left: 5px;
-    color: #bdc6d3;
-    font-size: .75rem;
-    cursor: pointer;
-  }
-
-  #partenaires .belard-logos-case:checked
-  ~ .belard-logos-fenetre .belard-logos-piste {
-    animation-play-state: paused;
-  }
-
-  /* MOBILE */
-
-  @media (max-width: 600px) {
-    #partenaires .belard-logos-groupe {
-      gap: 40px;
-      padding-right: 40px;
-    }
-
-    #partenaires .belard-logo-element {
-      flex-basis: 210px;
-      width: 210px;
-      height: 110px;
-    }
-
-    #partenaires .belard-logo-element img {
-      max-height: 95px;
-    }
-  }
-
-  /* ACCESSIBILITÉ : RÉDUCTION DES MOUVEMENTS */
-
-  @media (prefers-reduced-motion: reduce) {
-    #partenaires .belard-logos-piste {
-      animation: none;
-    }
-
-    #partenaires .belard-logos-fenetre {
-      overflow-x: auto;
-    }
-
-    #partenaires .belard-logos-groupe[aria-hidden="true"],
-    #partenaires .belard-logos-case,
-    #partenaires .belard-logos-commande {
-      display: none;
-    }
-  }
-</style>
 
     <!-- SAISON -->
 
