@@ -4862,6 +4862,91 @@
     color: #f7f9ff;
   }
 </style>
+
+<!-- PRÉSENTATIONS PILOTE ET TEAM PLUS COMPACTES -->
+<style>
+  /* Espace entre les deux encadrés */
+  #pilote .equipage {
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  /* Hauteur minimale des photos sur ordinateur */
+  #pilote .portrait-photo {
+    min-height: 400px;
+  }
+
+  /* Marges intérieures des textes */
+  #pilote .portrait-contenu {
+    padding: 26px 30px;
+  }
+
+  /* Repères « Le pilote » et « Le team » */
+  #pilote .portrait-repere {
+    margin-bottom: 14px;
+  }
+
+  /* Noms plus compacts */
+  #pilote .portrait-nom {
+    font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+  }
+
+  /* Surnom et signature */
+  #pilote .portrait-signature {
+    margin-top: 10px;
+    font-size: 1.2rem;
+  }
+
+  /* Petites informations */
+  #pilote .portrait-infos {
+    gap: 7px;
+    margin: 16px 0;
+  }
+
+  #pilote .portrait-infos div {
+    padding: 6px 9px;
+  }
+
+  /* Paragraphes */
+  #pilote .portrait-texte {
+    font-size: .94rem;
+    line-height: 1.65;
+  }
+
+  #pilote .portrait-texte p + p {
+    margin-top: 12px;
+  }
+
+  /* Tablettes et mobiles : photos au-dessus des textes */
+  @media (max-width: 850px) {
+    #pilote .portrait-photo {
+      min-height: 0;
+      height: clamp(230px, 48vw, 330px);
+    }
+
+    #pilote .portrait-contenu {
+      padding: 24px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #pilote .portrait-photo {
+      height: 250px;
+    }
+
+    #pilote .portrait-contenu {
+      padding: 22px 20px;
+    }
+
+    #pilote .portrait-nom {
+      font-size: 2.5rem;
+    }
+
+    #pilote .portrait-texte {
+      font-size: .9rem;
+    }
+  }
+</style>
   
 </body>
 </html>
