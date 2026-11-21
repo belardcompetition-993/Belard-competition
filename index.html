@@ -2670,89 +2670,96 @@
     </section>
 
 <!-- CHAMPIONNAT FUN CUP -->
-<section id="dimension-funcup">
+<section class="section" id="dimension-funcup">
+  <div class="conteneur">
 
-  <div class="fc-unique-intro">
+    <!-- TITRE DE SECTION -->
+    <div class="fc-unique-intro">
+      <p class="etiquette">L’univers de la course</p>
+      <h2 class="titre-section">La Fun Cup</h2>
+    </div>
 
-  <p class="etiquette">L’univers de la course</p>
+    <!-- ENCADRÉ UNIQUE -->
+    <article class="fc-unique-carte">
 
-  <h2 class="titre-section">La Fun Cup</h2>
+      <!-- TITRE ET LOGOS -->
+      <div class="fc-unique-entete">
 
-</div>
-   
-  <article class="fc-unique-carte">
+        <h3>DEUX CHAMPIONNATS, UNE MÊME PASSION</h3>
 
-    <!-- TITRE ET LOGOS -->
-    <div class="fc-unique-entete">
+        <div class="fc-unique-logos">
+          <img
+            src="images/Fun-cup-logo-france.png"
+            alt="Fun Cup France"
+            loading="lazy"
+          >
 
-      <h3>DEUX CHAMPIONNATS, UNE MÊME PASSION</h3>
+          <img
+            src="images/Fun-cup-logo-belge.jpg"
+            alt="Fun Cup Belgique"
+            loading="lazy"
+          >
+        </div>
 
-      <div class="fc-unique-logos">
-        <img
-          src="images/Fun-cup-logo-france.png"
-          alt="Fun Cup France"
-          loading="lazy"
-        >
-
-        <img
-          src="images/Fun-cup-logo-belge.jpg"
-          alt="Fun Cup Belgique"
-          loading="lazy"
-        >
       </div>
 
-    </div>
+      <!-- DESCRIPTION COMMUNE -->
+      <div class="fc-unique-description">
 
-    <!-- DESCRIPTION COMMUNE -->
-    <div class="fc-unique-description">
-      <p>
-        En France comme en Belgique, la Fun Cup fait vibrer
-        l’endurance autour d’une même ambition :
-        <strong>vivre la course ensemble.</strong>
-        Derrière chaque départ, il y a des pilotes du monde entier, des équipes,
-        des stratégies et cette envie commune de se dépasser
-        jusqu’au dernier tour.
-      </p>
+        <p>
+          En France comme en Belgique, la Fun Cup fait vibrer
+          l’endurance autour d’une même ambition :
+          <strong>vivre la course ensemble.</strong>
+          Derrière chaque départ, il y a des pilotes du monde entier,
+          des équipes, des stratégies et cette envie commune
+          de se dépasser jusqu’au dernier tour.
+        </p>
 
-      <p>
-        Sur la piste comme dans les paddocks, la compétition
-        devient une aventure humaine, faite d’adrénaline,
-        de batailles en piste et d’émotions partagées.
-        Pour votre entreprise, c’est l’occasion d’associer
-        son image à un projet vivant et de faire découvrir
-        à ses clients, partenaires et collaborateurs
-        les coulisses de notre aventure et des courses automobiles.
-      </p>
-    </div>
+        <p>
+          Sur la piste comme dans les paddocks, la compétition
+          devient une aventure humaine, faite d’adrénaline,
+          de batailles en piste et d’émotions partagées.
+          Pour votre entreprise, c’est l’occasion d’associer
+          son image à un projet vivant et de faire découvrir
+          à ses clients, partenaires et collaborateurs
+          les coulisses de notre aventure et des courses automobiles.
+        </p>
 
-    <!-- LIENS OFFICIELS -->
-    <div class="fc-unique-liens">
-      <a
-        href="https://www.funcup.fr/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SITE OFFICIEL FRANCE <span aria-hidden="true">↗</span>
-      </a>
+      </div>
 
-      <a
-        href="https://www.funcup.be/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        SITE OFFICIEL BELGIQUE <span aria-hidden="true">↗</span>
-      </a>
-    </div>
+      <!-- LIENS OFFICIELS EN BAS À DROITE -->
+      <div class="fc-unique-liens">
 
-  </article>
+        <a
+          href="https://www.funcup.fr/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SITE OFFICIEL FRANCE
+          <span aria-hidden="true">↗</span>
+        </a>
 
-</section>
+        <a
+          href="https://www.funcup.be/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          SITE OFFICIEL BELGIQUE
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </article>
+
+  </div> <!-- FIN DU CONTENEUR -->
+</section> <!-- FIN DE LA SECTION FUN CUP -->
 
 <style>
   /* SECTION GÉNÉRALE */
 
   #dimension-funcup {
-    color: var(--texte, #f5f5f7);
+    color: var(--texte, #bdc6d3);
   }
 
   #dimension-funcup,
@@ -2760,43 +2767,40 @@
     box-sizing: border-box;
   }
 
+  /* MÊME LARGEUR QUE LES AUTRES SECTIONS */
+
+  #dimension-funcup > .conteneur {
+    width: min(1280px, 88%);
+    margin-inline: auto;
+  }
+
   /* TITRE DE SECTION */
 
   #dimension-funcup .fc-unique-intro {
-    margin-bottom: 26px;
+    margin-bottom: 38px;
   }
 
-#dimension-funcup .fc-unique-intro h2 {
-  margin: 0;
-  color: var(--blanc, #f5f5f7);
-  font-family: var(--police-titre);
-  font-size: clamp(3.2rem, 6vw, 5.7rem);
-  font-style: italic;
-  font-weight: 900;
-  line-height: .95;
-  letter-spacing: -.015em;
-  text-transform: uppercase;
-}
-
-#dimension-funcup .fc-unique-intro .etiquette {
-  margin: 0 0 24px;
-  color: var(--bleu-clair);
-  font-family: var(--police-titre);
-  font-size: .95rem;
-  font-weight: 700;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-}
-
-#dimension-funcup .fc-unique-intro .introduction {
-  margin: 28px 0 0;
-}
-
-@media (max-width: 600px) {
   #dimension-funcup .fc-unique-intro h2 {
-    font-size: clamp(2.8rem, 10.5vw, 4rem);
+    margin: 0;
+    color: var(--blanc, #f7f9ff);
+    font-family: var(--police-titre);
+    font-size: clamp(3.2rem, 6vw, 5.7rem);
+    font-style: italic;
+    font-weight: 900;
+    line-height: .95;
+    letter-spacing: -.015em;
+    text-transform: uppercase;
   }
-}
+
+  #dimension-funcup .fc-unique-intro .etiquette {
+    margin: 0 0 18px;
+    color: var(--bleu-clair);
+    font-family: var(--police-titre);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
 
   /* ENCADRÉ UNIQUE */
 
@@ -2830,8 +2834,10 @@
   }
 
   #dimension-funcup .fc-unique-entete h3 {
+    min-width: 0;
     margin: 0;
     color: #ffffff;
+    font-family: var(--police-titre);
     font-size: clamp(1.3rem, 2.3vw, 1.9rem);
     font-weight: 900;
     font-style: italic;
@@ -2913,16 +2919,19 @@
     }
 
     #dimension-funcup .fc-unique-entete {
-      align-items: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
       gap: 14px;
     }
 
     #dimension-funcup .fc-unique-entete h3 {
+      flex: 1 1 180px;
       font-size: 1.2rem;
     }
 
     #dimension-funcup .fc-unique-logos {
       gap: 8px;
+      margin-left: auto;
     }
 
     #dimension-funcup .fc-unique-logos img {
@@ -2946,40 +2955,35 @@
 <!-- CARROUSEL AUTOMATIQUE DES PARTENAIRES -->
 
 <style>
-  /* Fenêtre du carrousel */
-  #partenaires .belard-partenaires-fenetre {
-    width: 100%;
-    max-width: 830px;
-    margin-inline: auto;
-    padding-block: 6px;
-    overflow: hidden;
-  }
-
-  /* Défilement : le style des cartes reste inchangé */
-  #partenaires .soutiens-grille.belard-partenaires-actifs {
+  /* On conserve la grille à son emplacement d’origine. */
+  #partenaires .soutiens-grille.carrousel-simple {
     display: flex;
     flex-wrap: nowrap;
     gap: 18px;
-    width: max-content;
-    max-width: none;
-    margin: 0;
-    will-change: transform;
-  }
-
-  #partenaires .belard-partenaires-actifs > .soutien-carte {
-    flex-shrink: 0;
-    flex-grow: 0;
-  }
-
-  /* Bouton de pause */
-  #partenaires .belard-partenaires-commandes {
+    width: 100%;
     max-width: 830px;
-    margin: 10px auto 0;
+    margin-inline: auto;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+    direction: ltr;
+  }
+
+  /* Les fonds, images, bordures et arrondis restent inchangés. */
+  #partenaires .carrousel-simple > .soutien-carte {
+    flex-grow: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  #partenaires .carrousel-commandes {
+    max-width: 830px;
+    margin: 12px auto 0;
     text-align: right;
   }
 
-  #partenaires .belard-partenaires-bouton {
-    padding: 6px 11px;
+  #partenaires .carrousel-bouton {
+    padding: 6px 12px;
     border: 1px solid var(--bordure);
     border-radius: 6px;
     background: transparent;
@@ -2992,26 +2996,20 @@
 
 <script>
 (() => {
-  function demarrerCarrousel() {
+  function initialiserCarrousel() {
     const grille = document.querySelector(
       "#partenaires .soutiens-grille"
     );
 
-    if (!grille || grille.dataset.defilement) return;
+    if (!grille || grille.dataset.carrouselSimple) return;
 
     const cartes = Array.from(grille.children);
     if (!cartes.length) return;
 
-    grille.dataset.defilement = "actif";
+    grille.dataset.carrouselSimple = "oui";
+    grille.classList.add("carrousel-simple");
 
-    /* Création de la fenêtre sans modifier les cartes */
-    const fenetre = document.createElement("div");
-    fenetre.className = "belard-partenaires-fenetre";
-
-    grille.before(fenetre);
-    fenetre.appendChild(grille);
-
-    /* Copie des cartes pour assurer la boucle */
+    /* Une seule copie des trois cartes pour la boucle. */
     cartes.forEach((carte) => {
       const copie = carte.cloneNode(true);
 
@@ -3030,88 +3028,95 @@
       grille.appendChild(copie);
     });
 
-    grille.classList.add("belard-partenaires-actifs");
-
+    let distanceBoucle = 0;
     let position = 0;
-    let longueur = 0;
-    let pause = false;
+    let enPause = false;
     let dernierTemps = null;
 
-    /* Largeur adaptée à l’écran */
-    function dimensionner() {
-      const largeur = fenetre.clientWidth;
+    function ajusterDimensions() {
+      const largeur = grille.clientWidth;
+      if (largeur <= 0) return;
+
       const espace = 18;
-
       const largeurCarte = window.innerWidth <= 600
-        ? Math.min(260, largeur * .82)
+        ? Math.min(260, largeur * 0.82)
         : (largeur - espace * 2) / 3;
-
-      if (largeurCarte <= 0) return;
 
       Array.from(grille.children).forEach((carte) => {
         carte.style.flexBasis = largeurCarte + "px";
         carte.style.width = largeurCarte + "px";
       });
 
-      longueur = cartes.length * (largeurCarte + espace);
-      position = longueur ? position % longueur : 0;
+      /* Mesure réelle entre la première carte et sa copie. */
+      const premiere = grille.children[0];
+      const premiereCopie = grille.children[cartes.length];
+
+      distanceBoucle =
+        premiereCopie.getBoundingClientRect().left -
+        premiere.getBoundingClientRect().left;
+
+      position = 0;
+      grille.scrollLeft = 0;
     }
 
-    dimensionner();
-    window.addEventListener("resize", dimensionner);
+    ajusterDimensions();
 
-    /* Commande de pause */
+    if ("ResizeObserver" in window) {
+      const observateur = new ResizeObserver(ajusterDimensions);
+      observateur.observe(grille);
+    } else {
+      window.addEventListener("resize", ajusterDimensions);
+    }
+
+    /* Le défilement démarre sans cliquer. */
     const commandes = document.createElement("div");
-    commandes.className = "belard-partenaires-commandes";
+    commandes.className = "carrousel-commandes";
 
     const bouton = document.createElement("button");
     bouton.type = "button";
-    bouton.className = "belard-partenaires-bouton";
+    bouton.className = "carrousel-bouton";
     bouton.textContent = "Mettre en pause";
     bouton.setAttribute("aria-pressed", "false");
 
     bouton.addEventListener("click", () => {
-      pause = !pause;
+      enPause = !enPause;
 
-      bouton.textContent = pause
+      bouton.textContent = enPause
         ? "Reprendre le défilement"
         : "Mettre en pause";
 
-      bouton.setAttribute("aria-pressed", String(pause));
+      bouton.setAttribute("aria-pressed", String(enPause));
     });
 
     commandes.appendChild(bouton);
-    fenetre.after(commandes);
+    grille.after(commandes);
 
-    /* Démarrage automatique */
-    function avancer(temps) {
-      const ecart = dernierTemps === null
+    function defiler(temps) {
+      const duree = dernierTemps === null
         ? 0
         : Math.min(temps - dernierTemps, 50);
 
       dernierTemps = temps;
 
-      if (!pause && longueur > 0) {
-        position = (position + ecart * .045) % longueur;
-
-        grille.style.transform =
-          "translate3d(" + (-position) + "px, 0, 0)";
+      if (!enPause && distanceBoucle > 0) {
+        position = (position + duree * 0.04) % distanceBoucle;
+        grille.scrollLeft = position;
       }
 
-      window.requestAnimationFrame(avancer);
+      requestAnimationFrame(defiler);
     }
 
-    window.requestAnimationFrame(avancer);
+    requestAnimationFrame(defiler);
   }
 
   if (document.readyState === "loading") {
     document.addEventListener(
       "DOMContentLoaded",
-      demarrerCarrousel,
+      initialiserCarrousel,
       { once: true }
     );
   } else {
-    demarrerCarrousel();
+    initialiserCarrousel();
   }
 })();
 </script>
