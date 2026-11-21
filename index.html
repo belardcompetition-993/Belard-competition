@@ -2674,253 +2674,188 @@
 
   <main>
 
-<!-- =========================================
-     PROJET 2027 — BLOC COMPLET
-     ========================================= -->
+<!-- ==========================================
+     PROJET 2027 — STYLE DES FICHES ÉQUIPAGE
+     ========================================== -->
 
 <section
+  class="section fond-equipage"
   id="ambitions-2027"
-  aria-labelledby="titre-projet-2027"
+  aria-labelledby="titre-ambitions-2027"
 >
   <style>
-    /* Ces styles concernent uniquement la section 2027. */
+    /* Ajustements limités au projet 2027.
+       Le reste utilise le style existant de l’équipage. */
 
     #ambitions-2027 {
       padding: 45px 0;
       scroll-margin-top: 100px;
-      color: #ffffff;
-      background: linear-gradient(
-        120deg,
-        #192a40 0%,
-        #25283d 65%,
-        #302638 100%
-      );
     }
 
-    #ambitions-2027,
-    #ambitions-2027 * {
-      box-sizing: border-box;
+    #ambitions-2027 .projet27-portrait {
+      --accent: #6389cd;
+      --accent-clair: #b2c8ed;
+
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      margin-top: 28px;
     }
 
-    #ambitions-2027 .projet27-cadre {
-      position: relative;
-      isolation: isolate;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    /* Calendrier entier, sans recadrage. */
+
+    #ambitions-2027 .projet27-photo {
+      display: flex;
       align-items: center;
-      gap: 35px;
-      padding: 30px;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          ellipse at 100% 0%,
-          rgba(93, 70, 105, 0.2),
-          transparent 65%
-        ),
-        #101b2b;
-      border: 1px solid rgba(175, 194, 224, 0.2);
-      border-radius: 16px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-    }
-
-    /* Fine signature colorée en haut du bloc. */
-
-    #ambitions-2027 .projet27-cadre::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 30px;
-      width: 110px;
-      height: 3px;
-      background: linear-gradient(90deg, #6b98eb, #b477a3);
-      border-radius: 0 0 4px 4px;
-    }
-
-    /* IMAGE */
-
-    #ambitions-2027 .projet27-visuel {
+      justify-content: center;
       min-width: 0;
-      margin: 0;
-      padding: 8px;
-      background: linear-gradient(
-        145deg,
-        rgba(148, 178, 221, 0.16),
-        rgba(255, 255, 255, 0.025) 50%,
-        rgba(161, 111, 150, 0.13)
-      );
-      border: 1px solid rgba(182, 200, 226, 0.24);
-      border-radius: 12px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+      min-height: 0;
+      height: auto;
+      padding: 20px;
+      background: #111a29;
     }
 
-    #ambitions-2027 .projet27-image-lien {
+    #ambitions-2027 .projet27-photo::after {
+      display: none;
+    }
+
+    #ambitions-2027 .projet27-photo a {
       display: block;
+      width: 100%;
       overflow: hidden;
       line-height: 0;
-      border-radius: 7px;
-      background: #0b1320;
+      border: 1px solid rgba(155, 189, 255, 0.18);
+      border-radius: 8px;
     }
 
-    #ambitions-2027 .projet27-image-lien img {
+    #ambitions-2027 .projet27-photo a:focus-visible {
+      outline: 3px solid #b2c8ed;
+      outline-offset: 4px;
+    }
+
+    #ambitions-2027 .projet27-photo img {
+      position: static;
       display: block;
       width: 100%;
       max-width: 100%;
       height: auto;
       margin: 0;
-      border: 0;
-      border-radius: 0;
-      opacity: 1;
+      object-fit: contain;
       filter: none;
+      opacity: 1;
     }
 
-    #ambitions-2027 .projet27-image-lien:focus-visible {
-      outline: 3px solid #b8d0ff;
-      outline-offset: -4px;
+    /* Même présentation compacte que les fiches équipage. */
+
+    #ambitions-2027 .portrait-contenu {
+      padding: 26px 30px;
     }
 
-    #ambitions-2027 .projet27-legende {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 5px 15px;
-      padding: 12px 5px 4px;
-      color: #b9c7db;
-      font-size: 0.7rem;
-      line-height: 1.5;
-      letter-spacing: 0.04em;
+    #ambitions-2027 .portrait-repere {
+      margin-bottom: 14px;
     }
 
-    #ambitions-2027 .projet27-legende a {
-      color: #cfddf6;
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    #ambitions-2027 .portrait-nom {
+      margin: 0;
+      font-size: clamp(2.4rem, 3.8vw, 3.8rem);
     }
 
-    /* PRÉSENTATION */
-
-    #ambitions-2027 .projet27-contenu {
-      min-width: 0;
+    #ambitions-2027 .portrait-signature {
+      margin-top: 10px;
+      font-size: 1.2rem;
     }
 
-    #ambitions-2027 .projet27-repere {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 13px;
-      color: #b4c6e4;
-      font-family: var(--police-titre, inherit);
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.5;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    #ambitions-2027 .portrait-infos {
+      gap: 7px;
+      margin: 16px 0;
     }
 
-    #ambitions-2027 .projet27-repere::before {
-      content: "";
-      flex: 0 0 25px;
-      height: 2px;
-      background: #88a9e4;
+    #ambitions-2027 .portrait-infos div {
+      padding: 6px 9px;
     }
 
-    #ambitions-2027 .projet27-titre {
-      margin: 0 0 18px;
-      color: #ffffff;
-      font-family: var(--police-titre, inherit);
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+    #ambitions-2027 .portrait-infos dd {
+      margin: 0;
     }
 
-    #ambitions-2027 .projet27-texte {
-      margin: 0 0 13px;
-      color: #c5cfde;
-      font-size: 0.91rem;
-      line-height: 1.8;
+    #ambitions-2027 .portrait-texte {
+      font-size: 0.94rem;
+      line-height: 1.65;
     }
 
-    #ambitions-2027 .projet27-texte strong {
-      color: #f2f5fa;
-      font-weight: 600;
+    #ambitions-2027 .portrait-texte p {
+      margin: 0;
     }
 
-    /* OBJECTIF SPORTIF */
+    #ambitions-2027 .portrait-texte p + p {
+      margin-top: 12px;
+    }
+
+    /* Objectif intégré au texte, sans nouvel encadré. */
 
     #ambitions-2027 .projet27-objectif {
-      margin-top: 22px;
-      padding: 16px 0 16px 18px;
-      border-top: 1px solid rgba(182, 200, 226, 0.13);
-      border-bottom: 1px solid rgba(182, 200, 226, 0.13);
-      border-left: 3px solid #9aaee1;
-      background: linear-gradient(
-        90deg,
-        rgba(117, 147, 201, 0.09),
-        transparent
-      );
+      margin: 20px 0 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(155, 189, 255, 0.15);
     }
 
     #ambitions-2027 .projet27-objectif span {
       display: block;
       margin-bottom: 5px;
-      color: #afbfdb;
-      font-size: 0.68rem;
+      color: var(--accent-clair);
+      font-family: var(--police-titre);
+      font-size: 0.75rem;
       font-weight: 700;
-      line-height: 1.4;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
     #ambitions-2027 .projet27-objectif p {
       margin: 0;
       color: #ffffff;
-      font-family: var(--police-titre, inherit);
-      font-size: clamp(1.35rem, 2.1vw, 1.85rem);
-      line-height: 1.2;
+      font-family: var(--police-titre);
+      font-size: 1.65rem;
+      font-style: italic;
+      font-weight: 800;
+      line-height: 1.15;
+      text-transform: uppercase;
     }
-
-    /* CONTACT */
 
     #ambitions-2027 .projet27-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 13px 20px;
-      margin-top: 22px;
+      gap: 12px 18px;
+      margin-top: 20px;
     }
 
     #ambitions-2027 .projet27-dossier {
-      color: #bdcfee;
+      color: var(--accent-clair);
       font-size: 0.8rem;
-      line-height: 1.5;
       text-decoration: underline;
       text-underline-offset: 4px;
     }
 
-    #ambitions-2027 .projet27-dossier:hover {
-      color: #ffffff;
-    }
-
     #ambitions-2027 .projet27-note {
       margin: 14px 0 0;
-      color: #96a6bd;
+      color: #a0afc3;
       font-size: 0.7rem;
       line-height: 1.6;
     }
 
-    /* TABLETTE ET MOBILE */
-
     @media (max-width: 1000px) {
-      #ambitions-2027 .projet27-cadre {
+      #ambitions-2027 .projet27-portrait {
         grid-template-columns: 1fr;
-        gap: 27px;
       }
 
-      #ambitions-2027 .projet27-visuel {
-        width: 100%;
-        max-width: 720px;
-        margin-inline: auto;
+      #ambitions-2027 .projet27-photo {
+        grid-column: 1;
+        grid-row: 1;
+        height: auto;
+        min-height: 0;
+      }
+
+      #ambitions-2027 .portrait-contenu {
+        grid-column: 1;
+        grid-row: 2;
       }
     }
 
@@ -2929,51 +2864,52 @@
         padding: 30px 0;
       }
 
-      #ambitions-2027 .projet27-cadre {
-        gap: 23px;
-        padding: 18px;
-        border-radius: 12px;
+      #ambitions-2027 .projet27-photo {
+        padding: 12px;
       }
 
-      #ambitions-2027 .projet27-cadre::before {
-        left: 18px;
+      #ambitions-2027 .portrait-contenu {
+        padding: 22px 20px;
       }
 
-      #ambitions-2027 .projet27-visuel {
-        padding: 5px;
-        border-radius: 9px;
+      #ambitions-2027 .portrait-nom {
+        font-size: 2.5rem;
       }
 
-      #ambitions-2027 .projet27-texte {
-        font-size: 0.87rem;
-        line-height: 1.75;
+      #ambitions-2027 .portrait-texte {
+        font-size: 0.9rem;
       }
 
       #ambitions-2027 .projet27-actions {
         align-items: flex-start;
         flex-direction: column;
-        gap: 15px;
-      }
-
-      #ambitions-2027 .projet27-actions .bouton {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        text-align: center;
       }
     }
   </style>
 
   <div class="conteneur">
 
-    <div class="projet27-cadre">
+    <!-- MÊME STYLE DE TITRE QUE L’ÉQUIPAGE -->
 
-      <!-- TON IMAGE : ENTIÈRE, SANS FILTRE NI RECADRAGE -->
+    <p class="etiquette">
+      La prochaine étape
+    </p>
 
-      <figure class="projet27-visuel">
+    <h2 class="titre-section" id="titre-ambitions-2027">
+      Saison 2027
+    </h2>
 
+    <!-- UNE SEULE FICHE, COMME LE PILOTE ET LE TEAM -->
+
+    <article
+      class="portrait projet27-portrait"
+      aria-labelledby="projet27-nom"
+    >
+
+      <!-- IMAGE À GAUCHE -->
+
+      <div class="portrait-photo projet27-photo">
         <a
-          class="projet27-image-lien"
           href="images/calendrier-2027.png"
           target="_blank"
           rel="noopener noreferrer"
@@ -2981,65 +2917,77 @@
         >
           <img
             src="images/calendrier-2027.png"
-            alt="Présentation du calendrier Fun Cup 2027 et du projet BELARD Compétition"
+            alt="Calendrier Fun Cup 2027 et présentation du projet BELARD Compétition"
             loading="lazy"
             decoding="async"
           >
         </a>
+      </div>
 
-        <figcaption class="projet27-legende">
-          <span>FUN CUP — SAISON 2027</span>
+      <!-- TEXTE À DROITE -->
 
-          <a
-            href="images/calendrier-2027.png"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Agrandir le calendrier ↗
-          </a>
-        </figcaption>
+      <div class="portrait-contenu">
 
-      </figure>
-
-      <!-- TEXTE ET AMBITIONS -->
-
-      <div class="projet27-contenu">
-
-        <p class="projet27-repere">
-          La prochaine étape
+        <p class="portrait-repere">
+          2027 — Nos ambitions
         </p>
 
-        <h2 class="projet27-titre" id="titre-projet-2027">
-          Cap sur 2027
-        </h2>
+        <h3 class="portrait-nom" id="projet27-nom">
+          Cap sur les podiums
+        </h3>
 
-        <p class="projet27-texte">
-          Cette première saison en tant que rookie a été très
-          prometteuse. Avec une prise en main rapide de la Fun Cup
-          et des performances encourageantes, j’ai fait forte
-          impression et posé les bases d’un projet encore
-          plus ambitieux.
+        <p class="portrait-signature">
+          Un équipage prêt à franchir un cap.
         </p>
 
-        <p class="projet27-texte">
-          Pour 2027, l’équipage est déjà constitué : une équipe
-          rapide et déterminée, prête à prendre le départ au
-          volant d’une <strong>Fun Cup Génération 4</strong>
-          fraîchement arrivée pour la nouvelle saison.
-        </p>
+        <dl class="portrait-infos">
 
-        <p class="projet27-texte">
-          Notre cap est clair : nous battre aux avant-postes,
-          viser les podiums en course et construire une saison
-          régulière pour jouer les premières places du championnat.
-        </p>
+          <div>
+            <dt>Voiture</dt>
+            <dd>Fun Cup Génération 4</dd>
+          </div>
+
+          <div>
+            <dt>Équipage</dt>
+            <dd>Déjà constitué</dd>
+          </div>
+
+          <div>
+            <dt>Discipline</dt>
+            <dd>Endurance</dd>
+          </div>
+
+        </dl>
+
+        <div class="portrait-texte">
+
+          <p>
+            Cette première saison en tant que rookie a été
+            très prometteuse. Avec une prise en main rapide
+            de la Fun Cup et des performances encourageantes,
+            j’ai fait forte impression et posé les bases
+            d’un projet encore plus ambitieux.
+          </p>
+
+          <p>
+            Pour 2027, l’équipage est déjà constitué :
+            une équipe rapide et déterminée, prête à prendre
+            le départ au volant d’une Fun Cup Génération 4
+            fraîchement arrivée pour la nouvelle saison.
+          </p>
+
+          <p>
+            Notre cap est clair : nous battre aux avant-postes,
+            viser les podiums en course et construire une
+            saison régulière pour jouer les premières places
+            du championnat.
+          </p>
+
+        </div>
 
         <div class="projet27-objectif">
           <span>Objectif 2027</span>
-
-          <p>
-            Le podium au classement général.
-          </p>
+          <p>Le podium au classement général.</p>
         </div>
 
         <div class="projet27-actions">
@@ -3063,13 +3011,13 @@
         </div>
 
         <p class="projet27-note">
-          Programme soumis au financement réuni et à la
-          confirmation des engagements.
+          Programme soumis au financement réuni et à
+          la confirmation des engagements.
         </p>
 
       </div>
 
-    </div>
+    </article>
 
   </div>
 </section>
