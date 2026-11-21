@@ -2674,69 +2674,386 @@
 
   <main>
 
-<!-- PROJET 2027 -->
+<!-- =========================================
+     PROJET 2027 — BLOC COMPLET
+     ========================================= -->
 
 <section
   id="ambitions-2027"
-  aria-labelledby="titre-ambitions-2027"
+  aria-labelledby="titre-projet-2027"
 >
+  <style>
+    /* Ces styles concernent uniquement la section 2027. */
+
+    #ambitions-2027 {
+      padding: 45px 0;
+      scroll-margin-top: 100px;
+      color: #ffffff;
+      background: linear-gradient(
+        120deg,
+        #192a40 0%,
+        #25283d 65%,
+        #302638 100%
+      );
+    }
+
+    #ambitions-2027,
+    #ambitions-2027 * {
+      box-sizing: border-box;
+    }
+
+    #ambitions-2027 .projet27-cadre {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 35px;
+      padding: 30px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 100% 0%,
+          rgba(93, 70, 105, 0.2),
+          transparent 65%
+        ),
+        #101b2b;
+      border: 1px solid rgba(175, 194, 224, 0.2);
+      border-radius: 16px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    /* Fine signature colorée en haut du bloc. */
+
+    #ambitions-2027 .projet27-cadre::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 30px;
+      width: 110px;
+      height: 3px;
+      background: linear-gradient(90deg, #6b98eb, #b477a3);
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* IMAGE */
+
+    #ambitions-2027 .projet27-visuel {
+      min-width: 0;
+      margin: 0;
+      padding: 8px;
+      background: linear-gradient(
+        145deg,
+        rgba(148, 178, 221, 0.16),
+        rgba(255, 255, 255, 0.025) 50%,
+        rgba(161, 111, 150, 0.13)
+      );
+      border: 1px solid rgba(182, 200, 226, 0.24);
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    #ambitions-2027 .projet27-image-lien {
+      display: block;
+      overflow: hidden;
+      line-height: 0;
+      border-radius: 7px;
+      background: #0b1320;
+    }
+
+    #ambitions-2027 .projet27-image-lien img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      opacity: 1;
+      filter: none;
+    }
+
+    #ambitions-2027 .projet27-image-lien:focus-visible {
+      outline: 3px solid #b8d0ff;
+      outline-offset: -4px;
+    }
+
+    #ambitions-2027 .projet27-legende {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 5px 15px;
+      padding: 12px 5px 4px;
+      color: #b9c7db;
+      font-size: 0.7rem;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+    }
+
+    #ambitions-2027 .projet27-legende a {
+      color: #cfddf6;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* PRÉSENTATION */
+
+    #ambitions-2027 .projet27-contenu {
+      min-width: 0;
+    }
+
+    #ambitions-2027 .projet27-repere {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 13px;
+      color: #b4c6e4;
+      font-family: var(--police-titre, inherit);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    #ambitions-2027 .projet27-repere::before {
+      content: "";
+      flex: 0 0 25px;
+      height: 2px;
+      background: #88a9e4;
+    }
+
+    #ambitions-2027 .projet27-titre {
+      margin: 0 0 18px;
+      color: #ffffff;
+      font-family: var(--police-titre, inherit);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    #ambitions-2027 .projet27-texte {
+      margin: 0 0 13px;
+      color: #c5cfde;
+      font-size: 0.91rem;
+      line-height: 1.8;
+    }
+
+    #ambitions-2027 .projet27-texte strong {
+      color: #f2f5fa;
+      font-weight: 600;
+    }
+
+    /* OBJECTIF SPORTIF */
+
+    #ambitions-2027 .projet27-objectif {
+      margin-top: 22px;
+      padding: 16px 0 16px 18px;
+      border-top: 1px solid rgba(182, 200, 226, 0.13);
+      border-bottom: 1px solid rgba(182, 200, 226, 0.13);
+      border-left: 3px solid #9aaee1;
+      background: linear-gradient(
+        90deg,
+        rgba(117, 147, 201, 0.09),
+        transparent
+      );
+    }
+
+    #ambitions-2027 .projet27-objectif span {
+      display: block;
+      margin-bottom: 5px;
+      color: #afbfdb;
+      font-size: 0.68rem;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    #ambitions-2027 .projet27-objectif p {
+      margin: 0;
+      color: #ffffff;
+      font-family: var(--police-titre, inherit);
+      font-size: clamp(1.35rem, 2.1vw, 1.85rem);
+      line-height: 1.2;
+    }
+
+    /* CONTACT */
+
+    #ambitions-2027 .projet27-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px 20px;
+      margin-top: 22px;
+    }
+
+    #ambitions-2027 .projet27-dossier {
+      color: #bdcfee;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    #ambitions-2027 .projet27-dossier:hover {
+      color: #ffffff;
+    }
+
+    #ambitions-2027 .projet27-note {
+      margin: 14px 0 0;
+      color: #96a6bd;
+      font-size: 0.7rem;
+      line-height: 1.6;
+    }
+
+    /* TABLETTE ET MOBILE */
+
+    @media (max-width: 1000px) {
+      #ambitions-2027 .projet27-cadre {
+        grid-template-columns: 1fr;
+        gap: 27px;
+      }
+
+      #ambitions-2027 .projet27-visuel {
+        width: 100%;
+        max-width: 720px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      #ambitions-2027 {
+        padding: 30px 0;
+      }
+
+      #ambitions-2027 .projet27-cadre {
+        gap: 23px;
+        padding: 18px;
+        border-radius: 12px;
+      }
+
+      #ambitions-2027 .projet27-cadre::before {
+        left: 18px;
+      }
+
+      #ambitions-2027 .projet27-visuel {
+        padding: 5px;
+        border-radius: 9px;
+      }
+
+      #ambitions-2027 .projet27-texte {
+        font-size: 0.87rem;
+        line-height: 1.75;
+      }
+
+      #ambitions-2027 .projet27-actions {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      #ambitions-2027 .projet27-actions .bouton {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+
   <div class="conteneur">
 
-    <div class="a27-bloc">
+    <div class="projet27-cadre">
 
-      <!-- IMAGE À GAUCHE -->
+      <!-- TON IMAGE : ENTIÈRE, SANS FILTRE NI RECADRAGE -->
 
-      <a
-        class="a27-image"
-        href="images/calendrier-2027.png"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Voir le calendrier 2027 en grand, dans un nouvel onglet"
-      >
-        <img
-          src="images/calendrier-2027.png"
-          alt="Calendrier Fun Cup 2027 et présentation du projet BELARD Compétition"
-          loading="lazy"
-          decoding="async"
+      <figure class="projet27-visuel">
+
+        <a
+          class="projet27-image-lien"
+          href="images/calendrier-2027.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agrandir le calendrier 2027 dans un nouvel onglet"
         >
-      </a>
+          <img
+            src="images/calendrier-2027.png"
+            alt="Présentation du calendrier Fun Cup 2027 et du projet BELARD Compétition"
+            loading="lazy"
+            decoding="async"
+          >
+        </a>
 
-      <!-- EXPLICATIONS À DROITE -->
+        <figcaption class="projet27-legende">
+          <span>FUN CUP — SAISON 2027</span>
 
-      <div class="a27-contenu">
+          <a
+            href="images/calendrier-2027.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agrandir le calendrier ↗
+          </a>
+        </figcaption>
 
-        <p class="etiquette">
-          Nos ambitions
+      </figure>
+
+      <!-- TEXTE ET AMBITIONS -->
+
+      <div class="projet27-contenu">
+
+        <p class="projet27-repere">
+          La prochaine étape
         </p>
 
-        <h2 class="titre-section" id="titre-ambitions-2027">
+        <h2 class="projet27-titre" id="titre-projet-2027">
           Cap sur 2027
         </h2>
 
-        <p class="a27-texte">
-          Après nos premières courses en Fun Cup, notre objectif
-          est de réunir les partenaires nécessaires pour disputer
-          une saison complète en 2027.
+        <p class="projet27-texte">
+          Cette première saison en tant que rookie a été très
+          prometteuse. Avec une prise en main rapide de la Fun Cup
+          et des performances encourageantes, j’ai fait forte
+          impression et posé les bases d’un projet encore
+          plus ambitieux.
         </p>
 
-        <p class="a27-texte">
-          Progresser à chaque course, viser les meilleurs résultats
-          possibles et partager cette aventure avec les entreprises
-          qui nous accompagnent : voilà notre ambition.
+        <p class="projet27-texte">
+          Pour 2027, l’équipage est déjà constitué : une équipe
+          rapide et déterminée, prête à prendre le départ au
+          volant d’une <strong>Fun Cup Génération 4</strong>
+          fraîchement arrivée pour la nouvelle saison.
         </p>
 
-        <div class="a27-actions">
+        <p class="projet27-texte">
+          Notre cap est clair : nous battre aux avant-postes,
+          viser les podiums en course et construire une saison
+          régulière pour jouer les premières places du championnat.
+        </p>
+
+        <div class="projet27-objectif">
+          <span>Objectif 2027</span>
+
+          <p>
+            Le podium au classement général.
+          </p>
+        </div>
+
+        <div class="projet27-actions">
 
           <a
             class="bouton bouton-bleu"
             href="#sponsoring"
           >
-            Devenir partenaire
+            Rejoindre le projet
             <span aria-hidden="true">↗</span>
           </a>
 
           <a
-            class="a27-dossier"
+            class="projet27-dossier"
             href="Dossier sponsoring Victor- FUN CUP 2027.pdf"
             download
           >
@@ -2745,9 +3062,9 @@
 
         </div>
 
-        <p class="a27-note">
-          Programme sous réserve du financement réuni
-          et de la confirmation des engagements.
+        <p class="projet27-note">
+          Programme soumis au financement réuni et à la
+          confirmation des engagements.
         </p>
 
       </div>
