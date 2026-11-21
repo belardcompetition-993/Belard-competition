@@ -2915,21 +2915,25 @@
       }
     }
 
-    /* Image entière en haut, bord à bord, puis texte en dessous. */
+   /* Calendrier à gauche, texte à droite. */
 
 #ambitions-2027 .projet27-portrait {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: start;
   gap: 0;
   padding: 0;
   overflow: hidden;
 }
+
+/* L’image garde ses proportions et touche les bords. */
 
 #ambitions-2027 .projet27-photo {
   position: relative;
   display: block;
   grid-column: 1;
   grid-row: 1;
+  align-self: start;
   width: 100%;
   min-height: 0;
   height: auto;
@@ -2965,13 +2969,34 @@
   object-fit: contain;
 }
 
+/* Texte à droite. */
+
 #ambitions-2027 .portrait-contenu {
-  grid-column: 1;
-  grid-row: 2;
+  grid-column: 2;
+  grid-row: 1;
+  min-width: 0;
 }
 
 #ambitions-2027 .portrait-texte {
   max-width: none;
+}
+
+/* Sur téléphone uniquement : image puis texte. */
+
+@media (max-width: 800px) {
+  #ambitions-2027 .projet27-portrait {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #ambitions-2027 .projet27-photo {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #ambitions-2027 .portrait-contenu {
+    grid-column: 1;
+    grid-row: 2;
+  }
 }
   </style>
 
