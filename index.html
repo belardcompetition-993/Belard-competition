@@ -2951,9 +2951,8 @@
     }
   }
 </style>
-    
-<!-- PARTENAIRES -->
 
+<!-- PARTENAIRES -->
 <section
   class="soutiens"
   id="partenaires"
@@ -2967,41 +2966,210 @@
       <span class="soutiens-ligne" aria-hidden="true"></span>
     </div>
 
-    <div class="soutiens-grille">
+    <div class="partenaires-boucle">
 
-      <div class="soutien-carte soutien-logo soutien-jmk">
-        <img
-          src="images/logo-jmk.JPG"
-          alt="JMK Racing"
-        >
-      </div>
+      <!-- COMMANDE DE PAUSE -->
+      <input
+        class="partenaires-boucle-pause"
+        type="checkbox"
+        id="pause-partenaires"
+      >
 
-      <div class="soutien-carte soutien-logo soutien-sp2">
-        <img
-          src="images/logo-sp2-marc.jpg"
-          alt="SP2 Marc"
-        >
-      </div>
+      <label
+        class="partenaires-boucle-label"
+        for="pause-partenaires"
+      >
+        Mettre en pause
+      </label>
 
-      <div class="soutien-carte soutien-annonce">
-        <span class="soutien-annonce-repere">
-          La suite arrive
-        </span>
+      <div class="partenaires-boucle-fenetre">
+        <div class="partenaires-boucle-piste">
 
-        <span class="soutien-annonce-titre">
-          Prochainement.
-        </span>
+          <!-- LES TROIS CARTES D’ORIGINE -->
+          <div class="partenaires-boucle-groupe">
 
-        <span class="soutien-annonce-texte">
-          De nouveaux partenaires<br>
-          rejoignent l’aventure.
-        </span>
+            <div class="soutien-carte soutien-logo soutien-jmk">
+              <img
+                src="images/logo-jmk.JPG"
+                alt="JMK Racing"
+              >
+            </div>
+
+            <div class="soutien-carte soutien-logo soutien-sp2">
+              <img
+                src="images/logo-sp2-marc.jpg"
+                alt="SP2 Marc"
+              >
+            </div>
+
+            <div class="soutien-carte soutien-annonce">
+              <span class="soutien-annonce-repere">
+                La suite arrive
+              </span>
+
+              <span class="soutien-annonce-titre">
+                Prochainement.
+              </span>
+
+              <span class="soutien-annonce-texte">
+                De nouveaux partenaires<br>
+                rejoignent l’aventure.
+              </span>
+            </div>
+
+          </div>
+
+          <!-- COPIE IDENTIQUE POUR LE DÉFILEMENT EN BOUCLE -->
+          <div
+            class="partenaires-boucle-groupe"
+            aria-hidden="true"
+            inert
+          >
+
+            <div class="soutien-carte soutien-logo soutien-jmk">
+              <img
+                src="images/logo-jmk.JPG"
+                alt=""
+              >
+            </div>
+
+            <div class="soutien-carte soutien-logo soutien-sp2">
+              <img
+                src="images/logo-sp2-marc.jpg"
+                alt=""
+              >
+            </div>
+
+            <div class="soutien-carte soutien-annonce">
+              <span class="soutien-annonce-repere">
+                La suite arrive
+              </span>
+
+              <span class="soutien-annonce-titre">
+                Prochainement.
+              </span>
+
+              <span class="soutien-annonce-texte">
+                De nouveaux partenaires<br>
+                rejoignent l’aventure.
+              </span>
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
     </div>
 
   </div>
 </section>
+
+<style>
+  /*
+    CARROUSEL UNIQUEMENT
+    On conserve le CSS d’origine des cartes et des images.
+  */
+
+  #partenaires .partenaires-boucle {
+    --espace-partenaires: 18px;
+    width: 100%;
+    max-width: 830px;
+    margin-inline: auto;
+  }
+
+  /* Fenêtre visible */
+  #partenaires .partenaires-boucle-fenetre {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 12px;
+    padding-block: 6px;
+  }
+
+  /* Les deux groupes sont placés côte à côte */
+  #partenaires .partenaires-boucle-piste {
+    display: flex;
+    width: 100%;
+  }
+
+  /* Chaque groupe contient les trois cartes */
+  #partenaires .partenaires-boucle-groupe {
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 calc(100% + var(--espace-partenaires));
+    min-width: 0;
+    gap: var(--espace-partenaires);
+    padding-right: var(--espace-partenaires);
+    box-sizing: border-box;
+
+    animation-name: belard-partenaires-defilement;
+    animation-duration: 22s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+  }
+
+  /*
+    Même largeur que les trois colonnes d’origine.
+    Aucune modification des images, hauteurs, fonds,
+    bordures, arrondis ou marges intérieures des cartes.
+  */
+  #partenaires .partenaires-boucle-groupe > .soutien-carte {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* Défilement automatique de droite à gauche */
+  @keyframes belard-partenaires-defilement {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Commande de pause */
+  #partenaires .partenaires-boucle-pause {
+    width: 14px;
+    height: 14px;
+    vertical-align: middle;
+    accent-color: var(--bleu, #2864ff);
+  }
+
+  #partenaires .partenaires-boucle-label {
+    margin-left: 5px;
+    color: var(--texte, #bdc7d8);
+    font-size: .75rem;
+    cursor: pointer;
+  }
+
+  #partenaires .partenaires-boucle-pause:focus-visible {
+    outline: 2px solid #76acff;
+    outline-offset: 4px;
+  }
+
+  #partenaires .partenaires-boucle-pause:checked
+  ~ .partenaires-boucle-fenetre
+  .partenaires-boucle-groupe {
+    animation-play-state: paused;
+  }
+
+  /* Écrans intermédiaires */
+  @media (max-width: 850px) {
+    #partenaires .partenaires-boucle {
+      --espace-partenaires: 12px;
+    }
+  }
+
+  /* Mobile : les cartes restent sur une ligne et défilent */
+  @media (max-width: 600px) {
+    #partenaires .partenaires-boucle-groupe {
+      flex-basis: 720px;
+    }
+  }
+</style>
     
     <!-- SAISON -->
 
