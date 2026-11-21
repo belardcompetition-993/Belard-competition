@@ -2943,40 +2943,263 @@
   }
 </style>
     
-    <!-- PARTENAIRES -->
+   <!-- PARTENAIRES : CARROUSEL AUTOMATIQUE -->
 
-    <section
-      class="soutiens"
-      id="partenaires"
-      aria-labelledby="titre-partenaires"
-    >
-      <div class="conteneur">
-        <div class="soutiens-entete">
-          <span class="soutiens-ligne" aria-hidden="true"></span>
-          <h2 id="titre-partenaires">Ils nous font rouler</h2>
-          <span class="soutiens-ligne" aria-hidden="true"></span>
-        </div>
+<section
+  class="soutiens"
+  id="partenaires"
+  aria-labelledby="titre-partenaires"
+>
+  <div class="conteneur">
 
-        <div class="soutiens-grille">
-          <div class="soutien-carte soutien-logo soutien-jmk">
-            <img src="images/logo-jmk.JPG" alt="JMK Racing">
+    <div class="soutiens-entete">
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+      <h2 id="titre-partenaires">Ils nous font rouler</h2>
+      <span class="soutiens-ligne" aria-hidden="true"></span>
+    </div>
+
+    <div class="partenaires-defilement">
+
+      <div class="partenaires-piste">
+
+        <!-- GROUPE ORIGINAL -->
+        <div class="partenaires-groupe">
+
+          <div class="partenaires-vignette">
+            <img
+              src="images/logo-jmk.JPG"
+              alt="JMK Racing"
+              loading="lazy"
+            >
           </div>
 
-          <div class="soutien-carte soutien-logo soutien-sp2">
-            <img src="images/logo-sp2-marc.jpg" alt="SP2 Marc">
+          <div class="partenaires-vignette">
+            <img
+              src="images/logo-sp2-marc.jpg"
+              alt="SP2 Marc"
+              loading="lazy"
+            >
           </div>
 
-          <div class="soutien-carte soutien-annonce">
-            <span class="soutien-annonce-repere">La suite arrive</span>
-            <span class="soutien-annonce-titre">Prochainement.</span>
-            <span class="soutien-annonce-texte">
+          <div class="partenaires-vignette partenaires-attente">
+            <span>LA SUITE ARRIVE</span>
+            <strong>Prochainement.</strong>
+            <p>
               De nouveaux partenaires<br>
               rejoignent l’aventure.
-            </span>
+            </p>
           </div>
+
         </div>
+
       </div>
-    </section>
+
+    </div>
+
+    <div class="partenaires-commandes">
+      <button
+        class="partenaires-pause"
+        type="button"
+        aria-pressed="false"
+      >
+        Mettre en pause
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* FENÊTRE DU CARROUSEL */
+
+  #partenaires .partenaires-defilement {
+    overflow: hidden;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  #partenaires .partenaires-piste {
+    display: flex;
+    width: 100%;
+  }
+
+  /* CHAQUE GROUPE DÉFILE DE SA PROPRE LARGEUR */
+
+  #partenaires .partenaires-groupe {
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 100%;
+    min-width: 780px;
+    gap: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+    animation: partenaires-glissement 24s linear infinite;
+  }
+
+  /* CARTES DES LOGOS */
+
+  #partenaires .partenaires-vignette {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 145px;
+    padding: 18px 24px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border: 1px solid var(--bordure, #29354a);
+    border-radius: 14px;
+    background: linear-gradient(135deg, #142035, #0c121c);
+  }
+
+  #partenaires .partenaires-vignette img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* CARTE PROCHAINEMENT */
+
+  #partenaires .partenaires-attente {
+    flex-direction: column;
+    text-align: center;
+    gap: 7px;
+  }
+
+  #partenaires .partenaires-attente > span {
+    color: var(--bleu-clair, #76acff);
+    font-family: var(--police-titre);
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+  }
+
+  #partenaires .partenaires-attente strong {
+    color: #ffffff;
+    font-family: var(--police-titre);
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  #partenaires .partenaires-attente p {
+    margin: 0;
+    color: #bdc6d3;
+    font-size: .75rem;
+    line-height: 1.5;
+  }
+
+  /* ANIMATION EN BOUCLE */
+
+  @keyframes partenaires-glissement {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* PAUSE AU SURVOL ET AVEC LE BOUTON */
+
+  #partenaires .partenaires-defilement:hover .partenaires-groupe,
+  #partenaires .partenaires-defilement.en-pause .partenaires-groupe {
+    animation-play-state: paused;
+  }
+
+  #partenaires .partenaires-commandes {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  #partenaires .partenaires-pause {
+    padding: 8px 12px;
+    border: 1px solid var(--bordure, #29354a);
+    border-radius: 7px;
+    background: transparent;
+    color: #bdc6d3;
+    font: inherit;
+    font-size: .75rem;
+    cursor: pointer;
+  }
+
+  #partenaires .partenaires-pause:hover {
+    color: #ffffff;
+    border-color: #76acff;
+  }
+
+  #partenaires .partenaires-pause:focus-visible {
+    outline: 2px solid #76acff;
+    outline-offset: 4px;
+  }
+
+  /* MOBILE */
+
+  @media (max-width: 600px) {
+    #partenaires .partenaires-groupe {
+      min-width: 660px;
+      gap: 16px;
+      padding-right: 16px;
+    }
+
+    #partenaires .partenaires-vignette {
+      height: 125px;
+      padding: 15px;
+    }
+  }
+
+  /* RESPECT DU RÉGLAGE DE RÉDUCTION DES ANIMATIONS */
+
+  @media (prefers-reduced-motion: reduce) {
+    #partenaires .partenaires-groupe {
+      animation: none;
+    }
+
+    #partenaires .partenaires-defilement {
+      overflow-x: auto;
+    }
+
+    #partenaires .partenaires-groupe[aria-hidden="true"],
+    #partenaires .partenaires-commandes {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  (() => {
+    const section = document.querySelector("#partenaires");
+    if (!section) return;
+
+    const piste = section.querySelector(".partenaires-piste");
+    const groupe = section.querySelector(".partenaires-groupe");
+    const fenetre = section.querySelector(".partenaires-defilement");
+    const bouton = section.querySelector(".partenaires-pause");
+
+    if (!piste || !groupe || !fenetre || !bouton) return;
+
+    const copie = groupe.cloneNode(true);
+    copie.setAttribute("aria-hidden", "true");
+
+    copie.querySelectorAll("img").forEach((image) => {
+      image.alt = "";
+    });
+
+    piste.appendChild(copie);
+
+    bouton.addEventListener("click", () => {
+      const pause = fenetre.classList.toggle("en-pause");
+
+      bouton.setAttribute("aria-pressed", String(pause));
+      bouton.textContent = pause
+        ? "Reprendre le défilement"
+        : "Mettre en pause";
+    });
+  })();
+</script>
 
     <!-- SAISON -->
 
